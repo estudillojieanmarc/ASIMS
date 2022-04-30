@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h4{
+    color: #ffff;
+}
+.form{
+background-color:#ffff;
+height: 28rem;
+width: 23rem;
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: .5rem;
+}
+.bg-color{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(180deg, #3F3F3F 0%, #020202 100%);
+}
+.motor-vector-container{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.motor-vector-container img{
+   height: 550px;
+   opacity: .2;
+}

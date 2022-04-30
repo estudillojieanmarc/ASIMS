@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    --offcanvas-width: 220px;
+    --topNavHeight:0;
+    --topHeight:80px;
+    }
+
+/* OFFCANVAS */
+.offcanvas {
+    width: var(--offcanvas-width);
+    color: #ffff; 
+}
+@media (min-width:900px) {
+    body{
+        overflow-x:hidden !important;
+    }
+    .offcanvas-backdrop::before{
+        display: none;
+    }
+    .offcanvas {
+        transform: none;
+        visibility: visible !important;
+        top: var(--topNavHeight);
+        height: calc(100% - var(--topNavHeight));
+    }
+    .main .container-fluid{
+        padding-left: var(--offcanvas-width);
+        padding-top: var(--topHeight);
+    }
+}
+/* END OFFCANVAS */
+
+/* SIDEBAR */
+.sidebar-header{
+    border-bottom: 1px solid white;
+    padding: 1rem 0;
+}
+.userProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userProfile img{
+    clip-path: circle();
+    width: 80px;
+    margin: 20px 0 10px 0;
+}
+.userProfile H4{
+    font-size: 15px;
+    margin: 5px 0;
+}
+.userProfile H5{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 2px 0;
+    margin: 5px 0;
+}
+.sidebar-body ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.sidebar-body ul i {
+    margin-right: 1.7rem;
+}
+.sidebar-body ul li a {
+	display: block;
+	padding: 20px 35px;
+	color: #fff;
+	text-decoration: none;
+	-webkit-transition: 0.2s linear;
+	-moz-transition: 0.2s linear;
+	-ms-transition: 0.2s linear;
+	-o-transition: 0.2s linear;
+	transition: 0.2s linear;
+}
+.sidebar-body ul li a:hover {
+	background: #f8f8f8;
+	color: #323232;
+}
+.sidebar-body ul li a .fa {
+	width: 16px;
+	text-align: center;
+	margin-right: 5px;
+	float:right;
+}
+.sidebar-body ul li ul li a {
+	border-left: 4px solid transparent;
+	padding: 10px 20px;
+}
+.sidebar-body ul li ul li a:hover {
+	background: #ebebeb;
+	border-right: 4px solid #3498db;
+}
+.sidebar-footer{
+    border-top: 1px solid white;
+    padding: 1rem 0;
+}
+#dateDisplay, #clockDisplay{
+    font-size: 15px;
+}
+/* SIDEBAR END */

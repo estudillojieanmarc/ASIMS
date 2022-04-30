@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <title>A&S Motor Parts</title>
+</head>
+
+<body>
+    
+<div class="bg-color pt-5">
+<div class="motor-vector-container pt-3"> 
+    
+    <img src="assets/img/red.png">
+    <img src="assets/img/green.png">
+
+        <!-- FORM -->
+        <div class="row form px-3">
+            <form id="loginForm">
+                <h4 class="text-center text-dark pb-1">Login</h4>
+                <p class="text-center text-dark pb-2">Please, enter your credentials to access the A&S Motorparts Inventory</p>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" onclick="seePassword()"
+                            id="flexCheckIndeterminate">
+                        <label class="form-check-label text-dark" for="flexCheckIndeterminate">Show Password</label>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <a class="nav-link text-center text-dark" href="#">Forgot Password?</a>
+                </div>
+                <div class="row mx-4 mt-3">
+                    <button type="button" class="btn btn-dark" id="loginButton">Log In</button>
+                </div>
+            </form>
+        </div>
+        <!-- FORM --></div>
+</div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/sweetalert.js"></script>
+    <script src="function/emplogin.js"></script>
+</body>
+
+</html>
