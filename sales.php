@@ -49,7 +49,7 @@
 <!-- CONTENT -->
   <div class="row">
   <!-- SIDE BAR -->
-    <div class="col-2">
+   <div class="col-2">
       <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
           <div class="sidebar-header">
             <div class="userContent">
@@ -62,11 +62,11 @@
           </div>
           <div class="sidebar-body">
             <ul>
-              <li><a href="http://localhost/ASIMS/dashboard.php">Dashboard </a></li>
-              <li><a href="http://localhost/ASIMS/inventory.php">Inventory</a></li>
-              <li><a href="http://localhost/ASIMS/sales.php">Sales</a></li>
-              <li><a href="http://localhost/ASIMS/toDo.php">ToDo</a></li>
-              <li><a href="http://localhost/ASIMS/history.php">History</a></li>
+              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
+              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
+              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
             </ul>
           </div>   
           <div class="sidebar-footer">
@@ -81,7 +81,7 @@
   <!-- MAIN BAR -->
       <div class="col-10">
               <div class="container-fluid">
-                <h4 class="pt-5">A&S MOTORSHOP SALES</h4>
+                <h4 class="pt-5">A&S MOTORSHOP SALES <i class="fa-solid fa-coins px-1"></i></h4>
                 <ul class="nav nav-tabs my-4">
                   <li class="nav-item">
                       <a class="nav-link active" href="#">&nbsp;&nbsp;Daily&nbsp;&nbsp;</a>
@@ -95,7 +95,9 @@
                   </ul>
                 <div class="row pt-3">
                   <div class="col-8 d-flex">
-                    <button class="btn btn-primary px-4" type="button" data-bs-toggle="modal" data-bs-target="#addSales">Add Sale</button>
+                    <button class="btn btn-dark px-5 mx-1" type="button" id="printAll">Print All</button>
+                    <button class="btn btn-danger px-5" type="button" id="deleteAllSales">Delete</button>
+                    <button class="btn btn-primary px-5 mx-1" type="button" data-bs-toggle="modal" data-bs-target="#addSales">Add Sale</button>
                   </div>
                   <div class="col-4 ms-auto">
                     <form class="d-flex">
@@ -105,20 +107,25 @@
                   </div>
                 </div>
               <div class="row mt-1">
-                <table class="table align-middle text-center table-bordered shadow table-hover">
-                  <thead>
+                <table id="salesTable" class="table align-middle text-center table-bordered table-striped shadow table-hover">
+                  <thead class="align-middle">
                     <tr>
+                      <th style="width:7rem;">Select All <input class='form-check-input mx-1' type='checkbox' id='checkAllSales'></th>
                       <th scope="col">#</th>
                       <th scope="col">Item Code</th>
                       <th scope="col">Item Name</th>
                       <th scope="col">Quantity</th>
                       <th scope="col">Total Sale</th>
-                      <th scope="col">Purchased</th>
-                      <th scope="col">Action</th>
+                      <th scope="col">Purchased On</th>
                     </tr>
                   </thead>
                   <tbody id="showSales"><!-- INVENTORY DATA --></tbody>
                 </table>
+                <div class="row">
+                <div class="col-12">
+                    <ul class="pagination mt-1 float-end" id="pageno"></ul></div>
+                </div>
+            </div>
               </div>
               </div>
           </div>
@@ -147,7 +154,7 @@
                           <input type="text" class="form-control fw-light" id="itemBarcode" name="itemBarcode" placeholder="Item Barcode">
                         </div>
                         <div class="mb-3">
-                          <input type="number" class="form-control fw-light" id="itemQty" name="itemQty" placeholder="Quantity">
+                          <input type="number" class="form-control fw-light" id="itemQty" name="itemQty" min="0" placeholder="Quantity">
                         </div>
                         <div class="mb-3">
                           <input type="text" class="form-control fw-light" id="totalSale" name="totalSale" placeholder="Total Sales">
@@ -172,7 +179,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/sale.js"></script>
+    <script src="function/sales.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
 

@@ -49,7 +49,7 @@
 <!-- CONTENT -->
   <div class="row">
   <!-- SIDE BAR -->
-    <div class="col-2">
+   <div class="col-2">
       <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
           <div class="sidebar-header">
             <div class="userContent">
@@ -62,11 +62,11 @@
           </div>
           <div class="sidebar-body">
             <ul>
-              <li><a href="http://localhost/ASIMS/dashboard.php">Dashboard </a></li>
-              <li><a href="http://localhost/ASIMS/inventory.php">Inventory</a></li>
-              <li><a href="http://localhost/ASIMS/sales.php">Sales</a></li>
-              <li><a href="http://localhost/ASIMS/toDo.php">ToDo</a></li>
-              <li><a href="http://localhost/ASIMS/history.php">History</a></li>
+              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
+              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
+              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
             </ul>
           </div>   
           <div class="sidebar-footer">

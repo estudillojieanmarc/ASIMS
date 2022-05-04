@@ -1,7 +1,7 @@
 <?php
 require 'connection.php';
-    $categoryId = $_POST['categoryId'];
-    $qry = "SELECT * FROM categoryname WHERE cat_id = $categoryId";
+    $categoryID = $_POST['categoryID'];
+    $qry = "SELECT * FROM categoryname WHERE cat_id = $categoryID";
     $statement=$pdo->prepare($qry);
     $statement->execute();
     $fetchCategory = $statement->fetchAll(PDO::FETCH_OBJ);

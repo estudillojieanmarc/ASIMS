@@ -1,5 +1,5 @@
  //FUNCTION FOR LOGIN
- $('#loginButton').click(function(){
+    $('#loginButton').click(function(){
     var username = $('#username').val().trim();
     var password = $('#password').val().trim();
     if($('#username').val() =='' || $('#password').val() == ''){
@@ -47,8 +47,9 @@
             });
         }
     });
+ //FUNCTION FOR LOGIN
 
-    // FUNCTION FOR PASSWORD ENABLE
+// FUNCTION FOR PASSWORD ENABLE
       function seePassword() {
         var x = document.getElementById("password");
         if (x.type==='password'){
@@ -61,4 +62,4 @@
             z.style.display="block";
         }
       }
-    // FUNCTION FOR PASSWORD ENABLE
+// FUNCTION FOR PASSWORD ENABLE

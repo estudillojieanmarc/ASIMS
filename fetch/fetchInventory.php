@@ -1,10 +1,36 @@
 <?php
 require 'connection.php';
 error_reporting(0);
+
+// PAGE LIMIT FUNCTION
+if(isset($_POST["page"])){
+	$sql = "SELECT * FROM inventory WHERE item_stock > 0";
+  $statement=$pdo->prepare($sql);
+  $statement->execute();
+  $inventory = $statement->fetchAll(PDO::FETCH_OBJ);
+  $count = $statement->rowCount();
+  $pageno = ceil($count / 20);
+    for($i=1;$i<=$pageno;$i++){
+      echo "
+        <li class='nav-item'><a class='btn btn-sm btn-dark px-3' style='border-radius:50%; margin:0 1px;' href='#' paginationStock='$i' id='paginationStock'>$i</a></li>
+      ";
+    }
+}
+// PAGE LIMIT FUNCTION
+
+
+
 if(isset($_POST["getInventory"])){
+    $limit = 20;
+    if(isset($_POST["setPage"])){
+      $pageno = $_POST["pageNumber"];
+      $start = ($pageno * $limit) - $limit;
+    }else{
+      $start = 0;
+    }
     $qry = "SELECT a.cat_id, a.category, b.id, b.item_name, b.item_barcode, b.item_image, 
     b.item_description, b.item_stock, b.item_brand, b.item_category, b.item_price FROM categoryname a , 
-    inventory b WHERE a.cat_id = b.item_category AND b.item_stock > 0 ORDER BY b.item_stock ASC LIMIT 15";
+    inventory b WHERE a.cat_id = b.item_category AND b.item_stock > 0 ORDER BY b.item_stock ASC LIMIT $start,$limit";
     $statement=$pdo->prepare($qry);
     $statement->execute();
     $inventory = $statement->fetchAll(PDO::FETCH_OBJ);

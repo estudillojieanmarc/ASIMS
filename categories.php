@@ -38,82 +38,87 @@
 
 <!-- CONTENT -->
     <div class="row">
-        <!-- SIDE BAR -->
-          <div class="col-2">
-            <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="sidebar-header">
-                  <div class="userContent">
-                    <div class="userProfile">
+  <!-- SIDE BAR -->
+    <div class="col-2">
+      <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="sidebar-header">
+            <div class="userContent">
+                <div class="userProfile">
                       <img src="./assets/img/red.png">
                       <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
                       <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
-                    </div>
-                  </div>
                 </div>
-                <div class="sidebar-body">
-                  <ul>
-                    <li><a href="http://localhost/ASIMS/dashboard.php">Dashboard </a></li>
-                    <li><a href="http://localhost/ASIMS/inventory.php">Inventory</a></li>
-                    <li><a href="http://localhost/ASIMS/sales.php">Sales</a></li>
-                    <li><a href="http://localhost/ASIMS/toDo.php">ToDo</a></li>
-                    <li><a href="http://localhost/ASIMS/history.php">History</a></li>
-                  </ul>
-                </div>   
-                <div class="sidebar-footer">
-                  <p class="text-center" id="dateDisplay"></p>
-                  <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
-                  <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
-                </div>
-              </div>
+            </div>
           </div>
-        <!-- END SIDE BAR -->
+          <div class="sidebar-body">
+            <ul>
+              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
+              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
+              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+            </ul>
+          </div>   
+          <div class="sidebar-footer">
+              <p class="text-center" id="dateDisplay"></p>
+              <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
+              <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
+          </div>
+        </div>
+    </div>
+  <!-- END SIDE BAR -->
 
-        <!-- MAIN BAR -->
-          <div class="col-10">
-              <div class="container-fluid">               
-              <h4 class="pt-5">INVENTORY CATEGORIES</h4>
-              <ul class="nav nav-tabs my-4">
-                  <li class="nav-item">
-                      <a class="nav-link" href="/ASIMS/Inventory.php">Stock</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/ASIMS/noStock.php">No Stock</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link active" href="/ASIMS/categories.php">&nbsp;&nbsp;Categories&nbsp;&nbsp;</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/ASIMS/brands.php">Brands</a>
-                  </li>      
-                  </ul>
-                <div class="row pt-3">
-                  <div class="col-8 d-flex">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addInventory">Add Category</button>
-                    <button class="btn btn-danger px-4 mx-1" type="button" id="deleteAllCategory">Delete All</button>
-                  </div>
-                  <div class="col-4 ms-auto">
-                    <form class="d-flex">
-                      <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
-                      <button class="btn btn-success" type="submit">Search</button>
-                    </form>
-                  </div>
-                </div>
-              <div class="row mt-1">
-                <table class="table align-middle text-center table-bordered shadow rounded table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col"><input class='form-check-input' type='checkbox' id='checkAllCategory'></th>
-                      <th>#</th>
-                      <th scope="col">Category</th>
-                      <th scope="col">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody id="showCategory"><!-- INVENTORY DATA --></tbody>
-                </table>
-              </div>
-              </div>
+  <!-- MAIN BAR -->
+    <div class="col-10">
+        <div class="container-fluid">               
+        <h4 class="pt-5">STOCK CATEGORIES <i class="fa-solid fa-code-branch px-1"></i></h4>
+        <ul class="nav nav-tabs my-4">
+            <li class="nav-item">
+                <a class="nav-link" href="/ASIMS/Inventory.php">Stock</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/ASIMS/noStock.php">No Stock</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/ASIMS/categories.php">&nbsp;&nbsp;Categories&nbsp;&nbsp;</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/ASIMS/brands.php">Brands</a>
+            </li>      
+            </ul>
+          <div class="row pt-3">
+            <div class="col-8 d-flex">
+              <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addInventory">Add Category</button>
+              <button class="btn btn-danger px-4 mx-1" type="button" id="deleteAllCategory">Delete All</button>
+            </div>
+            <div class="col-4 ms-auto">
+              <form class="d-flex">
+                <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+              </form>
+            </div>
           </div>
-        <!-- END MAIN BAR -->
+        <div class="row mt-1">
+          <table class="table align-middle text-center table-bordered shadow table-striped rounded table-hover">
+            <thead class="align-middle">
+                <tr>
+                <th style="width:7rem;">Select All <input class='form-check-input mx-1' type='checkbox' id='checkAllCategory'></th>
+                <th>#</th>
+                <th scope="col">Category</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="showCategory"><!-- INVENTORY DATA --></tbody>
+          </table>
+          <div class="row">
+                <div class="col-12">
+                    <ul class="pagination mt-1 float-end" id="pageno"></ul></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  <!-- END MAIN BAR -->
     </div>
 <!-- CONTENT -->
 
@@ -184,7 +189,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/logout.js"></script>
-    <script src="function/inventory.js"></script>
+    <script src="function/categories.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

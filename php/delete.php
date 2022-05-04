@@ -130,7 +130,7 @@ require 'connection.php';
 
 
 
-// REMOVING ALL SELECTED CATEGORY
+// REMOVING ALL SELECTED BRAND
     if(isset($_POST['deleteBrand'])){
         foreach($_POST['deleteBrand'] as $brandId){
             $qry = "DELETE FROM brandname WHERE brand_id = $brandId";
@@ -143,6 +143,24 @@ require 'connection.php';
             }
         }
     }
-// REMOVING ALL SELECTED CATEGORY
+// REMOVING ALL SELECTED BRAND
+
+
+
+
+// REMOVING ALL SELECTED SALES
+if(isset($_POST['deleteSale'])){
+    foreach($_POST['deleteSale'] as $deleteSale){
+        $qry = "DELETE FROM sales WHERE sales_id = $deleteSale";
+        $statement=$pdo->prepare($qry);
+        $statement->execute();
+        if($statement){
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+}
+// REMOVING ALL SELECTED SALES
 
 ?>

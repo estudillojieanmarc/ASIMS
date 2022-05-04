@@ -53,25 +53,25 @@
           <div class="sidebar-header">
             <div class="userContent">
                 <div class="userProfile">
-                    <img src="./assets/img/red.png">
-                    <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
-                    <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
+                      <img src="./assets/img/red.png">
+                      <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
+                      <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
                 </div>
             </div>
           </div>
           <div class="sidebar-body">
             <ul>
-            <li><a href="http://localhost/ASIMS/dashboard.php">Dashboard </a></li>
-            <li><a href="http://localhost/ASIMS/inventory.php">Inventory</a></li>
-            <li><a href="http://localhost/ASIMS/sales.php">Sales</a></li>
-            <li><a href="http://localhost/ASIMS/toDo.php">ToDo</a></li>
-            <li><a href="http://localhost/ASIMS/history.php">History</a></li>
+              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
+              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
+              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
             </ul>
           </div>   
           <div class="sidebar-footer">
-            <p class="text-center" id="dateDisplay"></p>
-            <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
-            <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
+              <p class="text-center" id="dateDisplay"></p>
+              <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
+              <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
           </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
   <!-- MAIN BAR -->
     <div class="col-10">
       <div class="container-fluid">
-        <h4 class="pt-5">A&S MOTORSHOP TASK</h4>
+        <h4 class="pt-5">A&S MOTORSHOP TASK <i class="fa-solid fa-list-check px-1"></i></h4>
         <ul class="nav nav-tabs my-4">
           <li class="nav-item">
               <a class="nav-link active" href="http://localhost/ASIMS/toDo.php">&nbsp;&nbsp;Task&nbsp;&nbsp;</a>

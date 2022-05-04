@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/asims.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <title>A&S Motor Parts</title>
 </head>
@@ -38,83 +39,89 @@
 
 <!-- CONTENT -->
     <div class="row">
-        <!-- SIDE BAR -->
-          <div class="col-2">
-            <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="sidebar-header">
-                  <div class="userContent">
-                    <div class="userProfile">
+    <!-- SIDE BAR -->
+      <div class="col-2">
+      <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="sidebar-header">
+            <div class="userContent">
+                <div class="userProfile">
                       <img src="./assets/img/red.png">
                       <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
                       <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
-                    </div>
-                  </div>
                 </div>
-                <div class="sidebar-body">
-                  <ul>
-                    <li><a href="http://localhost/ASIMS/dashboard.php">Dashboard </a></li>
-                    <li><a href="http://localhost/ASIMS/inventory.php">Inventory</a></li>
-                    <li><a href="http://localhost/ASIMS/sales.php">Sales</a></li>
-                    <li><a href="http://localhost/ASIMS/toDo.php">ToDo</a></li>
-                    <li><a href="http://localhost/ASIMS/history.php">History</a></li>
-                  </ul>
-                </div>   
-                <div class="sidebar-footer">
-                  <p class="text-center" id="dateDisplay"></p>
-                  <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
-                  <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
-                </div>
-              </div>
+            </div>
           </div>
-        <!-- END SIDE BAR -->
+          <div class="sidebar-body">
+            <ul>
+              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
+              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
+              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+            </ul>
+          </div>   
+          <div class="sidebar-footer">
+              <p class="text-center" id="dateDisplay"></p>
+              <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
+              <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
+          </div>
+        </div>
+      </div>
+    <!-- END SIDE BAR -->
 
-        <!-- MAIN BAR -->
-          <div class="col-10">
-              <div class="container-fluid">
-                <h4 class="pt-5">A&S MOTORSHOP INVENTORY</h4>
-                <ul class="nav nav-tabs my-4">
-                  <li class="nav-item">
-                      <a class="nav-link active" href="/ASIMS/Inventory.php">&nbsp;&nbsp;Stock&nbsp;&nbsp;</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/ASIMS/noStock.php">No Stock</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/ASIMS/categories.php">Categories</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/ASIMS/brands.php">Brands</a>
-                  </li>      
-                  </ul>
-                <div class="row pt-3">
-                  <div class="col-8 d-flex">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addInventory">Add Inventory</button>
-                  </div>
-                  <div class="col-4 ms-auto">
-                    <form class="d-flex">
-                      <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
-                      <button class="btn btn-success" type="submit">Search</button>
-                    </form>
-                  </div>
+    <!-- MAIN BAR -->
+      <div class="col-10">
+          <div class="container-fluid">
+            <h4 class="pt-5">A&S MOTORSHOP INVENTORY <i class="fa-solid fa-boxes-stacked px-1"></i></h4>
+            <ul class="nav nav-tabs my-4">
+              <li class="nav-item">
+                  <a class="nav-link active" href="/ASIMS/Inventory.php">&nbsp;&nbsp;Stock&nbsp;&nbsp;</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/ASIMS/noStock.php">No Stock</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/ASIMS/categories.php">Categories</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/ASIMS/brands.php">Brands</a>
+              </li>      
+              </ul>
+            <div class="row pt-3">
+              <div class="col-7 d-flex">
+                <button class="btn btn-dark px-5" type="button" id="printAll">Print All</button>
+                <button class="btn btn-primary mx-1 px-3" type="button" data-bs-toggle="modal" data-bs-target="#addInventory">Add Inventory</button>
+              </div>
+              <div class="col-5 ms-auto">
+                <form class="d-flex">
+                  <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
+                  <button class="btn btn-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          <div class="row mt-1">
+            <table class="table align-middle text-center table-bordered table-striped shadow table-hover" id="stockTable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Barcode</th>
+                  <th scope="col">Item Name</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Stock (pcs)</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="showInventory"><!-- INVENTORY DATA --></tbody>
+            </table>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="pagination mt-1 float-end" id="pageno"></ul></div>
                 </div>
-              <div class="row mt-1">
-                <table class="table align-middle text-center table-bordered shadow table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Barcode</th>
-                      <th scope="col">Item Name</th>
-                      <th scope="col">Category</th>
-                      <th scope="col">Stock (pcs)</th>
-                      <th scope="col">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody id="showInventory"><!-- INVENTORY DATA --></tbody>
-                </table>
-              </div>
-              </div>
+            </div>
           </div>
-        <!-- END MAIN BAR -->
+          </div>
+      </div>
+    <!-- END MAIN BAR -->
     </div>
 <!-- CONTENT -->
 
@@ -176,7 +183,7 @@
                     <div class="row g-2">
                       <div class="col-6">
                         <div class="mb-3">
-                          <input type="number" class="form-control" id="itemStock" name="itemStock" placeholder="Stock">
+                          <input type="number" class="form-control" id="itemStock" name="itemStock" min="0" placeholder="Stock">
                         </div>
                       </div>
                       <div class="col-6">
@@ -272,7 +279,7 @@
                         <div class="col-6">
                           <div class="mb-3">
                             <label for="formFile" class="form-label px-1 text-secondary">Item Stock</label>
-                            <input type="number" class="form-control" id="updateItemStock" name="updateItemStock">
+                            <input type="number" class="form-control" id="updateItemStock" name="updateItemStock" min="0">
                           </div>
                         </div>
                         <div class="col-6">
@@ -299,13 +306,14 @@
     </div>
   <!-- UPDATE INVENTORY  -->
 <!-- END MODAL -->
-    
+
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/logout.js"></script>
-    <script src="function/inventory.js"></script>
+    <script src="function/stock.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
+    <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

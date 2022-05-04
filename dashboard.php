@@ -35,7 +35,7 @@
           <i style="font-size:18px;" class="fa-solid fa-user text-light"></i>
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a> </li>
               <li><a class="dropdown-item" href="#">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
@@ -62,11 +62,11 @@
           </div>
           <div class="sidebar-body">
             <ul>
-              <li><a href="http://localhost/ASIMS/dashboard.php">Dashboard </a></li>
-              <li><a href="http://localhost/ASIMS/inventory.php">Inventory</a></li>
-              <li><a href="http://localhost/ASIMS/sales.php">Sales</a></li>
-              <li><a href="http://localhost/ASIMS/toDo.php">ToDo</a></li>
-              <li><a href="http://localhost/ASIMS/history.php">History</a></li>
+              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
+              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
+              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
             </ul>
           </div>   
           <div class="sidebar-footer">
@@ -83,34 +83,53 @@
           <!-- CARDS -->
           <div class="container">
             <div class="row">
+
               <div class="col-4">
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Primary card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card bg-primary shadow " style="width: 21rem; height:7rem; border-radius:10px;">
+                    <div class="card-body py-4" >
+                        <div class="row">
+                            <div class="col-5 text-start px-5">
+                                <i style="font-size:3.5rem;" class="fa-solid fa-coins pt-1 text-light"></i>
+                            </div>   
+                            <div class="col-7 text-start pt-2" style="line-height:11px;">
+                                <p class="card-text text-light pt-2 fs-5 fw-bold px-3">₱<span id="totalSales"></span></p>
+                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/sales.php">TOTAL SALES</a></p>
+                            </div>   
+                        </div>   
                     </div>
                 </div>
               </div>
               <div class="col-4">
-                <div class="card text-white bg-secondary mb-3">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Secondary card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card bg-secondary shadow " style="width: 21rem; height:7rem; border-radius:10px;">
+                    <div class="card-body py-4" >
+                        <div class="row">
+                            <div class="col-5 text-start px-5">
+                                <i style="font-size:3.5rem;" class="fa-solid fa-coins pt-1 text-light"></i>
+                            </div>   
+                            <div class="col-7 text-start pt-2" style="line-height:11px;">
+                                <p class="card-text text-light pt-2 fs-5 px-5 fw-bold" id="totalStocks"></p>
+                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/inventory.php">TOTAL STOCKS</a></p>                               
+                            </div>   
+                        </div>   
                     </div>
                 </div>
               </div>
               <div class="col-4">
-                  <div class="card text-white bg-success mb-3">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Success card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card bg-dark shadow " style="width: 21rem; height:7rem; border-radius:10px;">
+                    <div class="card-body py-4" >
+                        <div class="row">
+                            <div class="col-5 text-start px-5">
+                                <i style="font-size:3.5rem;" class="fa-solid fa-coins pt-1 text-light"></i>
+                            </div>   
+                            <div class="col-7 text-start pt-2" style="line-height:11px;">
+                                <p class="card-text text-light pt-2 fs-5 fw-bold px-5" id="totalNoStocks"></p>
+                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/noStock.php">TOTAL NO STOCKS</a></p> 
+                            </div>   
+                        </div>   
                     </div>
-                  </div>
+                </div>
               </div>
-            </div>
+              
           </div>
           <!-- END CARDS -->
 
@@ -121,8 +140,9 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
-    <script src="function/fetchIdentity.js"></script>
+    <script src="function/dashboard.js"></script>
     <script src="function/logout.js"></script>
+    <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
