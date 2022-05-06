@@ -59,7 +59,7 @@ if(isset($_POST["getNoStock"])){
             <td></td>
             <td></td>
             <td></td>
-            <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO DATA FOUND</td>
+            <td class='alert alert-light text-center mt-5 fs-4 text-danger'>ALL ITEMS HAVE STOCK</td>
             <td></td>
             <td></td>
             <td></td>

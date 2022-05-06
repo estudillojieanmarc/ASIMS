@@ -1,8 +1,8 @@
 // FUNCTION TRIGGER     
-$(document).ready(function(){
-    showSales();
-    page();
-});
+    $(document).ready(function(){
+        showSales();
+        page();
+    });
 // END FUNCTION TRIGGER  
 
 
@@ -207,16 +207,16 @@ $(document).ready(function(){
 
 
 // FUNCTION FOR PAGE IN BRAND
-function page(){
-    $.ajax({
-        url	:	"./fetch/fetchAllBrands.php",
-        method	:	"POST",
-        data	:	{page:1},
-        success	:	function(data){
-            $("#pageno").html(data);
-        }
-    })
-}
+    function page(){
+        $.ajax({
+            url	:	"./fetch/fetchAllBrands.php",
+            method	:	"POST",
+            data	:	{page:1},
+            success	:	function(data){
+                $("#pageno").html(data);
+            }
+        })
+    }
 // FUNCTION FOR PAGE IN BRAND
 
 
@@ -225,15 +225,15 @@ function page(){
 
 
 // FUNCTION FOR PAGINATION
-$("body").delegate("#page","click",function(){
-    var pn = $(this).attr("page");
-    $.ajax({
-        url	:	"./fetch/fetchSales.php",
-        method	:	"POST",
-        data	:	{getSales:1,setPage:1,pageNumber:pn},
-        success	:	function(data){
-            $("#showSales").html(data);
-        }
-    })
-});
+    $("body").delegate("#page","click",function(){
+        var pn = $(this).attr("page");
+        $.ajax({
+            url	:	"./fetch/fetchSales.php",
+            method	:	"POST",
+            data	:	{getSales:1,setPage:1,pageNumber:pn},
+            success	:	function(data){
+                $("#showSales").html(data);
+            }
+        })
+    });
 // FUNCTION FOR PAGINATION

@@ -52,10 +52,10 @@ if(isset($_POST["getBrand"])){
     }
     }else{
       echo "
-      <tr>
+      <tr style='height:20rem'>
             <td></td>
             <td></td>
-            <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO CATEGORY FOUND</td>
+            <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO BRAND STORED</td>
             <td></td>
             <td></td>
             </tr>

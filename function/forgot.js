@@ -18,7 +18,7 @@
         )
     }else{
       $.ajax({
-      url:"/ASIMS/php/forgot.php",
+      url:"/ASIMS/php/forgotP.php",
       method:"POST",
       dataType:"text",
       data:{
@@ -27,9 +27,10 @@
       },
       success: function(response) {
             if(response == "Email send, Check your mail box"){
+                $("#forgotForm").trigger("reset");
                 Swal.fire(
-                'Email send',
-                'Please, Check your mail box',
+                'Email Has Send Successfully',
+                'Please, Check your email',
                 'success'
                 )
             }else if(response == "Sorry, Email has not send"){
@@ -40,14 +41,20 @@
                 )
             }else if(response == "Email not found"){
                 Swal.fire(
-                'Email Not Found',
-                'Sorry, Enter valid email address',
+                'Wrong Email Address',
+                'Enter the email address that you inserted in your account',
                 'error'
                 )
             }else if(response == "Email not exist"){
                 Swal.fire(
                 'Email Not Exist',
                 'Sorry, Enter valid email address',
+                'error'
+                )
+            }else if(response == 0){
+                Swal.fire(
+                'Token Not Update',
+                'Sorry, token not update',
                 'error'
                 )
             }

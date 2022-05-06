@@ -88,20 +88,27 @@
               </li>      
               </ul>
             <div class="row pt-3">
-              <div class="col-7 d-flex">
-                <button class="btn btn-dark px-5" type="button" id="printAll">Print All</button>
-                <button class="btn btn-primary mx-1 px-3" type="button" data-bs-toggle="modal" data-bs-target="#addInventory">Add Inventory</button>
+              <div class="col-8 d-flex">
+                <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
+                <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm mx-1 px-4" type="button" data-bs-toggle="modal" data-bs-target="#addInventory"><i class="fa-solid fa-plus"></i> New</button>
+                <a href="http://localhost/ASIMS/inventory.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
+                <div class="col-3 mx-1">
+                  <select class="form-select border-secondary text-dark"  name="allItemBrand" id="allItemBrand"><!-- BRAND --></select>                   
+                </div>
+                <div class="col-3">
+                <select class="form-select border-secondary text-dark"  name="allItemCategory" id="allItemCategory"><!-- CATEGORY --></select>                   
+                </div>
               </div>
-              <div class="col-5 ms-auto">
+              <div class="col-4 ms-auto">
                 <form class="d-flex">
-                  <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
-                  <button class="btn btn-success" type="submit">Search</button>
+                  <input style="border-radius:4px;" class="form-control border-secondary" type="search" placeholder="Search" id="myInput" aria-label="Search">
+                  <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
               </div>
             </div>
           <div class="row mt-1">
             <table class="table align-middle text-center table-bordered table-striped shadow table-hover" id="stockTable">
-              <thead>
+              <thead class="border-secondary bg-light text-dark fw-light">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Barcode</th>
@@ -310,7 +317,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/logout.js"></script>
-    <script src="function/stock.js"></script>
+    <script src="function/inventories.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

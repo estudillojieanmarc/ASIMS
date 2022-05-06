@@ -2,6 +2,8 @@
     $(document).ready(function(){
         showInventory();
         showBrand();
+        showAllBrand();
+        showAllCategory()
         showCategory();
         pageStock();
     });
@@ -18,12 +20,12 @@
         method:"GET",
         success:function(response){
             var data = "";
-            data+="<option selected>Brand</option>";
             for(i=0;i<response.length;i++){
                 data+="<option value='"+response[i].brand_id+"'>"+response[i].brand+"</option>"
             }
             $('#itemBrand').html(data)
             $('#updateItemBrand').html(data)
+            $('#allItemBrand').html(data)
         },
         error:function(error){
             console.log(error)
@@ -33,7 +35,26 @@
 // END FUNCTION FOR FETCH BRAND FOR DROP DOWN
 
 
-
+// FUNCTION FOR FETCH ALL BRAND FOR DROP DOWN
+    function showAllBrand(){
+        $.ajax({
+        url: './fetch/fetchBrand.php',
+        dataType:"json",
+        method:"GET",
+        success:function(response){
+            var data = "";
+            data+="<option value='All'>All Brand</option>"
+            for(i=0;i<response.length;i++){
+                data+="<option value='"+response[i].brand_id+"'>"+response[i].brand+"</option>"
+            }
+            $('#allItemBrand').html(data)
+        },
+        error:function(error){
+            console.log(error)
+        }
+    })
+    }
+// END FUNCTION FOR FETCH BRAND FOR DROP DOWN
 
 
 
@@ -45,12 +66,12 @@
         method:"GET",
         success:function(response){
             var data = "";
-            data+="<option selected>Category</option>";
             for(i=0;i<response.length;i++){
                 data+="<option value='"+response[i].cat_id+"'>"+response[i].category+"</option>"
             }
             $('#itemCategory').html(data)
             $('#updateItemCategory').html(data)
+            $('#allItemCategory').html(data)
         },
         error:function(error){
             console.log(error)
@@ -60,7 +81,26 @@
 // END FUNCTION FOR FETCH CATEGORY FOR DROP DOWN
 
 
-
+// FUNCTION FOR FETCH ALL CATEGORY FOR DROP DOWN
+    function showAllCategory(){
+        $.ajax({
+        url: './fetch/fetchCategory.php',
+        dataType:"json",
+        method:"GET",
+        success:function(response){
+            var data = "";
+            data+="<option value='All'>All Category</option>"
+            for(i=0;i<response.length;i++){
+                data+="<option value='"+response[i].cat_id+"'>"+response[i].category+"</option>"
+            }
+            $('#allItemCategory').html(data)
+        },
+        error:function(error){
+            console.log(error)
+        }
+    })
+    }
+// END FUNCTION FOR FETCH ALL CATEGORY FOR DROP DOWN
 
 
 
@@ -68,77 +108,82 @@
     $('#addButton').click(function(){
         var currentForm = $('#addInventoryForm')[0];
         var data = new FormData(currentForm);
-        if($('#itemName').val()=='' || $('#itemCode').val()=='' 
-        || $('#itemImage').val()=='' || $('#itemDescription').val()=='' 
-        || $('#itemStock').val()=='' || $('#itemCategory').val()=='' || $('#itemPrice').val()==''){
-                Swal.fire(
-                'Submit Failed',
-                'Please, Input all the missing fields',
-                'warning'
-                )
-                }else{
-                    $.ajax({
-                            url: "./php/newInventory.php",
-                            method: "POST",
-                            dataType: "text",
-                            data:data,
-                            cache: false,
-                            contentType: false,
-                            processData: false,
-                            success:function(response){
-                                if(response == 'added Successfully'){
-                                    showInventory();
-                                    $("#addInventoryForm").trigger("reset");
-                                        Swal.fire({
-                                            position: 'center',
-                                            icon: 'success',
-                                            title: 'NEW ITEM HAVE ALREADY BEEN STORED',
-                                            showConfirmButton: false,
-                                            timer: 1500
-                                        })
-                                }else if(response == 'Sorry, failed'){
-                                        Swal.fire(
-                                        'Added Failed',
-                                        'Sorry, The item has not been stored.',
-                                        'error'
-                                        )
-                                }else if(response == 'Sorry, The item are already exist'){
-                                        Swal.fire(
-                                        'Added Failed',
-                                        'Sorry, The item are already exist',
-                                        'error'
-                                    )
-                                }else if(response == 'File is not an image.'){
-                                        Swal.fire(
-                                        'Added Failed',
-                                        'Sorry, File is not an image.',
-                                        'error'
-                                        )
-                                }else if(response == 'Sorry, the file is too large.'){
-                                        Swal.fire(
-                                        'Added Failed',
-                                        'Sorry, The image is too large.',
-                                        'error'
-                                        )
-                                }else if(response == 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.'){
-                                        Swal.fire(
-                                        'Added Failed',
-                                        'Sorry, Only JPG, JPEG, PNG & GIF files are allowed.',
-                                        'error'
-                                    )
-                                }else if(response == 'Sorry, your file was not uploaded.'){
-                                        Swal.fire(
-                                        'Added Failed',
-                                        'Sorry, Your image was not uploaded.',
-                                        'error'
-                                    )
-                                }
-                            },
-                            error:function(error){
-                                console.log(error)
-                            }
-                        }) 
-                }
+
+        if($('#itemBrand').val()=='' || $('#itemCategory').val()=='' || $('#itemName').val()=='' || $('#itemCode').val()=='' || $('#itemImage').val()=='' || $('#itemDescription').val()=='' || $('#itemStock').val()=='' || $('#itemPrice').val()==''){
+            Swal.fire(
+            'Submit Failed',
+            'Please, Input all the missing fields',
+            'warning'
+            )
+        }else{
+            $.ajax({
+                    url: "./php/newInventory.php",
+                    method: "POST",
+                    dataType: "text",
+                    data:data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success:function(response){
+                        if(response == 'added Successfully'){
+                            showInventory();
+                            $("#addInventoryForm").trigger("reset");
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'NEW ITEM HAVE ALREADY BEEN STORED',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                        }else if(response == 'Sorry, failed'){
+                                Swal.fire(
+                                'Added Failed',
+                                'Sorry, The item has not been stored.',
+                                'error'
+                                )
+                        }else if(response == 'Sorry, The item are already exist'){
+                                Swal.fire(
+                                'Added Failed',
+                                'Sorry, The item are already exist',
+                                'error'
+                            )
+                        }else if(response == 'File is not an image.'){
+                                Swal.fire(
+                                'Added Failed',
+                                'Sorry, File is not an image.',
+                                'error'
+                                )
+                        }else if(response == 'Sorry, the file is too large.'){
+                                Swal.fire(
+                                'Added Failed',
+                                'Sorry, The image is too large.',
+                                'error'
+                                )
+                        }else if(response == 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.'){
+                                Swal.fire(
+                                'Added Failed',
+                                'Sorry, Only JPG, JPEG, PNG & GIF files are allowed.',
+                                'error'
+                            )
+                        }else if(response == 'Sorry, your file was not uploaded.'){
+                                Swal.fire(
+                                'Added Failed',
+                                'Sorry, Your image was not uploaded.',
+                                'error'
+                            )
+                        }else if(response == 'No brand and category'){
+                                Swal.fire(
+                                'No Brand and Category',
+                                'Please, store first the brand and category',
+                                'error'
+                        )
+                    }
+                    },
+                    error:function(error){
+                        console.log(error)
+                    }
+                }) 
+            }
     })
 // END ADD INVENTORY
 
@@ -177,7 +222,7 @@
             data: {inventoryId: id},
         })
         .done(function(response) {
-            $('#updateItemID').val(response[0].id)
+            $('#updateItemID').val(response[0].id)           
             $('#updateImage').attr("src","/ASIMS/assets/inventory/"+response[0].item_image)
             $('#updateItemName').val(response[0].item_name)
             $('#updateItemCode').val(response[0].item_barcode)
