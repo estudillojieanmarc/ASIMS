@@ -6,9 +6,23 @@
         showAllCategory()
         showCategory();
         pageStock();
+        count_pending();
     });
 // END FUNCTION TRIGGER     
 
+
+// FUNCTION FOR ADDING QTY IN TODO BADGE
+    function count_pending(){
+    $.ajax({
+        url: "./fetch/taskBadge.php",
+        method : "POST",
+        data : {count_pending:1},
+        success : function(data){
+            $("#todoQty").html(data);
+        }
+    })
+    }
+// FUNCTION FOR ADDING QTY IN TODO BADGE
 
 
 
@@ -19,9 +33,13 @@
         dataType:"json",
         method:"GET",
         success:function(response){
-            var data = "";
-            for(i=0;i<response.length;i++){
-                data+="<option value='"+response[i].brand_id+"'>"+response[i].brand+"</option>"
+            if(response == 0){
+                data+="<option value='All'>No Brand Stored</option>"
+            }else{
+                var data = "";
+                for(i=0;i<response.length;i++){
+                    data+="<option value='"+response[i].brand_id+"'>"+response[i].brand+"</option>"
+                }
             }
             $('#itemBrand').html(data)
             $('#updateItemBrand').html(data)
@@ -42,20 +60,23 @@
         dataType:"json",
         method:"GET",
         success:function(response){
-            var data = "";
-            data+="<option value='All'>All Brand</option>"
-            for(i=0;i<response.length;i++){
-                data+="<option value='"+response[i].brand_id+"'>"+response[i].brand+"</option>"
+            if(response == 0){
+                data+="<option value='All'>No Brand Stored</option>"
+            }else{
+                var data = "";
+                data+="<option value='All'>All Brand</option>"
+                for(i=0;i<response.length;i++){
+                    data+="<option value='"+response[i].brand_id+"'>"+response[i].brand+"</option>"
+                }
             }
-            $('#allItemBrand').html(data)
+                $('#allItemBrand').html(data)
         },
         error:function(error){
             console.log(error)
         }
-    })
+        })
     }
 // END FUNCTION FOR FETCH BRAND FOR DROP DOWN
-
 
 
 // FUNCTION FOR FETCH CATEGORY FOR DROP DOWN
@@ -65,9 +86,13 @@
         dataType:"json",
         method:"GET",
         success:function(response){
-            var data = "";
-            for(i=0;i<response.length;i++){
-                data+="<option value='"+response[i].cat_id+"'>"+response[i].category+"</option>"
+            if(response == 0){
+                data+="<option value='All'>No Category Stored</option>"
+            }else{
+                var data = "";
+                for(i=0;i<response.length;i++){
+                    data+="<option value='"+response[i].cat_id+"'>"+response[i].category+"</option>"
+                }
             }
             $('#itemCategory').html(data)
             $('#updateItemCategory').html(data)
@@ -88,10 +113,14 @@
         dataType:"json",
         method:"GET",
         success:function(response){
-            var data = "";
-            data+="<option value='All'>All Category</option>"
-            for(i=0;i<response.length;i++){
-                data+="<option value='"+response[i].cat_id+"'>"+response[i].category+"</option>"
+            if(response == 0){
+                data+="<option value='All'>No Category Stored</option>"
+            }else{
+                var data = "";
+                data+="<option value='All'>All Category</option>"
+                for(i=0;i<response.length;i++){
+                    data+="<option value='"+response[i].cat_id+"'>"+response[i].category+"</option>"
+                }
             }
             $('#allItemCategory').html(data)
         },
@@ -101,7 +130,6 @@
     })
     }
 // END FUNCTION FOR FETCH ALL CATEGORY FOR DROP DOWN
-
 
 
 // ADD INVENTORY
@@ -188,11 +216,6 @@
 // END ADD INVENTORY
 
 
-
-
-
-
-
 // SHOW INVENTORY
     function showInventory(){
         $.ajax({
@@ -205,11 +228,6 @@
         })
     }
 // END SHOW INVENTORY
-
-
-
-
-
 
 
 // FUNCTION FOR FETCH DATA TO THE UPDATE MODAL 
@@ -234,11 +252,6 @@
             })
     }
 // FUNCTION FOR FETCH DATA TO THE UPDATE MODAL 
-
-
-
-
-
 
 
 // FUNCTION FOR UPDATING INVENTORY DETAILS
@@ -306,11 +319,6 @@
 // FUNCTION FOR UPDATING INVENTORY DETAILS
 
 
-
-
-
-
-
 // SEARCH FUNCTION
     $(document).ready(function(){
         // INVENTORY
@@ -322,9 +330,6 @@
         });
     });
 // SEARCH FUNCTION
-
-
-
 
 
 
@@ -340,9 +345,6 @@
         })
     }
 // FUNCTION FOR PAGE IN IN INVENTORY
-
-
-
 
 
 

@@ -1,10 +1,23 @@
 // FUNCTION TRIGGER     
     $(document).ready(function(){
         showTask();
+        count_pending();
     });
 // END FUNCTION TRIGGER  
 
 
+// FUNCTION FOR ADDING QTY IN TODO BADGE
+function count_pending(){
+    $.ajax({
+        url: "./fetch/taskBadge.php",
+        method : "POST",
+        data : {count_pending:1},
+        success : function(data){
+            $("#todoQty").html(data);
+        }
+    })
+    }
+// FUNCTION FOR ADDING QTY IN TODO BADGE
 
 
 

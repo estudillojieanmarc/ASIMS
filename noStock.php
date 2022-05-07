@@ -88,13 +88,14 @@
               </ul>
             <div class="row pt-3">
               <div class="col-7 d-flex">
-                <button class="btn btn-dark px-5" type="button" id="printAll">Print All</button>
-                <button class="btn btn-danger px-5 mx-1" type="button" id="deleteAll">Delete</button>
+              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
+              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="deleteAll"><i class="fa-solid fa-trash-can"></i> Delete</button>
+              <a href="http://localhost/ASIMS/noStock.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
               </div>
               <div class="col-5 ms-auto">
                 <form class="d-flex">
                   <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
-                  <button class="btn btn-success" type="submit">Search</button>
+                  <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
               </div>
             </div>

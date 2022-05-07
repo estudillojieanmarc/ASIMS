@@ -4,5 +4,10 @@ require 'connection.php';
     $statement=$pdo->prepare($qry);
     $statement->execute();
     $fetchCategory = $statement->fetchAll(PDO::FETCH_OBJ);
-    echo json_encode($fetchCategory);
+    $count = $statement->rowCount();
+    if($count > 0){
+        echo json_encode($fetchCategory);
+    }else{
+        echo 0;
+    }
 ?>

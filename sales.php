@@ -95,14 +95,16 @@
                   </ul>
                 <div class="row pt-3">
                   <div class="col-8 d-flex">
-                    <button class="btn btn-dark px-5 mx-1" type="button" id="printAll">Print All</button>
-                    <button class="btn btn-danger px-5" type="button" id="deleteAllSales">Delete</button>
-                    <button class="btn btn-primary px-5 mx-1" type="button" data-bs-toggle="modal" data-bs-target="#addSales">Add Sale</button>
+                    <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
+                    <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="deleteAllSales"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                    <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" data-bs-toggle="modal" data-bs-target="#addSales"><i class="fa-solid fa-plus"></i> Add Sale</button>
+                    <a href="http://localhost/ASIMS/sales.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2 mx-1"> <i class="fa-solid fa-rotate"></i> Refresh</a>
+
                   </div>
                   <div class="col-4 ms-auto">
                     <form class="d-flex">
                       <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
-                      <button class="btn btn-success" type="submit">Search</button>
+                      <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                   </div>
                 </div>

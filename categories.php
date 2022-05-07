@@ -88,13 +88,15 @@
             </ul>
           <div class="row pt-3">
             <div class="col-8 d-flex">
-              <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addInventory">Add Category</button>
-              <button class="btn btn-danger px-4 mx-1" type="button" id="deleteAllCategory">Delete All</button>
+              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" data-bs-toggle="modal" data-bs-target="#addInventory"><i class="fa-solid fa-plus"></i> Add Category</button>
+              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm mx-1 px-4"  type="button" id="deleteAllCategory"><i class="fa-solid fa-trash-can"></i> Delete</button>
+              <a href="http://localhost/ASIMS/categories.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
+
             </div>
             <div class="col-4 ms-auto">
               <form class="d-flex">
                 <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
-                <button class="btn btn-success" type="submit">Search</button>
+                <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
           </div>

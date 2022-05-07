@@ -84,46 +84,64 @@
           <div class="container">
             <div class="row">
 
-              <div class="col-4">
-                <div class="card bg-primary shadow " style="width: 21rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
+              <div class="col-3">
+                <div class="card bg-dark shadow" style="width: 16rem; height:7rem; border-radius:10px;">
+                    <div class="card-body py-4">
                         <div class="row">
-                            <div class="col-5 text-start px-5">
-                                <i style="font-size:3.5rem;" class="fa-solid fa-coins pt-1 text-light"></i>
+                            <div class="col-5 text-start px-4">
+                                <i style="font-size:2.5rem;" class="fa-solid fa-coins pt-3 text-light"></i>
                             </div>   
-                            <div class="col-7 text-start pt-2" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold px-3">₱<span id="totalSales"></span></p>
-                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/sales.php">TOTAL SALES</a></p>
+                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
+                                <p class="card-text text-light pt-2 fs-5 fw-bold">₱<span id="totalSales">100</span></p>
+                                <p class="card-text text-light"><a class="text-light" style="text-decoration:none;" href="http://localhost/ASIMS/sales.php">TOTAL SALES</a></p>
                             </div>   
                         </div>   
                     </div>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="card bg-secondary shadow " style="width: 21rem; height:7rem; border-radius:10px;">
+
+              <div class="col-3">
+                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
                     <div class="card-body py-4" >
                         <div class="row">
-                            <div class="col-5 text-start px-5">
-                                <i style="font-size:3.5rem;" class="fa-solid fa-coins pt-1 text-light"></i>
+                            <div class="col-5 text-start px-4">
+                                <i style="font-size:2.5rem;" class="fa-solid fa-boxes-stacked pt-3 text-light"></i>
                             </div>   
-                            <div class="col-7 text-start pt-2" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 px-5 fw-bold" id="totalStocks"></p>
+                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
+                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalStocks"></p>
                                 <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/inventory.php">TOTAL STOCKS</a></p>                               
                             </div>   
                         </div>   
                     </div>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="card bg-dark shadow " style="width: 21rem; height:7rem; border-radius:10px;">
+
+              <div class="col-3">
+                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
                     <div class="card-body py-4" >
                         <div class="row">
-                            <div class="col-5 text-start px-5">
-                                <i style="font-size:3.5rem;" class="fa-solid fa-coins pt-1 text-light"></i>
+                            <div class="col-5 text-start px-4">
+                                <i style="font-size:2.5rem;" class="fa-solid fa-cart-flatbed pt-3 text-light"></i>
                             </div>   
-                            <div class="col-7 text-start pt-2" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold px-5" id="totalNoStocks"></p>
-                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/noStock.php">TOTAL NO STOCKS</a></p> 
+                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
+                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalNoStocks"></p>
+                                <p class="card-text text-light"><a class="text-white text-center" style="text-decoration:none;" href="http://localhost/ASIMS/noStock.php">NO STOCKS</a></p> 
+                            </div>   
+                        </div>   
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
+                    <div class="card-body py-4" >
+                        <div class="row">
+                            <div class="col-5 text-start px-4">
+                                <i style="font-size:2.5rem;" class="fa-solid fa-list-check pt-3 text-light"></i>
+                            </div>   
+                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
+                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalTask"></p>
+                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/toDo.php">PENDING TASK</a></p> 
                             </div>   
                         </div>   
                     </div>
@@ -140,7 +158,7 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
-    <script src="function/dashboard.js"></script>
+    <script src="function/dashboards.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
