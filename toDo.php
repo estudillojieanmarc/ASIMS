@@ -44,7 +44,6 @@
 <!-- NAV BAR -->
 
 
-
 <!-- CONTENT -->
   <div class="row">
   <!-- SIDE BAR -->
@@ -109,8 +108,6 @@
   <!-- MAIN BAR -->
   </div>
 <!-- CONTENT -->
-
-
 
 
 <!-- MODAL -->

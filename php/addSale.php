@@ -3,7 +3,11 @@
         // NAME FROM THE FORM 
         $itemBarcode = $_POST['itemBarcode'];
         $itemQty = $_POST['itemQty'];
+        $customersName = $_POST['customersName'];
+        $method = $_POST['method'];
+        $receiptNo = $_POST['receiptNo'];
         $totalSale = $_POST['totalSale'];
+
 
         // CHECK IF THE ITEM IS EXIST
         $qry1 = "SELECT item_barcode FROM inventory WHERE item_barcode = :itemBarcode";
@@ -31,8 +35,8 @@
                 echo "Sorry not enough stock";
                 exit();
             }else {
-                $qry3 = "INSERT INTO sales (item_barcode, quantity, total_sales, purchased) VALUES (?,?,?, NOW())";
-                $pdo->prepare($qry3)->execute([$itemBarcode , $itemQty , $totalSale]);
+                $qry3 = "INSERT INTO sales (receipt_no, item_barcode, customers, method, quantity, total_sales, purchased) VALUES (?,?,?,?,?,?, NOW())";
+                $pdo->prepare($qry3)->execute([$receiptNo, $itemBarcode, $customersName, $method, $itemQty , $totalSale]);
                 if($pdo){
                     $qry4 = "UPDATE inventory SET item_stock = item_stock - :itemQty WHERE item_barcode = :itemBarcode";
                     $statement = $pdo->prepare($qry4);

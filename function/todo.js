@@ -44,6 +44,7 @@ function count_pending(){
                         success:function(response){
                             if(response == '1'){
                                 showTask();
+                                count_pending();
                                 $("#newTaskForm").trigger("reset");
                                 Swal.fire({
                                 position: 'center',
@@ -119,6 +120,7 @@ function showTask(){
         }).then((result) => {
         if (result.isConfirmed) {
             showTask();        
+            count_pending();
         }
         });
         }

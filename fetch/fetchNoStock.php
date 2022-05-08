@@ -67,4 +67,111 @@ if(isset($_POST["getNoStock"])){
      ";
     }
 }
+
+
+
+// ALL CATEGORY REQUEST
+if(isset($_POST["Allrequest"])){
+  sleep(1);
+  $limit = 20;
+  if(isset($_POST["setPage"])){
+    $pageno = $_POST["pageNumber"];
+    $start = ($pageno * $limit) - $limit;
+  }else{
+    $start = 0;
+  }
+  $qry = "SELECT a.cat_id, a.category, b.id, b.item_name, b.item_barcode, b.item_image, 
+  b.item_description, b.item_stock, b.item_brand, b.item_category, b.item_price, c.brand_id, c.brand FROM categoryname a , 
+  inventory b , brandname c WHERE a.cat_id = b.item_category AND b.item_stock = 0  AND  b.item_brand = c.brand_id ORDER BY b.item_stock ASC LIMIT $start,$limit";
+  $statement=$pdo->prepare($qry);
+  $statement->execute();
+  $inventory = $statement->fetchAll(PDO::FETCH_OBJ);
+  $count = $statement->rowCount();
+  if($count > 0){
+    foreach($inventory as $totalInventory){
+            $n++;
+            echo "
+            <tr class='bg-light'>
+            <td style='width:0.1rem;'>
+              <input class='form-check-input checkItem' type='checkbox' value='$totalInventory->id'>
+            </td>              
+            <td style='width:3rem;'>$n</td>
+            <td style='width:12rem;'>$totalInventory->item_barcode</td>
+            <td>$totalInventory->item_name</td>
+            <td style='width:10rem;'>$totalInventory->category</td>
+            <td style='width:10rem;'>$totalInventory->brand</td>
+            <td style='width:6rem;'>
+              <button type='button' onclick=updateInventory('$totalInventory->id') class='btn btn-secondary px-3'>View</button>
+            </td>
+            </tr>
+            ";
+    }
+  }else{
+    echo "
+    <tr style='height:20rem'>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class='alert alert-light text-center mt-5 fs-4 text-danger'>ALL ITEMS HAVE STOCK</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+   ";
+  }
+}
+
+
+
+
+// CATEGORY REQUEST
+if(isset($_POST["request"])){
+  sleep(1);
+  if(isset($_POST["setPage"])){
+    $pageno = $_POST["pageNumber"];
+    $start = ($pageno * $limit) - $limit;
+  }else{
+    $start = 0;
+  }
+  $request = $_POST['request'];
+  $qry = "SELECT a.cat_id, a.category, b.id, b.item_name, b.item_barcode, b.item_image, 
+  b.item_description, b.item_stock, b.item_brand, b.item_category, b.item_price, c.brand_id, c.brand FROM categoryname a , 
+  inventory b , brandname c WHERE a.cat_id = b.item_category AND b.item_stock = 0  AND  b.item_brand = c.brand_id AND a.cat_id = $request ORDER BY b.item_stock ASC";
+  $statement=$pdo->prepare($qry);
+  $statement->execute();
+  $inventory = $statement->fetchAll(PDO::FETCH_OBJ);
+  $count = $statement->rowCount();
+  if($count > 0){
+    foreach($inventory as $totalInventory){
+            $n++;
+            echo "
+            <tr class='bg-light'>
+            <td style='width:0.1rem;'>
+              <input class='form-check-input checkItem' type='checkbox' value='$totalInventory->id'>
+            </td>              
+            <td style='width:3rem;'>$n</td>
+            <td style='width:12rem;'>$totalInventory->item_barcode</td>
+            <td>$totalInventory->item_name</td>
+            <td style='width:10rem;'>$totalInventory->category</td>
+            <td style='width:10rem;'>$totalInventory->brand</td>
+            <td style='width:6rem;'>
+              <button type='button' onclick=updateInventory('$totalInventory->id') class='btn btn-secondary px-3'>View</button>
+            </td>
+            </tr>
+            ";
+    }
+  }else{
+    echo "
+    <tr style='height:20rem'>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO RECORDS FOUND</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+   ";
+  }
+}
 ?>

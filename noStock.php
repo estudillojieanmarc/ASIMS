@@ -87,12 +87,24 @@
               </li>      
               </ul>
             <div class="row pt-3">
-              <div class="col-7 d-flex">
+              <div class="col-8 d-flex">
+              <div class="col-2 mx-1">
+                  <select class="form-select border-secondary text-dark" name="itemRows" id="itemRows">
+                  <option selected value='All'>All Rows</option>
+                  <option value='25'>25 Rows</option>
+                  <option value='50'>50 Rows</option>
+                  <option value='75'>50 Rows</option>
+                  <option value='100'>100 Rows</option>
+                  </select>                   
+              </div>
               <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
               <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="deleteAll"><i class="fa-solid fa-trash-can"></i> Delete</button>
               <a href="http://localhost/ASIMS/noStock.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
+              <div class="col-3 mx-1">
+                <select class="form-select border-secondary text-dark"  name="allItemCategory" id="allItemCategory"><!-- CATEGORY --></select>                   
+                </div>
               </div>
-              <div class="col-5 ms-auto">
+              <div class="col-4 ms-auto">
                 <form class="d-flex">
                   <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
                   <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -100,7 +112,7 @@
               </div>
             </div>
           <div class="row mt-1">
-            <table class="table align-middle text-center table-bordered table-striped shadow rounded table-hover">
+            <table class="table table-sm align-middle text-center table-bordered table-striped shadow rounded table-hover">
                 <thead class="align-middle">
                 <tr>
                   <th style="width:7rem;">Select All <input class='form-check-input mx-1' type='checkbox' id='checkAllItem'></th>
@@ -229,7 +241,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/logout.js"></script>
-    <script src="function/noInventory.js"></script>
+    <script src="function/noInv.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

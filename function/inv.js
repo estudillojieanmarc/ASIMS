@@ -34,7 +34,7 @@
         method:"GET",
         success:function(response){
             if(response == 0){
-                data+="<option value='All'>No Brand Stored</option>"
+                data+="<option value='No Brand Stored'>No Brand Stored</option>"
             }else{
                 var data = "";
                 for(i=0;i<response.length;i++){
@@ -61,7 +61,7 @@
         method:"GET",
         success:function(response){
             if(response == 0){
-                data+="<option value='All'>No Brand Stored</option>"
+                data+="<option value='No Brand Stored'>No Brand Stored</option>"
             }else{
                 var data = "";
                 data+="<option value='All'>All Brand</option>"
@@ -87,7 +87,7 @@
         method:"GET",
         success:function(response){
             if(response == 0){
-                data+="<option value='All'>No Category Stored</option>"
+                data+="<option value='No Category Stored'>No Category Stored</option>"
             }else{
                 var data = "";
                 for(i=0;i<response.length;i++){
@@ -114,7 +114,7 @@
         method:"GET",
         success:function(response){
             if(response == 0){
-                data+="<option value='All'>No Category Stored</option>"
+                data+="<option value='No Category Stored'>No Category Stored</option>"
             }else{
                 var data = "";
                 data+="<option value='All'>All Category</option>"
@@ -143,6 +143,18 @@
             'Please, Input all the missing fields',
             'warning'
             )
+        }else if($('#itemCategory').val() == 'No Category Stored'){
+            Swal.fire(
+            'No Category Stored',
+            'You need to store category first',
+            'warning'
+            )        
+        }else if($('#itemBrand').val() == 'No Brand Stored'){
+            Swal.fire(
+            'No Brand Stored',
+            'You need to store brand first',
+            'warning'
+            )  
         }else{
             $.ajax({
                     url: "./php/newInventory.php",
@@ -361,3 +373,75 @@
         })
     });
 // FUNCTION FOR PAGINATION IN INVENTORY
+
+
+
+
+// DROPDOWN FILTER FOR CATEGORY
+    $(document).ready(function(){
+        $("#allItemCategory").on('change',function(){
+            var value = $(this).val();
+            if(value == 'All'){
+                $.ajax({
+                    url	:	"./fetch/fetchInventory.php",
+                    method	:	"POST",
+                    data	:	{Allrequest:value},
+                    beforeSend:	function(){
+                        $("#showInventory").html("<tr style='height:20rem'><td style='width:1px'></td><td style='width:4rem'></td><td style='width:7rem'></td><td class='alert alert-light text-center mt-5 fs-4 text-danger'>PLEASE WAIT</td><td style='width:7rem'></td><td style='width:1px'></td></tr>");
+                    },
+                    success:function(data){
+                        $("#showInventory").html(data);
+                    }
+                })
+            }else{
+                $.ajax({
+                    url	:	"./fetch/fetchInventory.php",
+                    method	:	"POST",
+                    data	:	{request:value},
+                    beforeSend:	function(){
+                        $("#showInventory").html("<tr style='height:20rem'><td style='width:1px'></td><td style='width:4rem'></td><td style='width:7rem'></td><td class='alert alert-light text-center mt-5 fs-4 text-danger'>PLEASE WAIT</td><td style='width:7rem'></td><td style='width:1px'></td></tr>");
+                    },
+                    success:function(data){
+                        $("#showInventory").html(data);
+                    }
+                })
+            }
+        });
+    });  
+// DROPDOWN FILTER FOR CATEGORY
+
+
+
+
+// DROPDOWN FILTER FOR ROWS
+    $(document).ready(function(){
+        $("#itemRows").on('change',function(){
+            var value = $(this).val();
+            if(value == 'All'){
+                $.ajax({
+                    url	:	"./fetch/allRow1.php",
+                    method	:	"POST",
+                    data	:	{requestAllRows:value},
+                    beforeSend:	function(){
+                        $("#showInventory").html("<tr style='height:20rem'><td style='width:1px'></td><td style='width:4rem'></td><td style='width:7rem'></td><td class='alert alert-light text-center mt-5 fs-4 text-danger'>PLEASE WAIT</td><td style='width:7rem'></td><td style='width:1px'></td></tr>");
+                    },
+                    success:function(data){
+                        $("#showInventory").html(data);
+                    }
+                })
+            }else{
+                $.ajax({
+                    url	:	"./fetch/allRow1.php",
+                    method	:	"POST",
+                    data	:	{requestRows:value},
+                    beforeSend:	function(){
+                        $("#showInventory").html("<tr style='height:20rem'><td style='width:1px'></td><td style='width:4rem'></td><td style='width:7rem'></td><td class='alert alert-light text-center mt-5 fs-4 text-danger'>PLEASE WAIT</td><td style='width:7rem'></td><td style='width:1px'></td></tr>");
+                    },
+                    success:function(data){
+                        $("#showInventory").html(data);
+                    }
+                })
+            }
+        });
+    });  
+// DROPDOWN FILTER FOR ROWS

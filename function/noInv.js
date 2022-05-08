@@ -5,6 +5,7 @@ $(document).ready(function(){
     showCategory();
     pageNoStock();
     count_pending();
+    showAllCategory();
 });
 // END FUNCTION TRIGGER     
 
@@ -44,6 +45,33 @@ $(document).ready(function(){
     })
     }
 // END FUNCTION FOR FETCH BRAND FOR DROP DOWN
+
+
+
+// FUNCTION FOR FETCH ALL CATEGORY FOR DROP DOWN
+function showAllCategory(){
+    $.ajax({
+    url: './fetch/fetchCategory.php',
+    dataType:"json",
+    method:"GET",
+    success:function(response){
+        if(response == 0){
+            data+="<option value='No Category Stored'>No Category Stored</option>"
+        }else{
+            var data = "";
+            data+="<option value='All'>All Category</option>"
+            for(i=0;i<response.length;i++){
+                data+="<option value='"+response[i].cat_id+"'>"+response[i].category+"</option>"
+            }
+        }
+        $('#allItemCategory').html(data)
+    },
+    error:function(error){
+        console.log(error)
+    }
+})
+}
+// END FUNCTION FOR FETCH ALL CATEGORY FOR DROP DOWN
 
 
 
@@ -301,3 +329,73 @@ $("body").delegate("#paginationNoStock","click",function(){
 // FUNCTION FOR PAGINATION NO INVENTORY
 
 
+
+
+// DROPDOWN FILTER FOR ROWS
+$(document).ready(function(){
+    $("#itemRows").on('change',function(){
+        var value = $(this).val();
+        if(value == 'All'){
+            $.ajax({
+                url	:	"./fetch/allRow0.php",
+                method	:	"POST",
+                data	:	{requestAllRows:value},
+                beforeSend:	function(){
+                    $("#showNoStock").html("<tr style='height:20rem'><td></td><td></td><td></td><td class='alert alert-light text-center mt-5 fs-4 text-danger'>PLEASE WAIT</td><td></td><td></td><td></td></tr>");
+                },
+                success:function(data){
+                    $("#showNoStock").html(data);
+                }
+            })
+        }else{
+            $.ajax({
+                url	:	"./fetch/allRow0.php",
+                method	:	"POST",
+                data	:	{requestRows:value},
+                beforeSend:	function(){
+                    $("#showNoStock").html("<tr style='height:20rem'><td></td><td></td><td></td><td class='alert alert-light text-center mt-5 fs-4 text-danger'>PLEASE WAIT</td><td></td><td></td><td></td></tr>");
+                },
+                success:function(data){
+                    $("#showNoStock").html(data);
+                }
+            })
+        }
+    });
+});  
+// DROPDOWN FILTER FOR ROWS
+
+
+
+
+// DROPDOWN FILTER FOR CATEGORY
+$(document).ready(function(){
+    $("#allItemCategory").on('change',function(){
+        var value = $(this).val();
+        if(value == 'All'){
+            $.ajax({
+                url	:	"./fetch/fetchNoStock.php",
+                method	:	"POST",
+                data	:	{Allrequest:value},
+                beforeSend:	function(){
+                    $("#showNoStock").html("<tr style='height:20rem'><td></td><td></td><td></td><td class='alert alert-light text-center mt-5 fs-4 text-danger'>PLEASE WAIT</td><td></td><td></td><td></td></tr>");
+                },
+                success:function(data){
+                    $("#showNoStock").html(data);
+                }
+            })
+        }else{
+            $.ajax({
+                url	:	"./fetch/fetchNoStock.php",
+                method	:	"POST",
+                data	:	{request:value},
+                beforeSend:	function(){
+                    $("#showNoStock").html("<tr style='height:20rem'><td></td><td></td><td></td><td class='alert alert-light text-center mt-5 fs-4 text-danger'>PLEASE WAIT</td><td></td><td></td><td></td></tr>");
+                },
+                success:function(data){
+                    $("#showNoStock").html(data);
+                }
+            })
+        }
+    });
+});  
+// DROPDOWN FILTER FOR CATEGORY

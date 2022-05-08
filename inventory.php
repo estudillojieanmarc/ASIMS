@@ -89,12 +89,18 @@
               </ul>
             <div class="row pt-3">
               <div class="col-8 d-flex">
-                <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
-                <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm mx-1 px-4" type="button" data-bs-toggle="modal" data-bs-target="#addInventory"><i class="fa-solid fa-plus"></i> New</button>
-                <a href="http://localhost/ASIMS/inventory.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
-                <div class="col-3 mx-1">
-                  <select class="form-select border-secondary text-dark"  name="allItemBrand" id="allItemBrand"><!-- BRAND --></select>                   
+                <div class="col-2">
+                  <select class="form-select border-secondary text-dark"  name="itemRows" id="itemRows">
+                  <option selected value='All'>All Rows</option>
+                  <option value='25'>25 Rows</option>
+                  <option value='50'>50 Rows</option>
+                  <option value='75'>50 Rows</option>
+                  <option value='100'>100 Rows</option>
+                  </select>                   
                 </div>
+                <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
+                <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" data-bs-toggle="modal" data-bs-target="#addInventory"><i class="fa-solid fa-plus"></i> New</button>
+                <a href="http://localhost/ASIMS/inventory.php" role="button" style="border-radius:4px;" class="btn mx-1 border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
                 <div class="col-3">
                 <select class="form-select border-secondary text-dark"  name="allItemCategory" id="allItemCategory"><!-- CATEGORY --></select>                   
                 </div>
@@ -106,9 +112,9 @@
                 </form>
               </div>
             </div>
-          <div class="row mt-1">
-            <table class="table align-middle text-center table-bordered table-striped shadow table-hover" id="stockTable">
-              <thead class="border-secondary bg-light text-dark fw-light">
+          <div class="row mt-1 px-2">
+            <table class="table table-sm align-middle text-center table-bordered table-striped shadow table-hover" id="stockTable">
+              <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Barcode</th>
@@ -314,10 +320,13 @@
   <!-- UPDATE INVENTORY  -->
 <!-- END MODAL -->
 
+   
+
+
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/logout.js"></script>
-    <script src="function/inventory.js"></script>
+    <script src="function/inv.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

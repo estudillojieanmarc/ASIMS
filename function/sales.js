@@ -9,7 +9,7 @@
 
 
 // FUNCTION FOR ADDING QTY IN TODO BADGE
-function count_pending(){
+    function count_pending(){
     $.ajax({
         url: "./fetch/taskBadge.php",
         method : "POST",
@@ -26,7 +26,8 @@ function count_pending(){
     $('#addSalesButton').click(function(){
         var currentForm = $('#addSalesForm')[0];
         var data = new FormData(currentForm);
-        if($('#itemBarcode').val()=='' || $('#itemQty').val()=='' || $('#totalSale').val()==''){
+        if($('#itemBarcode').val()=='' || $('#itemQty').val()=='' || $('#totalSale').val()==''  || $('#receiptNo').val()=='' 
+        || $('#customersName').val()=='' || $('#method').val()==''){
                 Swal.fire(
                 'Submit Failed',
                 'Please, Input all the missing fields',
