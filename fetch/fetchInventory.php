@@ -1,6 +1,5 @@
 <?php
 require 'connection.php';
-error_reporting(0);
 
 // PAGE LIMIT FUNCTION
 if(isset($_POST["page"])){
@@ -162,5 +161,27 @@ if(isset($_POST["request"])){
     </tr>
    ";
   }
+}
+
+
+
+
+
+
+
+
+// SEARCH ITEM INFO
+if(isset($_POST["search"])){
+    $itemBarcode = $_POST['itemBarcode'];
+    $qry = "SELECT * FROM inventory WHERE item_barcode = :itemBarcode"; 
+    $statement=$pdo->prepare($qry);
+    $statement->execute([':itemBarcode' => $itemBarcode]);
+    $fetchItem = $statement->fetchAll(PDO::FETCH_OBJ);
+    $count = $statement->rowCount();
+    if($count > 0 ){
+        echo json_encode($fetchItem);
+    }else{
+      echo 0;
+    }
 }
 ?>

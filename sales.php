@@ -84,14 +84,11 @@
                 <h4 class="pt-5">A&S MOTORSHOP SALES <i class="fa-solid fa-coins px-1"></i></h4>
                 <ul class="nav nav-tabs my-4">
                   <li class="nav-item">
-                      <a class="nav-link active" href="#">&nbsp;&nbsp;Daily&nbsp;&nbsp;</a>
+                      <a class="nav-link active" href="#">&nbsp;&nbsp;Sales Report&nbsp;&nbsp;</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">Weekly</a>
+                      <a class="nav-link" href="http://localhost/ASIMS/addSales.php">Add Sales</a>
                   </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">Monthly</a>
-                  </li>      
                   </ul>
                 <div class="row pt-3">
                   <div class="col-8 d-flex">
@@ -141,64 +138,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <div class="row mx-2 my-2">
-              <div class="col-11">
-                <h5 class="modal-title" id="exampleModalLabel">New Sales</h5>
-              </div>
-              <div class="col-1">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-            </div>
-              <div class="row mt-4 mx-2">
-                  <form id="addSalesForm">  
-                    <div class="row g-2">
-                      <div class="col">
-                        <div class="mb-3">
-                          <input type="text" class="form-control fw-light" id="receiptNo" name="receiptNo" placeholder="Receipt Number">
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="mb-3">
-                          <input type="text" class="form-control fw-light" id="itemBarcode" name="itemBarcode" placeholder="Item Barcode">
-                        </div>
-                      </div>
-                    </div> 
-                    <div class="row g-2">
-                      <div class="col-8">
-                        <div class="mb-3">
-                          <input type="text" class="form-control fw-light" id="customersName" name="customersName" placeholder="Customers Name">
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <div class="mb-3">
-                           <select class="form-select fw-light text-secondary" name="method" id="method">
-                              <option selected value=''>Method</option>
-                              <option value='Walk in'>Walk in</option>
-                              <option value='Deliver'>Deliver</option>
-                            </select>   
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row g-2">
-                      <div class="col-6">
-                        <div class="mb-3">
-                          <input type="number" class="form-control fw-light" id="itemQty" name="itemQty" min="0" placeholder="Quantity">
-                        </div>
-                      </div>
-                      <div class="col-6">
-                        <div class="mb-3">
-                          <input type="text" class="form-control fw-light" id="totalSale" name="totalSale" placeholder="Total Sales">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row g-2 mx-5 my-2">
-                      <div class="col-4 mx-1 ms-auto">
-                        <button type="button" class="btn btn-primary px-5" id="addSalesButton">Submit</button>
-                      </div>
-                      </form>
-                    </div>
-                  </div>
-              </div>
+          
             </div>     
           </div>
         </div>
@@ -212,7 +152,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/sales.js"></script>
+    <script src="function/sale.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
 
