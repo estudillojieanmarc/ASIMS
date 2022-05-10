@@ -1,29 +1,29 @@
 <?php
         require 'connection.php';
         // NAME FROM THE FORM 
-        $itemBarcode = $_POST['itemBarcode'];
+        $receipNo = $_POST['receipNo'];
+        $purchasedOn = $_POST['purchasedOn'];
+        $customerName = $_POST['customerName'];
+        $itemCode = $_POST['itemCode'];
         $itemQty = $_POST['itemQty'];
-        $customersName = $_POST['customersName'];
-        $method = $_POST['method'];
-        $receiptNo = $_POST['receiptNo'];
-        $totalSale = $_POST['totalSale'];
+        $totalSales = $_POST['totalSales'];
 
 
         // CHECK IF THE ITEM IS EXIST
-        $qry1 = "SELECT item_barcode FROM inventory WHERE item_barcode = :itemBarcode";
+        $qry1 = "SELECT item_barcode FROM inventory WHERE item_barcode = :itemCode";
         $statement=$pdo->prepare($qry1);
         $statement->execute(
             array(
-                'itemBarcode' => $_POST["itemBarcode"],
+                'itemCode' => $_POST["itemCode"],
             )
         );
         $count = $statement->rowCount();
         if($count > 0 ){
-            $qry2 = "SELECT item_stock FROM inventory WHERE item_barcode = :itemBarcode";
+            $qry2 = "SELECT item_stock FROM inventory WHERE item_barcode = :itemCode";
             $statement2=$pdo->prepare($qry2);
             $statement2->execute(
                 array(
-                    'itemBarcode' => $_POST["itemBarcode"],
+                    'itemCode' => $_POST["itemCode"],
                 )
             );
             $stock = $statement2->fetch(PDO::FETCH_ASSOC);
@@ -35,12 +35,12 @@
                 echo "Sorry not enough stock";
                 exit();
             }else {
-                $qry3 = "INSERT INTO sales (receipt_no, item_barcode, customers, method, quantity, total_sales, purchased) VALUES (?,?,?,?,?,?, NOW())";
-                $pdo->prepare($qry3)->execute([$receiptNo, $itemBarcode, $customersName, $method, $itemQty , $totalSale]);
+                $qry3 = "INSERT INTO sales (receipt_no, purchased, item_barcode, customers, quantity, total_sales) VALUES (?,?,?,?,?,?)";
+                $pdo->prepare($qry3)->execute([$receipNo, $purchasedOn, $itemCode, $customerName, $itemQty , $totalSales]);
                 if($pdo){
-                    $qry4 = "UPDATE inventory SET item_stock = item_stock - :itemQty WHERE item_barcode = :itemBarcode";
+                    $qry4 = "UPDATE inventory SET item_stock = item_stock - :itemQty WHERE item_barcode = :itemCode";
                     $statement = $pdo->prepare($qry4);
-                    if($statement->execute([':itemQty' => $itemQty, 'itemBarcode' => $itemBarcode])){
+                    if($statement->execute([':itemQty' => $itemQty, 'itemCode' => $itemCode])){
                         echo 1;
                         exit();  
                     }

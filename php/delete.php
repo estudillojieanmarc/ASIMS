@@ -119,7 +119,13 @@ require 'connection.php';
             $statement=$pdo->prepare($qry);
             $statement->execute();
             if($statement){
-                echo 1;
+                $qry = "UPDATE Inventory SET item_category = 1 WHERE item_category = $categoryId";
+                $statement = $pdo->prepare($qry);
+                if($statement->execute()){
+                    echo 1;
+                }else{
+                    echo 0;
+                }
             }else{
                 echo 0;
             }
@@ -137,7 +143,13 @@ require 'connection.php';
             $statement=$pdo->prepare($qry);
             $statement->execute();
             if($statement){
-                echo 1;
+                $qry = "UPDATE Inventory SET item_brand = 1 WHERE item_brand = $brandId";
+                $statement = $pdo->prepare($qry);
+                if($statement->execute()){
+                    echo 1;
+                }else{
+                    echo 0;
+                }
             }else{
                 echo 0;
             }

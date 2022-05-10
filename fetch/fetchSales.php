@@ -27,7 +27,7 @@ if(isset($_POST["getSales"])){
       $start = 0;
     }
     error_reporting(0);
-    $qry = "SELECT a.sales_id, a.item_barcode, a.quantity, a.total_sales, a.purchased, 
+    $qry = "SELECT a.sales_id, a.receipt_no, a.purchased, a.item_barcode, a.customers, a.method, a.quantity, a.total_sales,
     b.item_name, b.item_barcode FROM sales a, inventory b WHERE a.item_barcode = b.item_barcode
     ORDER BY a.purchased DESC LIMIT $start,$limit";
     $statement=$pdo->prepare($qry);
@@ -37,7 +37,7 @@ if(isset($_POST["getSales"])){
     if($count > 0){
     foreach($sales as $totalSales){
             $n++;
-            $newDate = date('F d, Y || h:i:A',strtotime($totalSales->purchased));
+            $newDate = date('F d, Y',strtotime($totalSales->purchased));
             echo "
             <tr>
             <td style='width:0.1rem;'>
@@ -47,7 +47,7 @@ if(isset($_POST["getSales"])){
             <td>$totalSales->item_barcode</td>
             <td>$totalSales->item_name</td>
             <td>$totalSales->quantity</td>
-            <td>₱$totalSales->total_sales.00</td>
+            <td>₱$totalSales->total_sales</td>
             <td>$newDate</td>
             </tr>
             ";

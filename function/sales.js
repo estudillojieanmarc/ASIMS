@@ -22,12 +22,14 @@
 // FUNCTION FOR ADDING QTY IN TODO BADGE
 
 
+
+
 // ADD SALES
     $('#addSalesButton').click(function(){
         var currentForm = $('#addSalesForm')[0];
         var data = new FormData(currentForm);
-        if($('#itemBarcode').val()=='' || $('#itemQty').val()=='' || $('#totalSale').val()==''  || $('#receiptNo').val()=='' 
-        || $('#customersName').val()=='' || $('#method').val()==''){
+        if($('#receipNo').val()=='' || $('#purchasedOn').val()=='' || $('#customerName').val()==''  || $('#itemCode').val()=='' 
+        || $('#itemQty').val()=='' || $('#totalSales').val()==''){
                 Swal.fire(
                 'Submit Failed',
                 'Please, Input all the missing fields',

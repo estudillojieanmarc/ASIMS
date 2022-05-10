@@ -48,129 +48,141 @@
 
 <!-- CONTENT -->
 <div class="row">
-  <!-- SIDE BAR -->
-   <div class="col-2">
-      <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-          <div class="sidebar-header">
-            <div class="userContent">
-                <div class="userProfile">
-                      <img src="./assets/img/red.png">
-                      <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
-                      <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
+    <!-- SIDE BAR -->
+        <div class="col-2">
+        <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="sidebar-header">
+                <div class="userContent">
+                    <div class="userProfile">
+                        <img src="./assets/img/red.png">
+                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
+                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
+                    </div>
                 </div>
             </div>
-          </div>
-          <div class="sidebar-body">
-            <ul>
-              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
-              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
-              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
-              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
-              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
-            </ul>
-          </div>   
-          <div class="sidebar-footer">
-              <p class="text-center" id="dateDisplay"></p>
-              <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
-              <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
-          </div>
+            <div class="sidebar-body">
+                <ul>
+                <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
+                    <ul>
+                        <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-file"></i> Stock Report</a></li>
+                        <li><a href="http://localhost/ASIMS/Addinventory.php"><i class="fa-solid fa-plus"></i> Add Stock</a></li>
+                    </ul>
+                </li>  
+                <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
+                    <ul>
+                        <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
+                        <li><a href="http://localhost/ASIMS/addSales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
+                    </ul>
+                </li>             
+                <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+                <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+                </ul>
+            </div>   
+            <div class="sidebar-footer">
+                <p class="text-center" id="dateDisplay"></p>
+                <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
+                <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
+            </div>
+            </div>
         </div>
-    </div>
-  <!-- END SIDE BAR -->
+    <!-- END SIDE BAR -->
 
     <!-- MAIN BAR -->
         <div class="col-10">
             <div class="container-fluid">
                 <h4 class="pt-5">A&S MOTORSHOP SALES <i class="fa-solid fa-coins px-1"></i></h4>
                 <ul class="nav nav-tabs my-4">
-                  <li class="nav-item">
-                      <a class="nav-link" href="http://localhost/ASIMS/sales.php">&nbsp;&nbsp;Sales Report&nbsp;&nbsp;</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link active" href="#">&nbsp;&nbsp;Add Sales&nbsp;&nbsp;</a>
-                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/ASIMS/sales.php">&nbsp;&nbsp;Sales Report&nbsp;&nbsp;</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">&nbsp;&nbsp;Add Sales&nbsp;&nbsp;</a>
+                    </li>
                 </ul>
                 <div class="row bg-light border-2 mb-5">
                     <div class="card">
-                        <div class="card-header fs-4">New Sales</div>
+                        <div class="card-header fs-4"><h4 class="pt-2">Sales Report</h4></div>
                             <div class="card-body">
-                                <!-- CUSTOMERS / RECEIPT -->
+                            <!-- CUSTOMERS / RECEIPT -->
                                 <div class="row">
-                                    <div class="col-md-10 mx-auto">
-                                            <div class="card-body">
-                                                <form id="salesForm" onsubmit="return false">
-                                                    <!-- NEW SALES REPORT -->
-                                                    <div class="card bg-light mb-3" style="border-radius:10px;">
-                                                        <div class="card-body">
-                                                            <div class="card-title">Make a Sales Report</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row mb-3">
-                                                        <label class="col-sm-3 col-form-label" align="right">Purchased On:</label>
-                                                        <div class="col-sm-6">
-                                                            <input type="date" id="order_date" name="purchasedOn"  class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row mb-3">
-                                                        <label class="col-sm-3 col-form-label" align="right">Receipt Number</label>
-                                                        <div class="col-sm-6">
-                                                            <input type="text" id="cust_name" name="cust_name"class="form-control" placeholder="Enter Receipt Number" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label" align="right">Customer Name:</label>
-                                                        <div class="col-sm-6">
-                                                            <input type="text" id="cust_name" name="customersName"class="form-control" placeholder="Enter Customer Name" required/>
-                                                        </div>
-                                                    </div>                                      
-                                                </div>                                           
+                                    <div class="col-11 mx-auto">
+                                        <div class="card-body">
+                                            <form id="salesForm" onsubmit="return false">
+                                            <!-- NEW SALES REPORT -->
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-3 col-form-label" align="right">Purchased On:</label>
+                                                <div class="col-sm-6">
+                                                    <input type="date" id="purchasedOn" name="purchasedOn"  class="form-control">
+                                                </div>
                                             </div>
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-3 col-form-label" align="right">Receipt Number</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" id="receiptNo" name="receiptNo"class="form-control" placeholder="Enter Receipt Number" required/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label" align="right">Customer Name:</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" id="customersName" name="customersName"class="form-control" placeholder="Enter Customer Name" required/>
+                                                </div>
+                                            </div>                                      
+                                        </div>                                           
                                     </div>
                                 </div>
-                                <!-- PURCHASED TABLE -->
-                                <div class="row px-5">
-                                    <div class="col px-5">
+                            <!-- END CUSTOMERS / RECEIPT -->
+                            </div>
+                            <!-- PURCHASED TABLE -->
+                                <div class="row">
+                                    <div class="col">
                                         <div class="card bg-light" style="border-radius:10px;">
                                             <div class="card-body">
-                                                <p class="card-title">Make a purchased list</p>
+                                                <p class="card-title pt-2">Purchased List</p>
+                                                <div class="row pt-2">
+                                                    <div class="card bg-light border-2">
+                                                        <table class="table text-center table-striped align-middle mt-3">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">Item Barcode</th>
+                                                                    <th scope="col">Item Name</th>
+                                                                    <th scope="col">Stock</th>
+                                                                    <th scope="col">Price</th>
+                                                                    <th scope="col">Quantity</th>
+                                                                    <th scope="col">Total</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="purchasedList"></tbody>
+                                                        </table>
+                                                        <div class="row pb-2">
+                                                            <div class="col-3 ms-auto">
+                                                                <button id="add" type="button" class="btn btn-sm btn-primary px-4">Add</button>
+                                                                <button id="remove" type="button" class="btn btn-sm btn-danger px-3">Remove</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>   
                                             </div>                               
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <table class="table text-center table-striped align-middle mt-3">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Item Barcode</th>
-                                                    <th scope="col">Item Name</th>
-                                                    <th scope="col">Stock</th>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">Quantity</th>
-                                                    <th scope="col">Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="purchasedList"></tbody>
-                                        </table>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-5 me-auto">
-                                                <button id="add" type="button" class="btn btn-sm btn-primary px-5">Add</button>
-                                                <button id="remove" type="button" class="btn btn-sm btn-danger px-4">Remove</button>
-                                        </div>
+                                                                   
+                                </div>
+                            <!-- END OF PURCHASED TABLE -->
+
+                            <!-- SUBMIT BUTTON -->
+                                <div class="row mt-5 pb-3 mx-5 px-5">
+                                    <div class="col-3 mx-auto">
+                                        <button type="button" class="btn btn-dark px-5 py-2">SUBMIT</button>
                                     </div>
                                 </div>
-                                <!-- SUBMIT BUTTON -->
-                                <div class="row mt-5 pb-3">
-                                    <div class="col-2 ms-auto">
-                                        <button type="button" class="btn btn-success px-5 py-3">Submit</button>
-                                    </div>
-                                </div>
-                                </form>
-                            </div>
+                            <!-- END SUBMIT BUTTON -->
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     <!-- END MAIN BAR -->
 </div>
 <!-- CONTENT -->
@@ -181,9 +193,15 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/newSale.js"></script>
+    <script src="function/newSales.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
-
+    <script>
+      $('.sub-menu ul').hide();
+        $(".sub-menu a").click(function () {
+            $(this).parent(".sub-menu").children("ul").slideToggle("200");
+            $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+        });
+    </script>
 </body>
 </html>

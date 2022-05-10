@@ -40,31 +40,41 @@
     <div class="row">
   <!-- SIDE BAR -->
     <div class="col-2">
-      <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-          <div class="sidebar-header">
-            <div class="userContent">
-                <div class="userProfile">
-                      <img src="./assets/img/red.png">
-                      <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
-                      <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
-                </div>
-            </div>
-          </div>
-          <div class="sidebar-body">
-            <ul>
-              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
-              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
-              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
-              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
-              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
-            </ul>
-          </div>   
-          <div class="sidebar-footer">
-              <p class="text-center" id="dateDisplay"></p>
-              <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
-              <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
+    <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="sidebar-header">
+          <div class="userContent">
+              <div class="userProfile">
+                    <img src="./assets/img/red.png">
+                    <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
+                    <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
+              </div>
           </div>
         </div>
+        <div class="sidebar-body">
+          <ul>
+            <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+            <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
+                <ul>
+                    <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-file"></i> Stock Report</a></li>
+                    <li><a href="http://localhost/ASIMS/Addinventory.php"><i class="fa-solid fa-plus"></i> Add Stock</a></li>
+                </ul>
+            </li>  
+            <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
+                <ul>
+                    <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
+                    <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
+                </ul>
+            </li>             
+            <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+            <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+          </ul>
+        </div>   
+        <div class="sidebar-footer">
+            <p class="text-center" id="dateDisplay"></p>
+            <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
+            <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
+        </div>
+      </div>
     </div>
   <!-- END SIDE BAR -->
 
@@ -74,7 +84,7 @@
         <h4 class="pt-5">STOCK CATEGORIES <i class="fa-solid fa-code-branch px-1"></i></h4>
         <ul class="nav nav-tabs my-4">
             <li class="nav-item">
-                <a class="nav-link" href="/ASIMS/Inventory.php">Stock</a>
+                <a class="nav-link" href="/ASIMS/Inventory.php">Stocks</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/ASIMS/noStock.php">No Stock</a>
@@ -100,7 +110,8 @@
               </form>
             </div>
           </div>
-        <div class="row mt-1">
+        <div class="row mt-2">
+        <div class="card pt-3 bg-light border-2">
           <table class="table align-middle text-center table-bordered shadow table-striped rounded table-hover">
             <thead class="align-middle">
                 <tr>
@@ -112,6 +123,7 @@
             </thead>
             <tbody id="showCategory"><!-- INVENTORY DATA --></tbody>
           </table>
+          </div>
           <div class="row">
                 <div class="col-12">
                     <ul class="pagination mt-1 float-end" id="pageno"></ul></div>
@@ -195,5 +207,12 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
+    <script>
+      $('.sub-menu ul').hide();
+        $(".sub-menu a").click(function () {
+            $(this).parent(".sub-menu").children("ul").slideToggle("200");
+            $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+        });
+    </script>
+  </body>
 </html>

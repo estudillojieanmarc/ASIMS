@@ -15,7 +15,7 @@
   <?php
       require_once "./php/connection.php";
       session_start();
-      if(!isset($_SESSION["emp_id"]) && !isset($_SESSION["fullname"])){
+      if(!isset($_SESSION["emp_id"])){
           header("location: http://localhost/ASIMS/login.html");
       }
   ?>
@@ -35,7 +35,7 @@
           <i style="font-size:18px;" class="fa-solid fa-user text-light"></i>
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Settings</a> </li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
               <li><a class="dropdown-item" href="#">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
@@ -47,21 +47,21 @@
 <!-- NAV BAR -->
 
 <!-- CONTENT -->
-  <div class="row">
-  <!-- SIDE BAR -->
-    <div div class="col-2">
+<div class="row">
+    <!-- SIDE BAR -->
+        <div class="col-2">
         <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="sidebar-header">
-              <div class="userContent">
-                  <div class="userProfile">
+                <div class="userContent">
+                    <div class="userProfile">
                         <img src="./assets/img/red.png">
                         <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
                         <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
-                  </div>
-              </div>
+                    </div>
+                </div>
             </div>
             <div class="sidebar-body">
-              <ul>
+                <ul>
                 <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
                 <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
                     <ul>
@@ -77,101 +77,85 @@
                 </li>             
                 <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
                 <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
-              </ul>
+                </ul>
             </div>   
             <div class="sidebar-footer">
                 <p class="text-center" id="dateDisplay"></p>
                 <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
                 <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
             </div>
+            </div>
+        </div>
+    <!-- END SIDE BAR -->
+
+      <!-- MAIN BAR -->
+      <div class="col-10">
+        <div class="container-fluid">
+          <div class="row pt-4">
+                <!-- START OF LEFT UI -->
+                  <div class="col-6 pt-2">
+                        <img class="img-thumbnail border-0" src="assets/img/stat.png">
+                  </div>
+                <!-- END OF LEFT UI -->
+                
+                <!-- START OF RIGHT UI -->
+                  <div class="col-6 px-4">
+                    <div class="card border-0">
+                          <div class="container mt-4 px-5">
+                          <form id="addSalesForm">
+                          <h4 class="pt-5 text-center">NEW SALES REPORT</h4>     
+                            <div class="row  px-2">
+                                <div class="row g-2 mb-2 mt-4">
+                                    <div class="col-6">
+                                        <label class="form-label">Receipt Number:</label>
+                                        <input type="text" class="form-control shadow border-2" id="receipNo" name="receipNo" placeholder="Enter Receipt Number">
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">Purchased On:</label>
+                                        <input type="date" class="form-control shadow border-2" id="purchasedOn" name="purchasedOn" placeholder="Customer Name">
+                                    </div>
+                                </div>
+                                <div class="mb-2 g-2">
+                                    <label class="form-label">Customer Name:</label>
+                                    <input class="form-control shadow border-2" type="text" id="customerName" name="customerName" placeholder="Enter Customer Name">
+                                </div>
+                                <div class="row g-2 mb-2">
+                                    <div class="col-4">
+                                        <label class="form-label">Item Barcode:</label>
+                                        <input type="text" class="form-control shadow border-2" id="itemCode" name="itemCode" placeholder="Item Barcode">
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label">Quantity:</label>
+                                        <input type="number" class="form-control shadow border-2" min="0" id="itemQty" name="itemQty"placeholder="Item Qty">
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label">Total Sales:</label>
+                                        <input type="text" class="form-control shadow border-2" id="totalSales" name="totalSales" placeholder="Total Sales">
+                                    </div>                                    
+                                </div>
+                                <div class="row mt-4 px-5">
+                                    <button type="button" class="btn btn-dark py-2" id="addSalesButton">SUBMIT</button>
+                                    </form>
+                                </div>
+                            </div>  
+                          </form>
+                    </div>   
+                  </div>   
+                <!-- END OF RIGHT UI -->
           </div>
+        </div>
       </div>
-  <!-- END SIDE BAR -->
-
-  <!-- MAIN BAR -->
-    <div class="col-10 mt-4">
-          <!-- CARDS -->
-          <div class="container">
-            <div class="row">
-
-              <div class="col-3">
-                <div class="card bg-dark shadow" style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4">
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-coins pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold">₱<span id="totalSales">100</span></p>
-                                <p class="card-text text-light"><a class="text-light" style="text-decoration:none;" href="http://localhost/ASIMS/sales.php">TOTAL SALES</a></p>
-                            </div>   
-                        </div>   
-                    </div>
-                </div>
-              </div>
-
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-boxes-stacked pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalStocks"></p>
-                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/inventory.php">TOTAL STOCKS</a></p>                               
-                            </div>   
-                        </div>   
-                    </div>
-                </div>
-              </div>
-
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-cart-flatbed pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalNoStocks"></p>
-                                <p class="card-text text-light"><a class="text-white text-center" style="text-decoration:none;" href="http://localhost/ASIMS/noStock.php">NO STOCKS</a></p> 
-                            </div>   
-                        </div>   
-                    </div>
-                </div>
-              </div>
-
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-list-check pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalTask"></p>
-                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/toDo.php">PENDING TASK</a></p> 
-                            </div>   
-                        </div>   
-                    </div>
-                </div>
-              </div>
-              
-          </div>
-          <!-- END CARDS -->
-
-    </div>
-  <!-- END MAIN BAR -->
-  </div>
+    <!-- END MAIN BAR -->
+</div>
 <!-- CONTENT -->
+
 
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
-    <script src="function/dashboards.js"></script>
-    <script src="function/logout.js"></script>
     <script src="function/fetchIdentity.js"></script>
+    <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
+    <script src="function/sales.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

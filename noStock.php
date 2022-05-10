@@ -53,8 +53,18 @@
           <div class="sidebar-body">
             <ul>
               <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
-              <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a></li>
-              <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-coins"></i> Sales</a></li>
+              <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
+                  <ul>
+                      <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-file"></i> Stock Report</a></li>
+                      <li><a href="http://localhost/ASIMS/Addinventory.php"><i class="fa-solid fa-plus"></i> Add Stock</a></li>
+                  </ul>
+              </li>  
+              <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
+                  <ul>
+                      <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
+                      <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
+                  </ul>
+              </li>             
               <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
               <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
             </ul>
@@ -65,7 +75,7 @@
               <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
           </div>
         </div>
-        </div>
+      </div>
     <!-- END SIDE BAR -->
 
     <!-- MAIN BAR -->
@@ -74,7 +84,7 @@
             <h4 class="pt-5">A&S MOTORSHOP NO STOCK <i class="fa-solid fa-boxes-stacked px-1"></i></h4>
             <ul class="nav nav-tabs my-4">
               <li class="nav-item">
-                  <a class="nav-link" href="/ASIMS/inventory.php">Stock</a>
+                  <a class="nav-link" href="/ASIMS/inventory.php">Stocks</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link active" href="/ASIMS/noStock.php">&nbsp;&nbsp;No Stock&nbsp;&nbsp;</a>
@@ -88,7 +98,7 @@
               </ul>
             <div class="row pt-3">
               <div class="col-8 d-flex">
-              <div class="col-2 mx-1">
+              <div class="col-2">
                   <select class="form-select border-secondary text-dark" name="itemRows" id="itemRows">
                   <option selected value='All'>All Rows</option>
                   <option value='25'>25 Rows</option>
@@ -97,10 +107,11 @@
                   <option value='100'>100 Rows</option>
                   </select>                   
               </div>
-              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
+              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
+              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"><i class="fa-solid fa-file-excel"></i> Excel</button>
               <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="deleteAll"><i class="fa-solid fa-trash-can"></i> Delete</button>
               <a href="http://localhost/ASIMS/noStock.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
-              <div class="col-3 mx-1">
+              <div class="col-2 mx-1">
                 <select class="form-select border-secondary text-dark"  name="allItemCategory" id="allItemCategory"><!-- CATEGORY --></select>                   
                 </div>
               </div>
@@ -111,8 +122,9 @@
                 </form>
               </div>
             </div>
-          <div class="row mt-1">
-            <table class="table table-sm align-middle text-center table-bordered table-striped shadow rounded table-hover">
+          <div class="row mt-2">
+            <div class="card pt-3 bg-light border-2">
+            <table class="table align-middle text-center table-borderless table-striped shadow rounded table-hover">
                 <thead class="align-middle">
                 <tr>
                   <th style="width:7rem;">Select All <input class='form-check-input mx-1' type='checkbox' id='checkAllItem'></th>
@@ -126,6 +138,7 @@
               </thead>
               <tbody id="showNoStock"><!-- INVENTORY DATA --></tbody>
             </table>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <ul class="pagination mt-1 float-end" id="pageno"></ul></div>
@@ -245,6 +258,12 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
- 
+    <script>
+      $('.sub-menu ul').hide();
+        $(".sub-menu a").click(function () {
+            $(this).parent(".sub-menu").children("ul").slideToggle("200");
+            $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+        });
+    </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 require 'connection.php';
+error_reporting(0);
 
 // PAGE LIMIT FUNCTION
 if(isset($_POST["page"])){
@@ -11,14 +12,14 @@ if(isset($_POST["page"])){
   $pageno = ceil($count / 20);
     for($i=1;$i<=$pageno;$i++){
       echo "
-        <li class='nav-item'><a class='btn btn-sm btn-dark border-dark px-3' style='border-radius:15px; margin:0 1px;' href='#' paginationStock='$i' id='paginationStock'>$i</a></li>
+        <li class='nav-item'><a class='btn btn-sm btn-dark shadow border-dark px-3' style='border-radius:50%; margin:0 1px;' href='#' paginationStock='$i' id='paginationStock'>$i</a></li>
       ";
     }
 }
 // PAGE LIMIT FUNCTION
 
 
-
+// INVENTORY TABLE CONTENT
 if(isset($_POST["getInventory"])){
     $limit = 20;
     if(isset($_POST["setPage"])){
@@ -63,6 +64,7 @@ if(isset($_POST["getInventory"])){
      ";
     }
 }
+// END INVENTORY TABLE CONTENT
 
 
 
@@ -112,6 +114,7 @@ if(isset($_POST["Allrequest"])){
    ";
   }
 }
+// END CATEGORY REQUEST
 
 
 
@@ -162,26 +165,35 @@ if(isset($_POST["request"])){
    ";
   }
 }
-
-
-
-
-
+// END CATEGORY REQUEST
 
 
 
 // SEARCH ITEM INFO
 if(isset($_POST["search"])){
     $itemBarcode = $_POST['itemBarcode'];
-    $qry = "SELECT * FROM inventory WHERE item_barcode = :itemBarcode"; 
+    $qry = "SELECT item_stock FROM inventory WHERE item_barcode = :itemBarcode";
     $statement=$pdo->prepare($qry);
-    $statement->execute([':itemBarcode' => $itemBarcode]);
-    $fetchItem = $statement->fetchAll(PDO::FETCH_OBJ);
-    $count = $statement->rowCount();
-    if($count > 0 ){
-        echo json_encode($fetchItem);
+    $statement->execute(
+      array(
+          'itemBarcode' => $_POST["itemBarcode"],
+      )
+    );
+    $data = [];
+    $stock = $statement2->fetch(PDO::FETCH_ASSOC);
+    if($stock['item_stock'] == 0){
+      echo 3;
     }else{
-      echo 0;
+      $qry = "SELECT * FROM inventory WHERE item_barcode = :itemBarcode"; 
+      $statement=$pdo->prepare($qry);
+      $statement->execute([':itemBarcode' => $itemBarcode]);
+      $fetchItem = $statement->fetchAll(PDO::FETCH_OBJ);
+      $count = $statement->rowCount();
+        if($count > 0 ){
+            echo json_encode($fetchItem);
+        }else{
+          echo 0;
+        }
     }
 }
 ?>
