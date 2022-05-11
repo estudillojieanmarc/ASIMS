@@ -36,7 +36,7 @@
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Manage Account</a></li>
+              <li><a class="dropdown-item" href="http://localhost/ASIMS/manageAccount.php">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
             </ul>
@@ -76,7 +76,7 @@
                     </ul>
                 </li>             
                 <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
-                <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+                <!-- <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li> -->
                 </ul>
             </div>   
             <div class="sidebar-footer">

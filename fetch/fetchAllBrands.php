@@ -29,7 +29,7 @@ if(isset($_POST["getBrand"])){
     }else{
       $start = 0;
     }
-    $qry = "SELECT * FROM brandname ORDER BY brand_id ASC LIMIT $start,$limit";
+    $qry = "SELECT * FROM brandname WHERE brand_id != 1 ORDER BY brand_id ASC LIMIT $start,$limit";
     $statement=$pdo->prepare($qry);
     $statement->execute();
     $brand = $statement->fetchAll(PDO::FETCH_OBJ);

@@ -27,7 +27,7 @@
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Manage Account</a></li>
+              <li><a class="dropdown-item" href="http://localhost/ASIMS/manageAccount.php">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
             </ul>
@@ -63,7 +63,7 @@
               <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
                   <ul>
                       <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
-                      <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
+                      <li><a href="http://localhost/ASIMS/newSales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
                   </ul>
               </li>             
               <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
@@ -108,8 +108,8 @@
                   <option value='100'>100 Rows</option>
                   </select>                   
                 </div>
-                <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
-                <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button"><i class="fa-solid fa-file-excel"></i> Excel</button>
+                <a href="/ASIMS/php/stockPrint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
+                <button name="createExcel" id="createExcel" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button"><i class="fa-solid fa-file-excel"></i> Excel</button>
                 <a href="http://localhost/ASIMS/inventory.php" role="button" style="border-radius:4px;" class="btn mx-1 border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
                 <div class="col-3">
                 <select class="form-select border-secondary text-dark"  name="allItemCategory" id="allItemCategory"><!-- CATEGORY --></select>                   
@@ -124,19 +124,21 @@
             </div>
           <div class="row mt-2 px-2">
             <div class="card pt-3 bg-light border-2">
-            <table class="table align-middle text-center table-borderless table-striped shadow table-hover" id="stockTable">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Barcode</th>
-                  <th scope="col">Item Name</th>
-                  <th scope="col">Category</th>
-                  <th scope="col">Stock (pcs)</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody id="showInventory"><!-- INVENTORY DATA --></tbody>
-            </table>
+            <div class="table-responsive" id="showInventoryTable">
+              <table class="table align-middle text-center table-borderless table-striped shadow table-hover" id="stockTable">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Barcode</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Stock (pcs)</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="showInventory"><!-- INVENTORY DATA --></tbody>
+              </table>
+            </div>
             </div>
             <div class="row">
                 <div class="col-12">
@@ -338,7 +340,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/logout.js"></script>
-    <script src="function/inv.js"></script>
+    <script src="function/inventory.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

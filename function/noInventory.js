@@ -399,3 +399,34 @@ $(document).ready(function(){
     });
 });  
 // DROPDOWN FILTER FOR CATEGORY
+
+
+
+
+
+// CREATE EXCEL
+$(document).ready(function(){  
+    $('#createExcel').click(function(){  
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to export this table to excel?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Export it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Exported!',
+                    'Inventory Table has been export to excel file',
+                    'success'
+                )
+                var excelData = $('#showNoInventoryTable').html();
+                window.location = "http://localhost/ASIMS/php/excel.php?data=" +excelData;
+                console.log(excelData);
+            }
+          })
+    });  
+});  
+// CREATE EXCEL

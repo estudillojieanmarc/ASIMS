@@ -93,49 +93,60 @@
           <div class="container-fluid">
             <div class="row pt-4">
                   <!-- START OF LEFT UI -->
-                    <div class="col-6 pt-2">
-                          <img class="img-thumbnail border-0" src="assets/img/stat.png">
+                    <div class="col-6 pt-4">
+                          <img class="img-thumbnail border-0" src="assets/img/account.png">
                     </div>
                   <!-- END OF LEFT UI -->
                   
                   <!-- START OF RIGHT UI -->
                     <div class="col-6 px-4">
                       <div class="card border-0">
-                            <div class="container mt-4 px-5">
-                            <form id="addSalesForm">
-                            <h4 class="pt-5 text-center">NEW SALES REPORT</h4>     
-                              <div class="row  px-2">
-                                  <div class="row g-2 mb-2 mt-4">
+                            <div class="container px-3">
+                            <form id="updateAccount">
+                              <div class="row px-2">
+                                  <div class="row ">
+                                      <div class="col-7 pt-5">
+                                              <label class="form-label pt-5">Profile Picture</label>
+                                              <input class="form-control mb-2" type="file" name="profilePicture">
+                                      </div>
+                                      <div class="col-5 text-center">
+                                            <img class="img-thumbnail border-0" style="height:200px; clip-path:circle();" id="profilePicture" src="">
+                                      </div>
+                                  </div>
+                                  <div class="row ">
+                                      <div class="col-7">
+                                          <label class="form-label">Fullname</label>
+                                          <input type="text" class="form-control mb-2 shadow border-2" id="fullname" name="fullname">
+                                      </div>
+                                      <div class="col-5">
+                                          <label class="form-label">Position</label>
+                                          <input type="text" class="form-control mb-2 shadow border-2" id="position" name="position">
+                                      </div>
+                                  </div>
+                                  <div class="">
+                                      <label class="form-label">Email Address:</label>
+                                      <input class="form-control mb-2 shadow border-2" type="text" id="email" name="email">
+                                  </div>
+                                  <div class="row ">
                                       <div class="col-6">
-                                          <label class="form-label">Receipt Number:</label>
-                                          <input type="text" class="form-control shadow border-2" id="receipNo" name="receipNo" placeholder="Enter Receipt Number">
+                                          <label class="form-label">Username:</label>
+                                          <input type="text" class="form-control mb-2 shadow border-2" id="username" name="username">
                                       </div>
                                       <div class="col-6">
-                                          <label class="form-label">Purchased On:</label>
-                                          <input type="date" class="form-control shadow border-2" id="purchasedOn" name="purchasedOn" placeholder="Customer Name">
+                                          <label class="form-label">Password:</label>
+                                          <input type="password" class="form-control mb-4 shadow border-2" id="password" name="password">
                                       </div>
                                   </div>
-                                  <div class="mb-2 g-2">
-                                      <label class="form-label">Customer Name:</label>
-                                      <input class="form-control shadow border-2" type="text" id="customerName" name="customerName" placeholder="Enter Customer Name">
-                                  </div>
-                                  <div class="row g-2 mb-2">
-                                      <div class="col-4">
-                                          <label class="form-label">Item Barcode:</label>
-                                          <input type="text" class="form-control shadow border-2" id="itemCode" name="itemCode" placeholder="Item Barcode">
-                                      </div>
-                                      <div class="col-4">
-                                          <label class="form-label">Quantity:</label>
-                                          <input type="number" class="form-control shadow border-2" min="0" id="itemQty" name="itemQty"placeholder="Item Qty">
-                                      </div>
-                                      <div class="col-4">
-                                          <label class="form-label">Total Sales:</label>
-                                          <input type="text" class="form-control shadow border-2" id="totalSales" name="totalSales" placeholder="Total Sales">
-                                      </div>                                    
-                                  </div>
-                                  <div class="row mt-4 px-5">
-                                      <button type="button" class="btn btn-dark py-2" id="addSalesButton">SUBMIT</button>
-                                      </form>
+                                  <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" onclick="seePassword()"
+                                            id="flexCheckIndeterminate">
+                                        <label class="form-check-label text-dark" for="flexCheckIndeterminate">Show Password</label>
+                                    </div>
+                                </div>
+                                  <div class="row mt-2 px-5">
+                                      <button type="button" class="btn btn-dark py-2" id="updateButton">Save Changes</button>
+                                 </form>
                                   </div>
                               </div>  
                             </form>
@@ -155,7 +166,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/sales.js"></script>
+    <script src="function/manageAccount.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

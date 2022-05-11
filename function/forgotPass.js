@@ -18,7 +18,7 @@
         )
     }else{
       $.ajax({
-      url:"/ASIMS/php/forgotP.php",
+      url:"/ASIMS/php/forgotPassword.php",
       method:"POST",
       dataType:"text",
       data:{
@@ -26,7 +26,7 @@
         emailAddress:emailAddress,
       },
       success: function(response) {
-            if(response == "Email send, Check your mail box"){
+            if(response == 1){
                 $("#forgotForm").trigger("reset");
                 Swal.fire(
                 'Email Has Send Successfully',
@@ -39,13 +39,13 @@
                 'Sorry, Email has not send',
                 'error'
                 )
-            }else if(response == "Email not found"){
+            }else if(response == 2){
                 Swal.fire(
                 'Wrong Email Address',
                 'Enter the email address that you inserted in your account',
                 'error'
                 )
-            }else if(response == "Email not exist"){
+            }else if(response == 3){
                 Swal.fire(
                 'Email Not Exist',
                 'Sorry, Enter valid email address',

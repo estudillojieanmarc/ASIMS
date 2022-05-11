@@ -57,7 +57,7 @@ if(isset($_POST["getInventory"])){
             <td style='width:1px'></td>
             <td style='width:4rem'></td>
             <td style='width:7rem'></td>
-            <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO ITEMS WERE STORED</td>
+            <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO ITEMS AVAILABLE</td>
             <td style='width:7rem'></td>
             <td style='width:1px'></td>
       </tr>
@@ -107,7 +107,7 @@ if(isset($_POST["Allrequest"])){
           <td style='width:1px'></td>
           <td style='width:4rem'></td>
           <td style='width:7rem'></td>
-          <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO ITEMS WERE STORED</td>
+          <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO ITEMS AVAILABLE</td>
           <td style='width:7rem'></td>
           <td style='width:1px'></td>
     </tr>

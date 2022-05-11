@@ -171,7 +171,8 @@
                                 Swal.fire({
                                     position: 'center',
                                     icon: 'success',
-                                    title: 'NEW ITEM HAVE ALREADY BEEN STORED',
+                                    title: 'ADD SUCCESSFULLY',
+                                    text: 'NEW ITEM HAVE ALREADY BEEN STORED',
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
@@ -445,3 +446,32 @@
         });
     });  
 // DROPDOWN FILTER FOR ROWS
+
+
+
+// CREATE EXCEL
+$(document).ready(function(){  
+    $('#createExcel').click(function(){  
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to export this table to excel?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Export it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                var excelData = $('#showInventoryTable').html();
+                window.location = "http://localhost/ASIMS/php/excel.php?data=" +excelData;
+                console.log(excelData);
+                Swal.fire(
+                    'Exported!',
+                    'Inventory Table has been export to excel file',
+                    'success'
+                )
+            }
+          })
+    });  
+});  
+// CREATE EXCEL

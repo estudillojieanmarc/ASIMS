@@ -36,7 +36,7 @@
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Manage Account</a></li>
+              <li><a class="dropdown-item" href="http://localhost/ASIMS/manageAccount.php">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
             </ul>
@@ -99,14 +99,14 @@
                   <li class="nav-item">
                       <a class="nav-link" href="http://localhost/ASIMS/addSales.php">Add Sales</a>
                   </li>
-                  </ul>
+                </ul>
+
                 <div class="row pt-3">
                   <div class="col-8 d-flex">
-                    <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
-                    <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" data-bs-toggle="modal" data-bs-target="#addSales"><i class="fa-solid fa-file-excel"></i>  Excel</button>
+                    <a href="/ASIMS/php/salesPrint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
+                    <button id="createExcel" name="createExcel" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" data-bs-toggle="modal" data-bs-target="#addSales"><i class="fa-solid fa-file-excel"></i>  Excel</button>
                     <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="deleteAllSales"><i class="fa-solid fa-trash-can"></i> Delete</button>
                     <a href="http://localhost/ASIMS/sales.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2 mx-1"> <i class="fa-solid fa-rotate"></i> Refresh</a>
-
                   </div>
                   <div class="col-4 ms-auto">
                     <form class="d-flex">
@@ -117,6 +117,7 @@
                 </div>
               <div class="row mt-2">
               <div class="card pt-3 bg-light border-2">
+                <div class="table-responsive" id="showSalesTable">
                 <table id="salesTable" class="table align-middle text-center table-borderless table-striped shadow table-hover">
                   <thead class="align-middle">
                     <tr>
@@ -132,6 +133,7 @@
                   <tbody id="showSales"><!-- INVENTORY DATA --></tbody>
                 </table>
                 </div>
+                </div> 
                 <div class="row">
                 <div class="col-12">
                     <ul class="pagination mt-1 float-end" id="pageno"></ul></div>

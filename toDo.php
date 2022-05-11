@@ -28,12 +28,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown px-3">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i style="font-size:18px;" class="fa-solid fa-user text-light"></i>
-          </a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i style="font-size:18px;" class="fa-solid fa-user text-light"></i>
+            </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Manage Account</a></li>
+              <li><a class="dropdown-item" href="http://localhost/ASIMS/manageAccount.php">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
             </ul>
@@ -43,82 +43,80 @@
   </nav>
 <!-- NAV BAR -->
 
-
 <!-- CONTENT -->
   <div class="row">
-<!-- SIDE BAR -->
-  <div class="col-2">
-      <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-          <div class="sidebar-header">
-            <div class="userContent">
-                <div class="userProfile">
-                      <img src="./assets/img/red.png">
-                      <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
-                      <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
-                </div>
+  <!-- SIDE BAR -->
+    <div class="col-2">
+        <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="sidebar-header">
+              <div class="userContent">
+                  <div class="userProfile">
+                        <img src="./assets/img/red.png">
+                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
+                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
+                  </div>
+              </div>
+            </div>
+            <div class="sidebar-body">
+              <ul>
+                <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
+                    <ul>
+                        <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-file"></i> Stock Report</a></li>
+                        <li><a href="http://localhost/ASIMS/Addinventory.php"><i class="fa-solid fa-plus"></i> Add Stock</a></li>
+                    </ul>
+                </li>  
+                <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
+                    <ul>
+                        <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
+                        <li><a href="http://localhost/ASIMS/newSales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
+                    </ul>
+                </li>             
+                <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+                <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+              </ul>
+            </div>   
+            <div class="sidebar-footer">
+                <p class="text-center" id="dateDisplay"></p>
+                <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
+                <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
             </div>
           </div>
-          <div class="sidebar-body">
-            <ul>
-              <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
-              <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
-                  <ul>
-                      <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-file"></i> Stock Report</a></li>
-                      <li><a href="http://localhost/ASIMS/Addinventory.php"><i class="fa-solid fa-plus"></i> Add Stock</a></li>
-                  </ul>
-              </li>  
-              <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
-                  <ul>
-                      <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
-                      <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
-                  </ul>
-              </li>             
-              <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
-              <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
-            </ul>
-          </div>   
-          <div class="sidebar-footer">
-              <p class="text-center" id="dateDisplay"></p>
-              <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
-              <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
+        </div>
+  <!-- END SIDE BAR -->
+
+  <!-- MAIN BAR -->
+    <div class="col-10">
+      <div class="container-fluid">
+        <h4 class="pt-5">A&S MOTORSHOP TASK <i class="fa-solid fa-list-check px-1"></i></h4>
+        <ul class="nav nav-tabs my-4">
+          <li class="nav-item">
+              <a class="nav-link active" href="http://localhost/ASIMS/toDo.php">&nbsp;&nbsp;Task&nbsp;&nbsp;</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Archive</a>
+          </li>
+          </ul>
+        <div class="row pt-3">
+          <div class="col-8 d-flex">
+            <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" data-bs-toggle="modal" data-bs-target="#addTask"><i class="fa-solid fa-plus"></i> Add Task</button>
+            <a href="http://localhost/ASIMS/toDo.php" role="button" style="border-radius:4px;" class="btn mx-1 border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
+          </div>
+          <div class="col-4 ms-auto">
+            <form class="d-flex">
+              <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
+              <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
           </div>
         </div>
-      </div>
-<!-- END SIDE BAR -->
 
-<!-- MAIN BAR -->
-  <div class="col-10">
-    <div class="container-fluid">
-      <h4 class="pt-5">A&S MOTORSHOP TASK <i class="fa-solid fa-list-check px-1"></i></h4>
-      <ul class="nav nav-tabs my-4">
-        <li class="nav-item">
-            <a class="nav-link active" href="http://localhost/ASIMS/toDo.php">&nbsp;&nbsp;Task&nbsp;&nbsp;</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Archive</a>
-        </li>
-        </ul>
-      <div class="row pt-3">
-        <div class="col-8 d-flex">
-          <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" data-bs-toggle="modal" data-bs-target="#addTask"><i class="fa-solid fa-plus"></i> Add Task</button>
-          <a href="http://localhost/ASIMS/toDo.php" role="button" style="border-radius:4px;" class="btn mx-1 border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
-        </div>
-        <div class="col-4 ms-auto">
-          <form class="d-flex">
-            <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
-            <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
-          </form>
-        </div>
+      <div class="row mt-1 mb-2 mx-1" id="showTask">
+          
       </div>
-
-    <div class="row mt-1 mb-2 mx-1" id="showTask">
-        
     </div>
-  </div>
-<!-- MAIN BAR -->
+  <!-- MAIN BAR -->
   </div>
 <!-- CONTENT -->
-
 
 <!-- MODAL -->
     <!-- ADD TASK -->

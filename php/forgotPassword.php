@@ -54,9 +54,10 @@ session_start();
                         'verify_peer_name' => false,
                         'allow_self_signed' => true
                         )
-                        );
+                    );
                     if($mail->send()){
-                        echo "Email send, Check your mail box";
+                        // "Email send, Check your mail box"
+                        echo 1;
                     }else{
                         echo "Mailer Error: " . $mail->ErrorInfo;
                     }
@@ -65,11 +66,13 @@ session_start();
                 }   
             }
         }else{
-            echo "Email not found";
+            // EMAIL NOT FOUND
+            echo 2; 
         }
 
     }else{
-        echo "Email not exist";
+        // EMAIL NOT EXIST
+        echo 3;
     }
 
 

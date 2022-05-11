@@ -26,7 +26,7 @@
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Manage Account</a></li>
+              <li><a class="dropdown-item" href="http://localhost/ASIMS/manageAccount.php">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
             </ul>
@@ -62,7 +62,7 @@
               <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
                   <ul>
                       <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
-                      <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
+                      <li><a href="http://localhost/ASIMS/newSales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
                   </ul>
               </li>             
               <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
@@ -107,8 +107,8 @@
                   <option value='100'>100 Rows</option>
                   </select>                   
               </div>
-              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="printAll"> <i class="fa-solid fa-print"></i> Print</button>
-              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="printAll"><i class="fa-solid fa-file-excel"></i> Excel</button>
+              <a href="/ASIMS/php/noStockprint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
+              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" name="createExcel" id="createExcel"><i class="fa-solid fa-file-excel"></i> Excel</button>
               <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="deleteAll"><i class="fa-solid fa-trash-can"></i> Delete</button>
               <a href="http://localhost/ASIMS/noStock.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
               <div class="col-2 mx-1">
@@ -124,6 +124,7 @@
             </div>
           <div class="row mt-2">
             <div class="card pt-3 bg-light border-2">
+            <div class="table-responsive" id="showNoInventoryTable">
             <table class="table align-middle text-center table-borderless table-striped shadow rounded table-hover">
                 <thead class="align-middle">
                 <tr>
@@ -138,6 +139,7 @@
               </thead>
               <tbody id="showNoStock"><!-- INVENTORY DATA --></tbody>
             </table>
+            </div>
             </div>
             <div class="row">
                 <div class="col-12">
@@ -223,7 +225,7 @@
                             <div class="col-6">
                             <div class="mb-3">
                                 <label for="formFile" class="form-label px-1 text-secondary">Item Stock</label>
-                                <input type="number" class="form-control" id="updateItemStock" name="updateItemStock">
+                                <input type="number" min="0" class="form-control" id="updateItemStock" name="updateItemStock">
                             </div>
                             </div>
                             <div class="col-6">
@@ -254,7 +256,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/logout.js"></script>
-    <script src="function/noInv.js"></script>
+    <script src="function/noInventory.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

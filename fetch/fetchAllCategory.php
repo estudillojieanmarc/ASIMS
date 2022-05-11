@@ -27,7 +27,7 @@ if(isset($_POST["getCategory"])){
     }else{
       $start = 0;
     }
-    $qry = "SELECT * FROM categoryname ORDER BY cat_id ASC LIMIT $start,$limit";
+    $qry = "SELECT * FROM categoryname WHERE cat_id != 1 ORDER BY cat_id ASC LIMIT $start,$limit";
     $statement=$pdo->prepare($qry);
     $statement->execute();
     $category = $statement->fetchAll(PDO::FETCH_OBJ);
