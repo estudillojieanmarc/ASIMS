@@ -55,7 +55,7 @@
               <div class="userContent">
                   <div class="userProfile">
                         <img src="./assets/img/red.png">
-                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
+                        <input type="text" class="border-0"text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
                         <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
                   </div>
               </div>
@@ -95,84 +95,102 @@
 
   <!-- MAIN BAR -->
     <div class="col-10">
-          <!-- CARDS -->
-          <div class="container mt-4">
-            <div class="row">
-              <div class="col-3">
-                <div class="card bg-dark shadow" style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4">
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-coins pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold">₱<span id="totalSales">100</span></p>
-                                <p class="card-text text-light"><a class="text-light" style="text-decoration:none;" href="http://localhost/ASIMS/sales.php">TOTAL SALES</a></p>
-                            </div>   
-                        </div>   
+        <div class="container">
+          <h4 class="pt-5">A&S MOTORSHOP EMPLOYEES <i class="fa-solid fa-users"></i></h4>
+            <ul class="nav nav-tabs my-4 ">
+              <li class="nav-item">
+                  <a class="nav-link active" href="/ASIMS/employees.php">&nbsp;&nbsp;Active&nbsp;&nbsp;</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Inactive</a>
+              </li>
+            </ul>
+                <div class="row pt-3">
+                    <div class="col-8 d-flex">
+                        <a href="/ASIMS/php/stockPrint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
+                        <button name="createExcel" id="createExcel" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button"><i class="fa-solid fa-file-excel"></i> Excel</button>
+                        <a href="http://localhost/ASIMS/employees.php" role="button" style="border-radius:4px;" class="btn mx-1 border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
+                        <div class="d-flex" id="addEmployee"></div>
+                    </div>
+                    <div class="col-4 ms-auto">
+                        <form class="d-flex">
+                        <input style="border-radius:4px;" class="form-control border-secondary" type="search" placeholder="Search" id="myInput" aria-label="Search">
+                        <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
                     </div>
                 </div>
-              </div>
-
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-boxes-stacked pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalStocks"></p>
-                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/inventory.php">TOTAL STOCKS</a></p>                               
-                            </div>   
-                        </div>   
+                <div class="row mt-2 px-2">
+                    <div class="card pt-3 bg-light border-2">
+                        <div class="table-responsive" id="showInventoryTable">
+                            <table class="table align-middle text-center table-borderless table-striped table-hover shadow" id="stockTable">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Fullname</th>
+                                    <th scope="col">Position</th>
+                                    <th scope="col">Email Address</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody id="showEmployees"><!-- INVENTORY DATA --></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-              </div>
-
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-cart-flatbed pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalNoStocks"></p>
-                                <p class="card-text text-light"><a class="text-white text-center" style="text-decoration:none;" href="http://localhost/ASIMS/noStock.php">NO STOCKS</a></p> 
-                            </div>   
-                        </div>   
-                    </div>
-                </div>
-              </div>
-
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-list-check pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalTask"></p>
-                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/toDo.php">PENDING TASK</a></p> 
-                            </div>   
-                        </div>   
-                    </div>
-                </div>
-              </div>
-              
-          </div>
-          <!-- END CARDS -->
-
-    </div>
+            </div>
+        </div>
   <!-- END MAIN BAR -->
   </div>
 <!-- CONTENT -->
 
+<!-- MODAL -->
+      <!-- VIEW MODAL -->
+            <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">                 
+                        <div class="modal-body mb-2">
+                        <!-- START OF MODAL BODY -->
+                            <div class="row">
+                                <div class="col-11"><h5 class="modal-title" id="exampleModalLabel">Employees Details</h5></div>
+                                <div class="col-1"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>                            
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-12 text-center">
+                                    <img class="img-thumbnail border-0" style="height:180px;" id="profilePicture" src="">
+                                </div>
+                            </div>
+                            <div class="row mt-2 g-1">
+                                <div class="col-8">
+                                    <label class="col-form-label text-muted px-2">Fullname</label>
+                                    <input type="text" readonly style="background-color:transparent; border-radius:20px;" id="fullname" class="form-control  border-1">
+                                </div>
+                                <div class="col-4 text">
+                                    <label class="col-form-label text-muted px-2">Position</label>
+                                    <input type="text" readonly style="background-color:transparent; border-radius:20px;" id="position" class="form-control border-1">
+                                </div>
+                            </div>
+                            <div class="row mt-2 g-1">
+                                <div class="col-4">
+                                    <label class="col-form-label text-muted px-2">Phone Number</label>
+                                    <input type="text" readonly style="background-color:transparent; border-radius:20px;" id="phoneNumber" class="form-control  border-1">
+                                </div>
+                                <div class="col-8">                                   
+                                    <label class="col-form-label text-muted px-2">Email Address</label>
+                                    <input type="text" readonly style="background-color:transparent; border-radius:20px;" id="emailAddress" class="form-control  border-1">
+                                </div>                               
+                            </div>
+                        <!-- END OF MODAL BODY -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+      <!-- VIEW MODAL -->
+<!-- MODAL -->
+
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
-    <script src="function/dashboards.js"></script>
+    <script src="function/employees.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>

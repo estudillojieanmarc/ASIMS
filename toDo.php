@@ -46,7 +46,7 @@
 <!-- CONTENT -->
   <div class="row">
   <!-- SIDE BAR -->
-    <div class="col-2">
+      <div div class="col-2">
         <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="sidebar-header">
               <div class="userContent">
@@ -58,8 +58,13 @@
               </div>
             </div>
             <div class="sidebar-body">
-              <ul>
-                <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+              <ul>                
+                <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-folder"></i> Reports<div class='fa fa-caret-down right pt-1'></div></a>
+                    <ul>
+                    <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="http://localhost/ASIMS/employees.php"><i class="fa-solid fa-user-group"></i> Employees</a></li>
+                    </ul>
+                </li>  
                 <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
                     <ul>
                         <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-file"></i> Stock Report</a></li>
@@ -82,7 +87,7 @@
                 <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
             </div>
           </div>
-        </div>
+      </div>
   <!-- END SIDE BAR -->
 
   <!-- MAIN BAR -->

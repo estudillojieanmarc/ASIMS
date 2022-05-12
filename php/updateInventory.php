@@ -40,8 +40,8 @@
          $uploadOk = 0;
          exit();  
      }
-     else {
-        if (move_uploaded_file($_FILES["updateItemImage"]["tmp_name"], $target_file)) {
+    else{
+            if (move_uploaded_file($_FILES["updateItemImage"]["tmp_name"], $target_file)) {
                     $qry = "SELECT item_image FROM inventory WHERE id = $updateItemID";
                     $statement=$pdo->prepare($qry);
                     $statement->execute();
@@ -55,29 +55,22 @@
                 item_description = :updateItemDescription, item_stock = :updateItemStock, item_brand = :updateItemBrand, 
                 item_category =  :updateItemCategory, item_price = :updateItemPrice WHERE id = $updateItemID";
                 $statement = $pdo->prepare($qry);
-                if($statement->execute([':updateItemName' => $updateItemName, ':updateItemCode' => $updateItemCode, 
-                ':updateItemImage' => $updateItemImage, ':updateItemDescription' => $updateItemDescription, ':updateItemStock' => $updateItemStock, 
-                ':updateItemBrand' => $updateItemBrand, ':updateItemCategory' => $updateItemCategory, 
-                ':updateItemPrice' => $updateItemPrice])){
+                if($statement->execute([':updateItemName' => $updateItemName, ':updateItemCode' => $updateItemCode, ':updateItemImage' => $updateItemImage, ':updateItemDescription' => $updateItemDescription, ':updateItemStock' => $updateItemStock, ':updateItemBrand' => $updateItemBrand, ':updateItemCategory' => $updateItemCategory, ':updateItemPrice' => $updateItemPrice])){
                     echo 1;
                 }else{
                     echo 0;
                 }
             }
-            }
         }
-        else{
+    }else{
             $qry = "UPDATE inventory SET item_name = :updateItemName , item_barcode = :updateItemCode,
             item_description = :updateItemDescription, item_stock = :updateItemStock, item_brand = :updateItemBrand, 
             item_category =  :updateItemCategory, item_price = :updateItemPrice WHERE id = $updateItemID";
             $statement = $pdo->prepare($qry);
-            if($statement->execute([':updateItemName' => $updateItemName, ':updateItemCode' => $updateItemCode, 
-            ':updateItemDescription' => $updateItemDescription, ':updateItemStock' => $updateItemStock, 
-            ':updateItemBrand' => $updateItemBrand, ':updateItemCategory' => $updateItemCategory, 
-            ':updateItemPrice' => $updateItemPrice])){
+            if($statement->execute([':updateItemName' => $updateItemName, ':updateItemCode' => $updateItemCode, ':updateItemDescription' => $updateItemDescription, ':updateItemStock' => $updateItemStock, ':updateItemBrand' => $updateItemBrand, ':updateItemCategory' => $updateItemCategory, ':updateItemPrice' => $updateItemPrice])){
                 echo 1;
             }else{
                 echo 0;
             }
-}
+        }
 ?>

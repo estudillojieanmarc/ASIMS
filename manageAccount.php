@@ -48,115 +48,120 @@
 
 <!-- CONTENT -->
   <div class="row">
-      <!-- SIDE BAR -->
-          <div class="col-2">
-          <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-              <div class="sidebar-header">
-                  <div class="userContent">
-                      <div class="userProfile">
-                          <img src="./assets/img/red.png">
-                          <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
-                          <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
-                      </div>
+  <!-- SIDE BAR -->
+          <div div class="col-2">
+        <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="sidebar-header">
+              <div class="userContent">
+                  <div class="userProfile">
+                        <img src="./assets/img/red.png">
+                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
+                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
                   </div>
               </div>
-              <div class="sidebar-body">
-                  <ul>
-                  <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
-                  <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
-                      <ul>
-                          <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-file"></i> Stock Report</a></li>
-                          <li><a href="http://localhost/ASIMS/Addinventory.php"><i class="fa-solid fa-plus"></i> Add Stock</a></li>
-                      </ul>
-                  </li>  
-                  <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
-                      <ul>
-                          <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
-                          <li><a href="http://localhost/ASIMS/addSales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
-                      </ul>
-                  </li>             
-                  <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
-                  <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
-                  </ul>
-              </div>   
-              <div class="sidebar-footer">
-                  <p class="text-center" id="dateDisplay"></p>
-                  <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
-                  <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
-              </div>
-              </div>
-          </div>
-      <!-- END SIDE BAR -->
-
-      <!-- MAIN BAR -->
-        <div class="col-10">
-          <div class="container-fluid">
-            <div class="row pt-4">
-                  <!-- START OF LEFT UI -->
-                    <div class="col-6 pt-4">
-                          <img class="img-thumbnail border-0" src="assets/img/account.png">
-                    </div>
-                  <!-- END OF LEFT UI -->
-                  
-                  <!-- START OF RIGHT UI -->
-                    <div class="col-6 px-4">
-                      <div class="card border-0">
-                            <div class="container px-3">
-                            <form id="updateAccount">
-                              <div class="row px-2">
-                                  <div class="row ">
-                                      <div class="col-7 pt-5">
-                                              <label class="form-label pt-5">Profile Picture</label>
-                                              <input class="form-control mb-2" type="file" name="profilePicture">
-                                      </div>
-                                      <div class="col-5 text-center">
-                                            <img class="img-thumbnail border-0" style="height:200px; clip-path:circle();" id="profilePicture" src="">
-                                      </div>
-                                  </div>
-                                  <div class="row ">
-                                      <div class="col-7">
-                                          <label class="form-label">Fullname</label>
-                                          <input type="text" class="form-control mb-2 shadow border-2" id="fullname" name="fullname">
-                                      </div>
-                                      <div class="col-5">
-                                          <label class="form-label">Position</label>
-                                          <input type="text" class="form-control mb-2 shadow border-2" id="position" name="position">
-                                      </div>
-                                  </div>
-                                  <div class="">
-                                      <label class="form-label">Email Address:</label>
-                                      <input class="form-control mb-2 shadow border-2" type="text" id="email" name="email">
-                                  </div>
-                                  <div class="row ">
-                                      <div class="col-6">
-                                          <label class="form-label">Username:</label>
-                                          <input type="text" class="form-control mb-2 shadow border-2" id="username" name="username">
-                                      </div>
-                                      <div class="col-6">
-                                          <label class="form-label">Password:</label>
-                                          <input type="password" class="form-control mb-4 shadow border-2" id="password" name="password">
-                                      </div>
-                                  </div>
-                                  <div class="mb-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onclick="seePassword()"
-                                            id="flexCheckIndeterminate">
-                                        <label class="form-check-label text-dark" for="flexCheckIndeterminate">Show Password</label>
-                                    </div>
-                                </div>
-                                  <div class="row mt-2 px-5">
-                                      <button type="button" class="btn btn-dark py-2" id="updateButton">Save Changes</button>
-                                 </form>
-                                  </div>
-                              </div>  
-                            </form>
-                      </div>   
-                    </div>   
-                  <!-- END OF RIGHT UI -->
+            </div>
+            <div class="sidebar-body">
+              <ul>                
+                <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-folder"></i> Reports<div class='fa fa-caret-down right pt-1'></div></a>
+                    <ul>
+                    <li><a href="http://localhost/ASIMS/dashboard.php"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="http://localhost/ASIMS/employees.php"><i class="fa-solid fa-user-group"></i> Employees</a></li>
+                    </ul>
+                </li>  
+                <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-boxes-stacked"></i> Inventory<div class='fa fa-caret-down right pt-1'></div></a>
+                    <ul>
+                        <li><a href="http://localhost/ASIMS/inventory.php"><i class="fa-solid fa-file"></i> Stock Report</a></li>
+                        <li><a href="http://localhost/ASIMS/Addinventory.php"><i class="fa-solid fa-plus"></i> Add Stock</a></li>
+                    </ul>
+                </li>  
+                <li class='sub-menu'><a href='#settings'><i class="fa-solid fa-coins"></i> Sales<div class='fa fa-caret-down right pt-1'></div></a>
+                    <ul>
+                        <li><a href="http://localhost/ASIMS/sales.php"><i class="fa-solid fa-file"></i> Sales Report</a></li>
+                        <li><a href="http://localhost/ASIMS/newSales.php"><i class="fa-solid fa-plus"></i> Add Sales</a></li>
+                    </ul>
+                </li>             
+                <li><a href="http://localhost/ASIMS/toDo.php"><i class="fa-solid fa-list-check"></i> To Do  <span class="badge bg-danger text-white mx-1" id="todoQty"> 0</span></a></li>
+                <li><a href="http://localhost/ASIMS/history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+              </ul>
+            </div>   
+            <div class="sidebar-footer">
+                <p class="text-center" id="dateDisplay"></p>
+                <p class="text-center" style="letter-spacing:1px; font-size:15px;" id="clockDisplay"></p>
+                <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout?"></p>
             </div>
           </div>
+      </div>
+  <!-- END SIDE BAR -->
+
+  <!-- MAIN BAR -->
+    <div class="col-10">
+      <div class="container-fluid">
+        <div class="row pt-4">
+              <!-- START OF LEFT UI -->
+                <div class="col-6 pt-4">
+                      <img class="img-thumbnail border-0" src="assets/img/account.png">
+                </div>
+              <!-- END OF LEFT UI -->
+              
+              <!-- START OF RIGHT UI -->
+                <div class="col-6 px-4">
+                  <div class="card border-0">
+                        <div class="container px-3">
+                        <form id="updateAccount">
+                          <div class="row px-2">
+                              <div class="row ">
+                                  <div class="col-7 pt-5">
+                                          <label class="form-label pt-5">Profile Picture</label>
+                                          <input class="form-control mb-2" type="file" name="profilePicture">
+                                  </div>
+                                  <div class="col-5 text-center">
+                                        <img class="img-thumbnail border-0" style="height:200px; clip-path:circle();" id="profilePicture" src="">
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-7">
+                                      <label class="form-label">Fullname</label>
+                                      <input type="text" class="form-control mb-2 shadow border-2" id="fullname" name="fullname">
+                                  </div>
+                                  <div class="col-5">
+                                      <label class="form-label">Position</label>
+                                      <input type="text" class="form-control mb-2 shadow border-2" id="position" name="position">
+                                  </div>
+                              </div>
+                              <div class="">
+                                  <label class="form-label">Email Address:</label>
+                                  <input class="form-control mb-2 shadow border-2" type="text" id="email" name="email">
+                              </div>
+                              <div class="row ">
+                                  <div class="col-6">
+                                      <label class="form-label">Username:</label>
+                                      <input type="text" class="form-control mb-2 shadow border-2" id="username" name="username">
+                                  </div>
+                                  <div class="col-6">
+                                      <label class="form-label">Password:</label>
+                                      <input type="password" class="form-control mb-4 shadow border-2" id="password" name="password">
+                                  </div>
+                              </div>
+                              <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" onclick="seePassword()"
+                                        id="flexCheckIndeterminate">
+                                    <label class="form-check-label text-dark" for="flexCheckIndeterminate">Show Password</label>
+                                </div>
+                            </div>
+                              <div class="row mt-2 px-5">
+                                  <button type="button" class="btn btn-dark py-2" id="updateButton">Save Changes</button>
+                              </form>
+                              </div>
+                          </div>  
+                        </form>
+                  </div>   
+                </div>   
+              <!-- END OF RIGHT UI -->
         </div>
-      <!-- END MAIN BAR -->
+      </div>
+    </div>
+  <!-- END MAIN BAR -->
   </div>
 <!-- CONTENT -->
 

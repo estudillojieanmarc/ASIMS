@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2022 at 11:41 AM
+-- Generation Time: May 12, 2022 at 03:42 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -38,7 +38,7 @@ CREATE TABLE `brandname` (
 
 INSERT INTO `brandname` (`brand_id`, `brand`) VALUES
 (1, 'No Brand'),
-(87, 'vivo');
+(89, 'Test');
 
 -- --------------------------------------------------------
 
@@ -56,8 +56,7 @@ CREATE TABLE `categoryname` (
 --
 
 INSERT INTO `categoryname` (`cat_id`, `category`) VALUES
-(1, 'No Category'),
-(44, 'spray/paint');
+(1, 'No Category');
 
 -- --------------------------------------------------------
 
@@ -70,9 +69,11 @@ CREATE TABLE `employees` (
   `fullname` varchar(250) NOT NULL,
   `position` varchar(250) NOT NULL,
   `email_address` varchar(250) NOT NULL,
+  `PhoneNumber` varchar(250) NOT NULL,
   `username` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
   `image` varchar(250) NOT NULL,
+  `is_active` int(11) NOT NULL,
   `token` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -80,10 +81,10 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`emp_id`, `fullname`, `position`, `email_address`, `username`, `password`, `image`, `token`) VALUES
-(1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', 'jieanmarc22', 'Estudillojieanmarc22', 'avatar3.jpg', 'd44b6de399841a1368de7fe3fd9eb5fd'),
-(2, 'Jan Remiel Menor', 'administrator', 'janremiel@gmail.com', 'janremiel123', 'janremiel123', 'avatar1.jpg', '2312dsf3ds'),
-(3, 'James Ybanez', 'administrator', 'james@gmail.com', 'james123', 'james123', 'avatar3.jpg', '213sdcsfs');
+INSERT INTO `employees` (`emp_id`, `fullname`, `position`, `email_address`, `PhoneNumber`, `username`, `password`, `image`, `is_active`, `token`) VALUES
+(1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320588', 'jieanmarc22', 'Estudillojieanmarc22', 'avatar3.jpg', 1, 'd44b6de399841a1368de7fe3fd9eb5fd'),
+(2, 'Jan Remiel Menor', 'Cashier', 'janremiel@gmail.com', '09103658321', 'janremiel123', 'janremiel123', 'avatar1.jpg', 0, '2312dsf3ds'),
+(3, 'James Ybanez', 'Owner', 'james@gmail.com', '09287210477', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs');
 
 -- --------------------------------------------------------
 
@@ -115,17 +116,9 @@ CREATE TABLE `sales` (
   `purchased` date NOT NULL,
   `item_barcode` varchar(250) NOT NULL,
   `customers` varchar(250) NOT NULL,
-  `method` varchar(250) NOT NULL,
   `quantity` int(11) NOT NULL,
   `total_sales` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `sales`
---
-
-INSERT INTO `sales` (`sales_id`, `receipt_no`, `purchased`, `item_barcode`, `customers`, `method`, `quantity`, `total_sales`) VALUES
-(42, '0512312wade', '2022-05-11', '#123123', 'Jiean Marc Estudillo', '', 12, 120);
 
 -- --------------------------------------------------------
 
@@ -188,13 +181,13 @@ ALTER TABLE `todo`
 -- AUTO_INCREMENT for table `brandname`
 --
 ALTER TABLE `brandname`
-  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `categoryname`
 --
 ALTER TABLE `categoryname`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -206,13 +199,13 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `todo`
