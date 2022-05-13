@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2022 at 03:42 PM
+-- Generation Time: May 13, 2022 at 01:55 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -37,8 +37,7 @@ CREATE TABLE `brandname` (
 --
 
 INSERT INTO `brandname` (`brand_id`, `brand`) VALUES
-(1, 'No Brand'),
-(89, 'Test');
+(1, 'No Brand');
 
 -- --------------------------------------------------------
 
@@ -83,8 +82,9 @@ CREATE TABLE `employees` (
 
 INSERT INTO `employees` (`emp_id`, `fullname`, `position`, `email_address`, `PhoneNumber`, `username`, `password`, `image`, `is_active`, `token`) VALUES
 (1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320588', 'jieanmarc22', 'Estudillojieanmarc22', 'avatar3.jpg', 1, 'd44b6de399841a1368de7fe3fd9eb5fd'),
-(2, 'Jan Remiel Menor', 'Cashier', 'janremiel@gmail.com', '09103658321', 'janremiel123', 'janremiel123', 'avatar1.jpg', 0, '2312dsf3ds'),
-(3, 'James Ybanez', 'Owner', 'james@gmail.com', '09287210477', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs');
+(2, 'Jan Remiel Menor', 'Cashier', 'janremiel@gmail.com', '09103658328', 'janremiel123', 'janremiel123', 'avatar1.jpg', 0, '2312dsf3ds'),
+(3, 'James Ybanez', 'Mechanic', 'jame@gmail.com', '09287210476', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs'),
+(9, 'Amira Estudillo', 'Cashier', 'Amira@gmail.com', '09474626751', 'Amira123', 'default123', 'default.png', 1, 'b4955f0841ccecf26678dc9e8fe7d0ef');
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,7 @@ ALTER TABLE `categoryname`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `inventory`

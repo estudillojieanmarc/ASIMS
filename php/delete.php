@@ -161,9 +161,29 @@ require 'connection.php';
 
 
 // REMOVING ALL SELECTED SALES
-if(isset($_POST['deleteSale'])){
-    foreach($_POST['deleteSale'] as $deleteSale){
-        $qry = "DELETE FROM sales WHERE sales_id = $deleteSale";
+    if(isset($_POST['deleteSale'])){
+        foreach($_POST['deleteSale'] as $deleteSale){
+            $qry = "DELETE FROM sales WHERE sales_id = $deleteSale";
+            $statement=$pdo->prepare($qry);
+            $statement->execute();
+            if($statement){
+                echo 1;
+            }else{
+                echo 0;
+            }
+        }
+    }
+// REMOVING ALL SELECTED SALES
+
+
+
+
+
+
+// DEACTIVATE EMPLOYEES
+    if(isset($_POST['deactivateEmployees'])){
+        $deactivateEmployees = $_POST['deactivateEmployees'];
+        $qry = "UPDATE employees SET is_active = 0 WHERE emp_id = $deactivateEmployees";
         $statement=$pdo->prepare($qry);
         $statement->execute();
         if($statement){
@@ -172,7 +192,45 @@ if(isset($_POST['deleteSale'])){
             echo 0;
         }
     }
+// DEACTIVATE EMPLOYEES
+
+
+
+
+// ACTIVATE THE EMPLOYEEES
+if(isset($_POST['activateEmployees'])){
+    $activateEmployees = $_POST['activateEmployees'];
+    $qry = "UPDATE employees SET is_active = 1 WHERE emp_id = $activateEmployees";
+    $statement=$pdo->prepare($qry);
+    $statement->execute();
+    if($statement){
+        echo 1;
+    }else{
+        echo 0;
+    }
 }
-// REMOVING ALL SELECTED SALES
+// ACTIVATE THE EMPLOYEEES
+
+
+
+
+
+// ACTIVATE THE EMPLOYEEES
+if(isset($_POST['deleteEmployees'])){
+    $deleteEmployees = $_POST['deleteEmployees'];
+    $qry = "DELETE FROM employees WHERE emp_id = $deleteEmployees";
+    $statement=$pdo->prepare($qry);
+    $statement->execute();
+    if($statement){
+        echo 1;
+    }else{
+        echo 0;
+    }
+}
+// ACTIVATE THE EMPLOYEEES
+
+
+
+
 
 ?>

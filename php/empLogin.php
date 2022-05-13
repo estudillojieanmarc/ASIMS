@@ -16,9 +16,13 @@ if (isset($_POST['login'])){
     $count = $statement->rowCount();
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     if($count == 1 && !empty($row) ){
-        $_SESSION["emp_id"] = $row["emp_id"];          
-        $_SESSION["fullname"] = $row["fullname"];          
-        echo 1;
+        if($row["is_active"] == 1){
+            $_SESSION["emp_id"] = $row["emp_id"];          
+            $_SESSION["fullname"] = $row["fullname"];          
+            echo 1;
+        }else{
+            echo 2;
+        }
     }else{
         echo 0;
     }

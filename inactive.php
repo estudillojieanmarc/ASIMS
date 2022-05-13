@@ -99,18 +99,17 @@
           <h4 class="pt-5">A&S MOTORSHOP EMPLOYEES <i class="fa-solid fa-users"></i></h4>
             <ul class="nav nav-tabs my-4 ">
               <li class="nav-item">
-                  <a class="nav-link active" href="#">&nbsp;&nbsp;Active&nbsp;&nbsp;</a>
+                  <a class="nav-link" href="/ASIMS/employees.php">Active</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/ASIMS/inactive.php">Inactive</a>
+                  <a class="nav-link active" href="#">&nbsp;&nbsp;Inactive&nbsp;&nbsp;</a>
               </li>
             </ul>
                 <div class="row pt-3">
                     <div class="col-8 d-flex">
-                        <a href="/ASIMS/php/employeesPrint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
+                        <a href="/ASIMS/php/inactivePrint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
                         <button name="createExcel" id="createExcel" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button"><i class="fa-solid fa-file-excel"></i> Excel</button>
-                        <a href="http://localhost/ASIMS/employees.php" role="button" style="border-radius:4px;" class="btn mx-1 border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
-                        <div class="d-flex" id="addEmployee"></div>
+                        <a href="http://localhost/ASIMS/inactive.php" role="button" style="border-radius:4px;" class="btn mx-1 border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
                     </div>
                     <div class="col-4 ms-auto">
                         <form class="d-flex">
@@ -133,7 +132,7 @@
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
-                                <tbody id="showEmployees"><!-- INVENTORY DATA --></tbody>
+                                <tbody id="showInactive"><!-- INACTIVE DATA --></tbody>
                             </table>
                         </div>
                     </div>
@@ -181,7 +180,7 @@
                     <div class="modal-body">
                         <div class="row g-0">
                             <div class="col-11">
-                                <h5 class="modal-title" id="exampleModalLabel">Update Employees</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Employees Information</h5>
                             </div>
                             <div class="col-1">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -190,121 +189,45 @@
                         <div class="row mb-4">
                             <form id="updateForm">
                                 <div class="row mb-3 g-2">
-                                    <input type="hidden" name="UemployeeId" id="UemployeeId" >
-                                    <img src="" class="rounded mx-auto d-block mt-4" id="UprofilePicture" style="width:200px; clip-path:circle();">
+                                    <img src="" class="rounded mx-auto d-block mt-4" id="UprofilePicture" style="width:200px;">
                                     <div class="col-7">
-                                        <label class="form-label text-muted px-2">Update Picture</label>
-                                        <input class="form-control border-2 shadow" type="file" name="UprofilePicture" style="border-radius:16px">
+                                        <label for="exampleInputEmail1" class="form-label text-muted px-2">Update Picture</label>
+                                        <input readonly class="form-control border-2 shadow" type="file" name="UprofilePicture" style="border-radius:16px; background-color:transparent;">
                                     </div>
                                     <div class="col-5">
-                                        <label class="form-label text-muted px-2">Username</label>
-                                        <input type="text" class="form-control border-2 shadow" style="border-radius:16px" name="Uusername" id="Uusername">
+                                        <label for="exampleInputPassword1" class="form-label text-muted px-2">Username</label>
+                                        <input readonly type="text" class="form-control border-2 shadow" style="border-radius:16px; background-color:transparent;" name="Uusername" id="Uusername">
                                     </div>
                                 </div>
                                 <div class="row mb-3 g-2">
                                     <div class="col-8">
-                                        <label class="form-label text-muted px-2">Fullname</label>
-                                        <input type="text" class="form-control border-2 shadow" style="border-radius:16px" name="Ufullname" id="Ufullname">
+                                        <label for="exampleInputEmail1" class="form-label text-muted px-2">Fullname</label>
+                                        <input readonly type="text" class="form-control border-2 shadow" style="border-radius:16px; background-color:transparent;" name="Ufullname" id="Ufullname">
                                     </div>
                                     <div class="col-4">
-                                        <label class="form-label text-muted px-2">Position</label>
-                                        <select name="Uposition" id="Uposition" style="border-radius:16px" class="form-select form-select border-2 shadow">
-                                            <option value="Administrator">Administrator</option>
-                                            <option value="Cashier">Cashier</option>
-                                            <option value="Owner">Owner</option>
-                                            <option value="Mechanic">Mechanic</option>
-                                        </select>
+                                        <label for="exampleInputPassword1" class="form-label text-muted px-2">Position</label>
+                                        <input readonly type="text" class="form-control border-2 shadow" style="border-radius:16px; background-color:transparent;" name="Uposition" id="Uposition">
                                     </div>
                                 </div>
                                 <div class="row mb-2 g-2">
                                     <div class="col-4">
                                         <label for="exampleInputEmail1" class="form-label text-muted px-2">Phone Number</label>
-                                        <input type="text" class="form-control border-2 shadow" style="border-radius:16px" name="UphoneNumber" id="UphoneNumber">
+                                        <input readonly type="text" class="form-control border-2 shadow" style="border-radius:16px; background-color:transparent;" name="UphoneNumber" id="UphoneNumber">
                                     </div>
                                     <div class="col-8">
-                                        <label class="form-label text-muted px-2">Email Address</label>
-                                        <input type="text" class="form-control border-2 shadow" style="border-radius:16px" name="UemailAddress" id="UemailAddress">
+                                        <label for="exampleInputPassword1" class="form-label text-muted px-2">Email Address</label>
+                                        <input readonly type="text" class="form-control border-2 shadow" style="border-radius:16px; background-color:transparent;" name="UemailAddress" id="UemailAddress">
                                     </div>
                                 </div>             
                             </form>
                         </div>
-                        <div class="row g-0">
-                            <div class="col-4 ms-auto">
-                                <button type="button" id="updateButton" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                </div>
-                </div>
-            </div>
-        </div>
-      <!-- UPDATE MODAL -->
-
-      <!-- ADD MODAL -->
-        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row mb-4">
-                            <div class="col-11">
-                                <h5 class="modal-title" id="exampleModalLabel">New Employee</h5>
-                            </div>
-                            <div class="col-1">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                        <form id="addEmployeeForm">
-                            <div class="row g-1 mb-3">
-                                <div class="col-8">
-                                    <label class="form-label px-2">Fullname:</label>
-                                    <input type="text" id="addFullname" name="addFullname" class="form-control border-2 shadow" style="border-radius:16px;" placeholder="Enter Fullname Here">
-                                </div>
-                                <div class="col-4">
-                                    <label class="form-label px-2">Position:</label>
-                                    <select id="addPosition" name="addPosition" class="form-select form-select border-2 shadow text-muted" style="border-radius:16px;" aria-label=".form-select-lg example">
-                                        <option value="" selected>Choose Here</option>
-                                        <option value="Administrator">Administrator</option>
-                                        <option value="Cashier">Cashier</option>
-                                        <option value="Owner">Owner</option>
-                                        <option value="Mechanic">Mechanic</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row g-1 mb-3">
-                                <div class="col-4">
-                                    <label class="form-label px-2">Phone Number:</label>
-                                    <input id="addNumber" name="addNumber" type="text" class="form-control border-2 shadow" style="border-radius:16px;" placeholder="Enter Number Here">
-                                </div>
-                                <div class="col-8">
-                                    <label class="form-label px-2">Email address:</label>
-                                    <input id="addEmail" name="addEmail" type="text" class="form-control border-2 shadow" style="border-radius:16px;" placeholder="Enter Email Address Here">
-                                </div>
-                            </div>
-                            <div class="row g-1 mb-2">
-                                <div class="col-6">
-                                    <label class="form-label px-2">Username:</label>
-                                    <input id="addUsername" name="addUsername" type="text" class="form-control border-2 shadow" style="border-radius:16px;" placeholder="Enter Username Here">
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label px-2">Password <small class="text-muted">(default)</small></label>
-                                    <input id="addPassword" name="addPassword" type="text" class="form-control text-muted border-2 shadow" style="border-radius:16px; background-color:transparent;" value="default123" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-5 ms-auto">
-                                <button id="addEmployeeButton" type="button" class="btn btn-primary px-5">Submit</button>
-                            </div>
-                        </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
-      <!-- ADD MODAL -->
-
-
+      <!-- UPDATE MODAL -->
 <!-- MODAL -->
+
 
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>

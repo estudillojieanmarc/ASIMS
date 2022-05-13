@@ -2,6 +2,9 @@
 require 'connection.php';
 session_start();
 error_reporting(0);
+
+
+// FOR ACTIVE EMPLOYEES UI
 if(isset($_POST["getEmployees"])){
 $sql = "SELECT position FROM employees WHERE emp_id = '$_SESSION[emp_id]'";
 $statement=$pdo->prepare($sql);
@@ -9,7 +12,7 @@ $statement->execute();
 $position = $statement->fetch(PDO::FETCH_OBJ);
 foreach ($position as $myPosition){
     if($myPosition == 'Administrator' || $myPosition == 'Owner'){ // THIS IS FOR THE ADMINISTRATOR AND OWNER UI
-        $qry = "SELECT * FROM employees WHERE is_active = 1";
+        $qry = "SELECT * FROM employees WHERE is_active = 1 AND emp_id != '$_SESSION[emp_id]'";
         $statement=$pdo->prepare($qry);
         $statement->execute();
         $Employees = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -25,7 +28,7 @@ foreach ($position as $myPosition){
                     <td>$totalEmployees->email_address</td>
                     <td>$totalEmployees->PhoneNumber</td>
                     <td>
-                        <button type='button' onclick=viewEmployees('$totalEmployees->emp_id') class='btn btn-sm btn-secondary px-3'>View</button>
+                        <button type='button' onclick=updateEmployees('$totalEmployees->emp_id') class='btn btn-sm btn-secondary px-3'>View</button>
                         <button type='button' onclick=inactiveEmployees('$totalEmployees->emp_id') class='btn btn-sm btn-danger'>Inactive</button>
                     </td>
                     </tr>
@@ -34,17 +37,17 @@ foreach ($position as $myPosition){
         }else{
             echo "
             <tr style='height:20rem'>
-                <td style='width:1px'></td>
-                <td style='width:4rem'></td>
-                <td style='width:7rem'></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO EMPLOYEES FOUND</td>
-                <td style='width:7rem'></td>
-                <td style='width:1px'></td>
+                <td></td>
+                <td></td>
             </tr>
         ";
         }
     }else{ // THIS IS FOR THE NON ADMINISTRATOR AND OWNER UI
-            $qry = "SELECT * FROM employees WHERE is_active = 1";
+            $qry = "SELECT * FROM employees WHERE is_active = 1 AND emp_id != $_SESSION[emp_id]";
             $statement=$pdo->prepare($qry);
             $statement->execute();
             $Employees = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -68,12 +71,12 @@ foreach ($position as $myPosition){
             }else{
                 echo "
                 <tr style='height:20rem'>
-                    <td style='width:1px'></td>
-                    <td style='width:4rem'></td>
-                    <td style='width:7rem'></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td class='alert alert-light text-center mt-5 fs-4 text-danger'>NO EMPLOYEES FOUND</td>
-                    <td style='width:7rem'></td>
-                    <td style='width:1px'></td>
+                    <td></td>
+                    <td</td>
                 </tr>
             ";
             }
@@ -89,7 +92,7 @@ if(isset($_POST['getButton'])){
     $position = $statement->fetch(PDO::FETCH_OBJ);
     foreach ($position as $myPosition){
         if($myPosition == 'Administrator' || $myPosition == 'Owner'){ 
-            echo "<button name='newEmployee' id='newEmployee' style='border-radius:4px;' class='btn border-secondary text-dark btn-sm px-4' type='button'><i class='fa-solid fa-plus'></i> Add</button>";
+            echo "<a href='http://localhost/ASIMS/addEmployee.php' role='button' style='border-radius:4px;' class='btn border-secondary text-dark btn-sm px-4 pt-2'><i class='fa-solid fa-plus'></i> Add</a>";
         }
     }
 }

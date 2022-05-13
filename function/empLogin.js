@@ -39,6 +39,12 @@
             'Wrong Username/Password',
             'error'
             )
+            }else if(response == 2){
+              Swal.fire(
+              'Inactive Account',
+              'Your account is disable to access the A&S Application',
+              'error'
+              )
             }
             },
             error:function(er){
