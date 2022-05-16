@@ -9,7 +9,7 @@
     include('connection.php');
     $fullname = $_POST["fullname"];
     $profilePicture = $_FILES["profilePicture"]["name"];
-    $position = $_POST["position"];
+    $PhoneNumber = $_POST["PhoneNumber"];
     $email = $_POST["email"];
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -48,11 +48,11 @@
                             unlink("C:/xampp/htdocs/ASIMS/assets/employees/".$resultImage);
                     }
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-                $qry = "UPDATE employees SET fullname = :fullname , position = :position, email_address = :email,
+                $qry = "UPDATE employees SET fullname = :fullname , email_address = :email, PhoneNumber = :PhoneNumber,
                 username = :username, password = :password, image = :profilePicture WHERE emp_id = $_SESSION[emp_id]";
                 $statement = $pdo->prepare($qry);
-                if($statement->execute([':fullname' => $fullname, ':position' => $position, 
-                ':email' => $email, ':username' => $username, ':password' => $password, 
+                if($statement->execute([':fullname' => $fullname, ':email' => $email, ':PhoneNumber' => $PhoneNumber,
+                ':username' => $username, ':password' => $password, 
                 ':profilePicture' => $profilePicture])){
                     echo 1;
                 }else{
@@ -62,10 +62,11 @@
             }
         }
         else{
-            $qry = "UPDATE employees SET fullname = :fullname , position = :position, email_address = :email,
+            $qry = "UPDATE employees SET fullname = :fullname, email_address = :email, PhoneNumber = :PhoneNumber,
             username = :username, password = :password  WHERE emp_id = $_SESSION[emp_id]";
             $statement = $pdo->prepare($qry);
-            if($statement->execute([':fullname' => $fullname, ':position' => $position, ':email' => $email, ':username' => $username, ':password' => $password])){
+            if($statement->execute([':fullname' => $fullname, ':email' => $email, 'PhoneNumber' => $PhoneNumber,
+            ':username' => $username, ':password' => $password])){
                 echo 1;
             }else{
                 echo 0;

@@ -104,59 +104,7 @@
               <!-- END OF LEFT UI -->
               
               <!-- START OF RIGHT UI -->
-                <div class="col-6 px-4">
-                  <div class="card border-0">
-                        <div class="container px-3">
-                        <form id="updateAccount">
-                          <div class="row px-2">
-                              <div class="row ">
-                                  <div class="col-7 pt-5">
-                                          <label class="form-label pt-5">Profile Picture</label>
-                                          <input class="form-control mb-2" type="file" name="profilePicture">
-                                  </div>
-                                  <div class="col-5 text-center">
-                                        <img class="img-thumbnail border-0" style="height:200px; clip-path:circle();" id="profilePicture" src="">
-                                  </div>
-                              </div>
-                              <div class="row ">
-                                  <div class="col-7">
-                                      <label class="form-label">Fullname</label>
-                                      <input type="text" class="form-control mb-2 shadow border-2" id="fullname" name="fullname">
-                                  </div>
-                                  <div class="col-5">
-                                      <label class="form-label">Position</label>
-                                      <input type="text" class="form-control mb-2 shadow border-2" id="position" name="position">
-                                  </div>
-                              </div>
-                              <div class="">
-                                  <label class="form-label">Email Address:</label>
-                                  <input class="form-control mb-2 shadow border-2" type="text" id="email" name="email">
-                              </div>
-                              <div class="row ">
-                                  <div class="col-6">
-                                      <label class="form-label">Username:</label>
-                                      <input type="text" class="form-control mb-2 shadow border-2" id="username" name="username">
-                                  </div>
-                                  <div class="col-6">
-                                      <label class="form-label">Password:</label>
-                                      <input type="password" class="form-control mb-4 shadow border-2" id="password" name="password">
-                                  </div>
-                              </div>
-                              <div class="mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" onclick="seePassword()"
-                                        id="flexCheckIndeterminate">
-                                    <label class="form-check-label text-dark" for="flexCheckIndeterminate">Show Password</label>
-                                </div>
-                            </div>
-                              <div class="row mt-2 px-5">
-                                  <button type="button" class="btn btn-dark py-2" id="updateButton">Save Changes</button>
-                              </form>
-                              </div>
-                          </div>  
-                        </form>
-                  </div>   
-                </div>   
+                <div class="col-6" id="updateAccountUI"></div>   
               <!-- END OF RIGHT UI -->
         </div>
       </div>
@@ -171,7 +119,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/manageAccount.js"></script>
+    <script src="function/manageAcc.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

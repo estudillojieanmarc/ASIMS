@@ -117,10 +117,10 @@
           </div>
         <div class="row mt-2">
         <div class="card pt-3 bg-light border-2">
-          <table class="table align-middle shadow text-center table-bordered shadow table-striped rounded table-hover">
+          <table class="table align-middle shadow text-center table-borderless shadow table-striped rounded table-hover">
             <thead class="align-middle">
                 <tr>
-                <th style="width:7rem;">Select All <input class='form-check-input mx-1' type='checkbox' id='checkAllCategory'></th>
+                <th style="width:7james123rem;">Select All <input class='form-check-input mx-1' type='checkbox' id='checkAllCategory'></th>
                 <th>#</th>
                 <th scope="col">Category</th>
                 <th scope="col">Action</th>
@@ -162,7 +162,7 @@
                           </div>
                       </div>
                         <div class="row mx-4">
-                            <button type="button" class="btn btn-primary" id="addCategoryButton">Submit</button>
+                            <button type="button" class="btn btn-dark" id="addCategoryButton">Submit</button>
                         </form>
                     </div>          
                   </div>            
@@ -193,7 +193,7 @@
                           </div>
                       </div>
                         <div class="row mx-4">
-                            <button type="button" class="btn btn-primary " id="updateCategoryButton">Save Changes</button>
+                            <button type="button" class="btn btn-dark " id="updateCategoryButton">Save Changes</button>
                         </form>
                     </div>          
                   </div>            

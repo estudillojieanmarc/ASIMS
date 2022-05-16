@@ -230,7 +230,7 @@
                         </div>
                         <div class="row g-0">
                             <div class="col-4 ms-auto">
-                                <button type="button" id="updateButton" class="btn btn-primary">Save changes</button>
+                                <button type="button" id="updateButton" class="btn btn-dark">Save changes</button>
                             </div>
                         </div>
                 </div>

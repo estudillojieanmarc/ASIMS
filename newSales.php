@@ -96,49 +96,70 @@
   <!-- MAIN BAR -->
     <div class="col-10">
       <div class="container-fluid">
-        <div class="row pt-4">
-              <!-- START OF LEFT UI -->
-                <div class="col-6 pt-2">
-                      <img class="img-thumbnail border-0" src="assets/img/stat.png">
-                </div>
-              <!-- END OF LEFT UI -->
-              
+        <div class="row pt-5">
               <!-- START OF RIGHT UI -->
-                <div class="col-6 px-4">
+                <div class="col-12">
                   <div class="card border-0">
-                        <div class="container mt-4 px-5">
+                        <div class="container">
                         <form id="addSalesForm">
-                        <h4 class="pt-5 text-center">NEW SALES REPORT</h4>     
-                          <div class="row  px-2">
-                              <div class="row g-2 mb-2 mt-4">
+                        <h4 class="pt-4 text-center">NEW SALES REPORT</h4>     
+                          <div class="row mt-1 px-5">
+                              <div class="row g-2 mb-2 mt-2 px-5">
                                   <div class="col-6">
                                       <label class="form-label">Receipt Number:</label>
-                                      <input type="text" class="form-control shadow border-2" id="receipNo" name="receipNo" placeholder="Enter Receipt Number">
+                                      <input type="text" class="form-control text-center shadow border-2" id="receipNo" name="receipNo" placeholder="Enter Receipt Number">
                                   </div>
                                   <div class="col-6">
                                       <label class="form-label">Purchased On:</label>
-                                      <input type="date" class="form-control shadow border-2" id="purchasedOn" name="purchasedOn" placeholder="Customer Name">
+                                      <input type="date" class="form-control text-center text-center shadow border-2" id="purchasedOn" name="purchasedOn" placeholder="Customer Name">
                                   </div>
                               </div>
-                              <div class="mb-2 g-2">
-                                  <label class="form-label">Customer Name:</label>
-                                  <input class="form-control shadow border-2" type="text" id="customerName" name="customerName" placeholder="Enter Customer Name">
+                              <div class="row px-5">
+                                <div class="col g-2 px-5 text-center">
+                                    <label class="form-label text-center">Customer Name:</label>
+                                    <input class="form-control text-center shadow border-2" type="text" id="customerName" name="customerName" placeholder="Enter Customer Name">
+                                </div>
                               </div>
-                              <div class="row g-2 mb-2">
-                                  <div class="col-4">
-                                      <label class="form-label">Item Barcode:</label>
-                                      <input type="text" class="form-control shadow border-2" id="itemCode" name="itemCode" placeholder="Item Barcode">
-                                  </div>
-                                  <div class="col-4">
-                                      <label class="form-label">Quantity:</label>
-                                      <input type="number" class="form-control shadow border-2" min="0" id="itemQty" name="itemQty"placeholder="Item Qty">
-                                  </div>
-                                  <div class="col-4">
-                                      <label class="form-label">Total Sales:</label>
-                                      <input type="text" class="form-control shadow border-2" id="totalSales" name="totalSales" placeholder="Total Sales">
-                                  </div>                                    
-                              </div>
-                              <div class="row mt-4 px-5">
+                              <div class="row mt-4">
+                                <div class="col-8">
+                                    <h5 class="pt-4 text-start">ITEM PURCHASED</h5>
+                                </div> 
+                                <div class="col-4 pt-4 ms-auto text-end">
+                                    <button type="button" id="addRows" class="btn btn-sm btn-primary text-end"><i class="fa-solid fa-plus"></i> Add rows</button>
+                                </div>
+                              </div>                              
+                              <table class="table table-sm text-center align-middle" id="purchasedList">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Barcode</th>
+                                      <th>Product</th>
+                                      <th>Price ₱</th>
+                                      <th>Stock</th>
+                                      <th style="width:8rem;">Quantity</th>
+                                      <th>Total</th>
+                                      <th>Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr id="row">
+                                      <td>1<input type="hidden" class="itemId form-control form-control-sm text-center" name="itemId"></td>
+                                      <td style="width:10rem;">  
+                                        <div class="input-group text-center">
+                                          <input type="text" class="form-control form-control-sm text-center itemBarcode" name="itemBarcode" placeholder="Item Barcode">
+                                          <button class="btn btn-outline-secondary btn-sm searchBcode" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                        </div>
+                                      </td>
+                                      <td class="name"></td>
+                                      <td class="price"></td>
+                                      <td class="stock"></td>
+                                      <td class="px-4"><input type="number" value="0" min="0" name="itemQty" class="form-control text-center form-control-sm quantity"></td>
+                                      <td name="total" class="total"></td>
+                                      <td><button name="removeR" id="'+i+'" type="button" class="btn btn-danger btn-sm removeRows">Remove</button></td></td>
+                                    </tr>
+                                  </tbody>
+                              </table>
+                              <div class="row mt-2 mb-5 px-5">
                                   <button type="button" class="btn btn-dark py-2" id="addSalesButton">SUBMIT</button>
                                   </form>
                               </div>
@@ -160,7 +181,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/sales.js"></script>
+    <script src="function/addSales.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

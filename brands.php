@@ -117,7 +117,7 @@
             </div>
           <div class="row mt-2">
             <div class="card pt-3 bg-light border-2">
-            <table id="brandTable" class="table shadow align-middle text-center table-bordered table-striped shadow rounded table-hover">
+            <table id="brandTable" class="table shadow align-middle text-center table-borderless table-striped shadow rounded table-hover">
               <thead class="align-middle">
                 <tr>
                   <th style="width:7rem;">Select All <input class='form-check-input mx-1' type='checkbox' id='checkAllBrand'></th>
@@ -163,7 +163,7 @@
                   </div>
               </div>
                 <div class="row mx-4">
-                    <button type="button" class="btn btn-primary" id="updateBrandButton">Save Changes</button>
+                    <button type="button" class="btn btn-dark" id="updateBrandButton">Save Changes</button>
                 </form>
             </div>          
           </div>            
@@ -193,7 +193,7 @@
                           </div>
                       </div>
                         <div class="row mx-4">
-                            <button type="button" class="btn btn-primary" id="addBrandButton">Submit</button>
+                            <button type="button" class="btn btn-dark" id="addBrandButton">Submit</button>
                         </form>
                     </div>          
                   </div>            

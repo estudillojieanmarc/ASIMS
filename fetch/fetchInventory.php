@@ -166,34 +166,3 @@ if(isset($_POST["request"])){
   }
 }
 // END CATEGORY REQUEST
-
-
-
-// SEARCH ITEM INFO
-if(isset($_POST["search"])){
-    $itemBarcode = $_POST['itemBarcode'];
-    $qry = "SELECT item_stock FROM inventory WHERE item_barcode = :itemBarcode";
-    $statement=$pdo->prepare($qry);
-    $statement->execute(
-      array(
-          'itemBarcode' => $_POST["itemBarcode"],
-      )
-    );
-    $data = [];
-    $stock = $statement2->fetch(PDO::FETCH_ASSOC);
-    if($stock['item_stock'] == 0){
-      echo 3;
-    }else{
-      $qry = "SELECT * FROM inventory WHERE item_barcode = :itemBarcode"; 
-      $statement=$pdo->prepare($qry);
-      $statement->execute([':itemBarcode' => $itemBarcode]);
-      $fetchItem = $statement->fetchAll(PDO::FETCH_OBJ);
-      $count = $statement->rowCount();
-        if($count > 0 ){
-            echo json_encode($fetchItem);
-        }else{
-          echo 0;
-        }
-    }
-}
-?>

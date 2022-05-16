@@ -1,7 +1,8 @@
 // FUNCTION TRIGGER     
-$(document).ready(function(){
-    editAccount();
-});
+    $(document).ready(function(){
+        editAccount();
+        showUpdateUi();
+    });
 // END FUNCTION TRIGGER 
 
 
@@ -17,6 +18,7 @@ $(document).ready(function(){
             $('#profilePicture').attr("src","/ASIMS/assets/employees/"+response[0].image)
             $('#fullname').val(response[0].fullname)           
             $('#position').val(response[0].position)           
+            $('#PhoneNumber').val(response[0].PhoneNumber)           
             $('#email').val(response[0].email_address)           
             $('#username').val(response[0].username)           
             $('#password').val(response[0].password)           
@@ -44,7 +46,20 @@ $(document).ready(function(){
 
 
 // FUNCTION FOR UPDATING INVENTORY DETAILS
-$('#updateButton').click(function(e){
+    $("body").delegate("#updateButton","click",function(e){
+    var currentForm = $('#updateAccount')[0];
+    var data = new FormData(currentForm);
+    var email = $('#email').val().trim();
+    var atpos =  email.indexOf("@");
+    var dotpos =  email.lastIndexOf(".com");
+
+    if(atpos < 1 || dotpos < atpos +2 || dotpos + 2 >= email.length){
+        Swal.fire(
+        'Invalid Email Address',
+        'Please enter valid email address',
+        'warning'
+        )
+    }else{
     e.preventDefault();
     Swal.fire({
     title: 'Are you sure?',
@@ -55,11 +70,9 @@ $('#updateButton').click(function(e){
     cancelButtonColor: '#d33',
     confirmButtonText: 'Yes, update it!'
     }).then((result) => {
-    if (result.isConfirmed) {
-        var currentForm = $('#updateAccount')[0];
-        var data = new FormData(currentForm);
+    if (result.isConfirmed) {   
         $.ajax({
-            url: './php/updateAccount.php',
+            url: './php/updateAcc.php',
             method: "POST",
             dataType: "text",
             data:data,
@@ -102,7 +115,8 @@ $('#updateButton').click(function(e){
             },
         error:function(error){console.log(error)}  }); 
         }
-    })
+    });
+    }
     });
 // FUNCTION FOR UPDATING INVENTORY DETAILS
 
@@ -111,16 +125,35 @@ $('#updateButton').click(function(e){
 
 
 // FUNCTION FOR FETCH EMPLOYEES
-function identity(){
+    function identity(){
+        $.ajax({
+            url: "./fetch/fetchIdentity.php",
+            method: 'POST',
+            dataType: 'json',        
+            data: {getFullname: 1},
+        })
+        .done(function(response) {
+            $('#fetchFullname').val(response[0].fullname)
+            $('#fetchPosition').val(response[0].position)
+        })
+    }
+// FUNCTION FOR FETCH EMPLOYEES
+
+
+
+
+
+
+// SHOW EMPLOYEES
+function showUpdateUi(){
     $.ajax({
-        url: "./fetch/fetchIdentity.php",
+        url: "./fetch/updateAccountUI.php",
         method: 'POST',
-        dataType: 'json',        
-        data: {getFullname: 1},
-    })
-    .done(function(response) {
-        $('#fetchFullname').val(response[0].fullname)
-        $('#fetchPosition').val(response[0].position)
+        data: {getUpdateUi: 1},
+        success : function(data) {
+            editAccount();
+            $("#updateAccountUI").html(data);
+        }
     })
 }
-// FUNCTION FOR FETCH EMPLOYEES
+// END SHOW EMPLOYEES
