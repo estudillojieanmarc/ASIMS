@@ -1,78 +1,55 @@
 <?php
-
-        $number = count($itemBarcode = $_POST['itemBarcode']);
-
-        echo $number 
-        // if(is_countable($number) && count($number) > 0){
-        //     for($i=0; $i<$number; $i++){
-        //         if(trim($_POST["barcode"][$i] != '')){
-        //             echo  $total;
-        //             require 'connection.php';
-        //             // NAME FROM THE FORM 
-        //             $itemId = $_POST['itemId'];
-        //             $receipNo = $_POST['receipNo'];
-        //             $purchasedOn = $_POST['purchasedOn'];
-        //             $customerName = $_POST['customerName'];
-        //             $itemBarcode = $_POST['itemBarcode'];
-        //             $quantity = $_POST['quantity'];
-        //             $total = $_POST['total'];
-        //         }
-        //     }
-        // }
-
-
-        // $number = count($itemBarcode = $_POST['itemBarcode']);
-
-        // if(is_countable($number) && count($number) > 0){
-        //     for($i=0; $i<$number; $i++){
-        //         if(trim($_POST["barcode"][$i] != '')){
-        //             echo  $total;
-        //         }
-        //     }
-        // }
+        require 'connection.php';
+        $receipNo = $_POST["receipNo"];
+        $itemBarcode = $_POST["itemBarcode"];
+        $itemQty = $_POST["itemQty"];
+      
+                // CHECK THE RECEIPT NO.
+                $sql = "SELECT receipt_no FROM sales WHERE receipt_no = :receipNo";
+                $statement=$pdo->prepare($sql);
+                $statement->execute(
+                    array(
+                        'receipNo' => $_POST["receipNo"]
+                    )
+                );
+                $count = $statement->rowCount();
+                if($count > 0 ){
+                    echo "Sorry, Receipt number are already exist";
+                    exit(); 
+                }else{
+                        $qry = "INSERT INTO sales (receipt_no, purchased, item_id, customers, quantity, total_sales) 
+                        VALUES (:receipNo, :purchasedOn, :itemId, :customerName, :itemQty, :totalSales)";
         
-        // // CHECK IF THE ITEM IS EXIST
-        // $qry1 = "SELECT item_barcode FROM inventory WHERE item_barcode = :itemCode";
-        // $statement=$pdo->prepare($qry1);
-        // $statement->execute(
-        //     array(
-        //         'itemCode' => $_POST["itemCode"],
-        //     )
-        // );
-        // $count = $statement->rowCount();
-        // if($count > 0 ){
-        //     $qry2 = "SELECT item_stock FROM inventory WHERE item_barcode = :itemCode";
-        //     $statement2=$pdo->prepare($qry2);
-        //     $statement2->execute(
-        //         array(
-        //             'itemCode' => $_POST["itemCode"],
-        //         )
-        //     );
-        //     $stock = $statement2->fetch(PDO::FETCH_ASSOC);
-        //     $data = [];
-        //     if($stock['item_stock'] == 0){
-        //         echo "Sorry not enough stock";
-        //         exit();
-        //     }else if($stock['item_stock'] < $itemQty){
-        //         echo "Sorry not enough stock";
-        //         exit();
-        //     }else {
-        //         $qry3 = "INSERT INTO sales (receipt_no, purchased, item_barcode, customers, quantity, total_sales) VALUES (?,?,?,?,?,?)";
-        //         $pdo->prepare($qry3)->execute([$receipNo, $purchasedOn, $itemCode, $customerName, $itemQty , $totalSales]);
-        //         if($pdo){
-        //             $qry4 = "UPDATE inventory SET item_stock = item_stock - :itemQty WHERE item_barcode = :itemCode";
-        //             $statement = $pdo->prepare($qry4);
-        //             if($statement->execute([':itemQty' => $itemQty, 'itemCode' => $itemCode])){
-        //                 echo 1;
-        //                 exit();  
-        //             }
-        //         }else{
-        //             echo 0;
-        //             exit();  
-        //         } 
-        //     }
-        // }else{
-        //     echo "Item barcode are not exist";
-        //     exit();  
-        // }
+                        for($count = 0; $count<count($_POST['itemId']); $count++)
+                        {
+                        // CHECK THE ITEM STOCK
+                        $sql = "SELECT item_stock FROM inventory WHERE item_barcode = :itemBarcode";
+                        $statement=$pdo->prepare($sql);
+                        $statement->execute(
+                        array(
+                                'itemBarcode' => $_POST["itemBarcode"],
+                        )
+                        );
+                        $stock = $statement->fetch(PDO::FETCH_ASSOC);
+                        $data = [];
+                        if($stock['item_stock'] == 0){
+                                echo "Sorry not enough stock";
+                                exit();
+                        }else if($stock['item_stock'] < $_POST['itemQty'][$count]){
+                                echo "Sorry not enough stock";
+                                exit();
+                        }else{
+                        $data = array(                                         
+                        ':receipNo' => $_POST['receipNo'],
+                        ':purchasedOn' => $_POST['purchasedOn'],
+                        ':itemId' => $_POST['itemId'][$count],
+                        ':customerName' => $_POST['customerName'],
+                        ':itemQty' => $_POST['itemQty'][$count],
+                        ':totalSales' => $_POST['totalSales'][$count],
+                        );
+                        $statement = $pdo->prepare($qry);
+                        $statement->execute($data);
+                        }
+                        }
+                }
 ?>

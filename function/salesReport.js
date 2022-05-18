@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 
 // FUNCTION FOR DELETING SALES
-function deleteSales(id){
+function deleteSales(){
 Swal.fire({
     title: 'Are you sure?',
     text: "Do you want to delete this sales?",
@@ -74,7 +74,7 @@ Swal.fire({
         url: './php/delete.php',
         type: 'POST',
         dataType: 'json',
-        data: {deleteSales: id},
+        data: {deleteSaleR: id},
     });
     Swal.fire({
         title: 'Sale Deleted',
@@ -127,7 +127,7 @@ if(saleId.length === 0){
         $.ajax({
         url: './php/delete.php',
         type: 'POST',
-        data: {deleteSale: saleId},
+        data: {deleteSaleR: saleId},
     });
     Swal.fire({
         title: 'Sale Report Deleted',

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2022 at 01:55 PM
+-- Generation Time: May 18, 2022 at 09:25 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -81,10 +81,9 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`emp_id`, `fullname`, `position`, `email_address`, `PhoneNumber`, `username`, `password`, `image`, `is_active`, `token`) VALUES
-(1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320588', 'jieanmarc22', 'Estudillojieanmarc22', 'avatar3.jpg', 1, 'd44b6de399841a1368de7fe3fd9eb5fd'),
-(2, 'Jan Remiel Menor', 'Cashier', 'janremiel@gmail.com', '09103658328', 'janremiel123', 'janremiel123', 'avatar1.jpg', 0, '2312dsf3ds'),
-(3, 'James Ybanez', 'Mechanic', 'jame@gmail.com', '09287210476', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs'),
-(9, 'Amira Estudillo', 'Cashier', 'Amira@gmail.com', '09474626751', 'Amira123', 'default123', 'default.png', 1, 'b4955f0841ccecf26678dc9e8fe7d0ef');
+(1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320589', 'jieanmarc22', 'Estudillojieanmarc22', 'avatar123.jpg', 1, 'd44b6de399841a1368de7fe3fd9eb5fd'),
+(2, 'Jan Remiel Menor', 'Mechanic', 'janremiel@gmail.com', '09103658328', 'janremiel22', 'janremiel123', 'avatar1.jpg', 1, '2312dsf3ds'),
+(3, 'James Ybanez', 'Mechanic', 'jame@gmail.com', '09287210476', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs');
 
 -- --------------------------------------------------------
 
@@ -104,6 +103,14 @@ CREATE TABLE `inventory` (
   `item_price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`id`, `item_name`, `item_barcode`, `item_image`, `item_description`, `item_stock`, `item_brand`, `item_category`, `item_price`) VALUES
+(37, 'Wd-40', '#123123', 'wd-40.png', 'This is good for rust removal', 6, 1, 1, 120),
+(38, 'Black Helmet', '#321321', 'helmet.jpg', 'this is a black helmet', 6, 1, 1, 1000);
+
 -- --------------------------------------------------------
 
 --
@@ -114,7 +121,7 @@ CREATE TABLE `sales` (
   `sales_id` int(11) NOT NULL,
   `receipt_no` varchar(250) NOT NULL,
   `purchased` date NOT NULL,
-  `item_barcode` varchar(250) NOT NULL,
+  `item_id` int(11) NOT NULL,
   `customers` varchar(250) NOT NULL,
   `quantity` int(11) NOT NULL,
   `total_sales` float NOT NULL
@@ -181,13 +188,13 @@ ALTER TABLE `todo`
 -- AUTO_INCREMENT for table `brandname`
 --
 ALTER TABLE `brandname`
-  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `categoryname`
 --
 ALTER TABLE `categoryname`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -199,13 +206,13 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `todo`

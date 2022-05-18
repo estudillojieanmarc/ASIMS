@@ -61,20 +61,6 @@ require 'connection.php';
 
 
 
-// DELETING SALES 
-    if(isset($_POST["deleteSales"])){
-        $deleteSales = $_POST['deleteSales'];
-        $qry = "DELETE FROM sales WHERE sales_id = $deleteSales";
-        $statement=$pdo->prepare($qry);
-        $statement->execute();
-        if($statement){
-            echo 1;
-        }else{
-            echo 0;
-        }
-    }
-// DELETING SALES 
-
 
 
 // DELETE TASK
@@ -161,9 +147,9 @@ require 'connection.php';
 
 
 // REMOVING ALL SELECTED SALES
-    if(isset($_POST['deleteSale'])){
-        foreach($_POST['deleteSale'] as $deleteSale){
-            $qry = "DELETE FROM sales WHERE sales_id = $deleteSale";
+    if(isset($_POST['deleteSaleR'])){
+        foreach($_POST['deleteSaleR'] as $deleteSaleR){
+            $qry = "DELETE FROM sales WHERE receipt_no = '$deleteSaleR'";
             $statement=$pdo->prepare($qry);
             $statement->execute();
             if($statement){

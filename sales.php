@@ -102,7 +102,7 @@
                       <a class="nav-link active" href="#">&nbsp;&nbsp;Sales Report&nbsp;&nbsp;</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="http://localhost/ASIMS/addSales.php">Add Sales</a>
+                      <a class="nav-link" href="http://localhost/ASIMS/newSales.php">Add Sales</a>
                   </li>
                 </ul>
 
@@ -129,9 +129,10 @@
                       <th style="width:7rem;">Select All <input class='form-check-input mx-1' type='checkbox' id='checkAllSales'></th>
                       <th scope="col">#</th>
                       <th scope="col">Item Code</th>
-                      <th scope="col">Item Name</th>
+                      <th scope="col">Receipt No.</th>
+                      <th scope="col">Customers</th>
+                      <th scope="col">Total Sales</th>
                       <th scope="col">Quantity</th>
-                      <th scope="col">Total Sale</th>
                       <th scope="col">Purchased On</th>
                     </tr>
                   </thead>
@@ -156,7 +157,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/salesFunction.js"></script>
+    <script src="function/salesReport.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

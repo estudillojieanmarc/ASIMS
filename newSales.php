@@ -98,13 +98,14 @@
       <div class="container-fluid">
         <div class="row pt-5">
               <!-- START OF RIGHT UI -->
-                <div class="col-12">
-                  <div class="card border-0">
+                <div class="col-12 ">
+                  <div class="card border-0 ">
                         <div class="container">
                         <form id="addSalesForm">
-                        <h4 class="pt-4 text-center">NEW SALES REPORT</h4>     
-                          <div class="row mt-1 px-5">
-                              <div class="row g-2 mb-2 mt-2 px-5">
+                        <h4 class="pt-4 text-center mb-4">NEW SALES REPORT <i class="fa-solid fa-circle-dollar-to-slot"></i></h4>     
+                          <div class="row mt-1 text-center">
+                            <div class="col-6 mx-auto">
+                              <div class="row g-2 mb-2 mt-2 ">
                                   <div class="col-6">
                                       <label class="form-label">Receipt Number:</label>
                                       <input type="text" class="form-control text-center shadow border-2" id="receipNo" name="receipNo" placeholder="Enter Receipt Number">
@@ -120,49 +121,47 @@
                                     <input class="form-control text-center shadow border-2" type="text" id="customerName" name="customerName" placeholder="Enter Customer Name">
                                 </div>
                               </div>
-                              <div class="row mt-4">
-                                <div class="col-8">
-                                    <h5 class="pt-4 text-start">ITEM PURCHASED</h5>
-                                </div> 
-                                <div class="col-4 pt-4 ms-auto text-end">
-                                    <button type="button" id="addRows" class="btn btn-sm btn-primary text-end"><i class="fa-solid fa-plus"></i> Add rows</button>
-                                </div>
-                              </div>                              
-                              <table class="table table-sm text-center align-middle" id="purchasedList">
+                            </div>
+                            <div class="row mt-4 mx-1 bg-light shadow px-5 mb-5 pt-5" style="border-radius:20px;">                   
+                              <h5 class="text-start">ITEM PURCHASED <i class="fa-solid fa-receipt"></i></h5>
+                              <table class="table table-sm text-center align-middle table-striped mt-2" id="purchasedList">
                                   <thead>
                                     <tr>
-                                      <th>#</th>
                                       <th>Barcode</th>
                                       <th>Product</th>
-                                      <th>Price ₱</th>
+                                      <th>Price</th>
                                       <th>Stock</th>
-                                      <th style="width:8rem;">Quantity</th>
-                                      <th>Total</th>
+                                      <th style="width:6rem;">Quantity</th>
+                                      <th style="width:8rem;">Total</th>
                                       <th>Action</th>
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr id="row">
-                                      <td>1<input type="hidden" class="itemId form-control form-control-sm text-center" name="itemId"></td>
-                                      <td style="width:10rem;">  
+                                    <tr>
+                                      <input type="hidden" class="itemId form-control form-control-sm text-center" name="itemId[]">
+                                      <td style="width:12rem;">  
                                         <div class="input-group text-center">
-                                          <input type="text" class="form-control form-control-sm text-center itemBarcode" name="itemBarcode" placeholder="Item Barcode">
-                                          <button class="btn btn-outline-secondary btn-sm searchBcode" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                          <input type="text" name="itemBarcode" class="form-control bg-light form-control-sm text-center itemBarcode border-2" placeholder="Search Barcode">
+                                          <button class="btn btn-secondary btn-sm searchBcode border-0" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
                                         </div>
                                       </td>
                                       <td class="name"></td>
                                       <td class="price"></td>
                                       <td class="stock"></td>
-                                      <td class="px-4"><input type="number" value="0" min="0" name="itemQty" class="form-control text-center form-control-sm quantity"></td>
-                                      <td name="total" class="total"></td>
-                                      <td><button name="removeR" id="'+i+'" type="button" class="btn btn-danger btn-sm removeRows">Remove</button></td></td>
+                                      <input type="hidden" class="form-control form-control-sm text-center" id="itemStock" name="stock[]">
+                                      <td class="px-4"><input type="number" value="0" min="0" name="itemQty[]" class="form-control text-center bg-light border-2 form-control-sm quantity"></td>
+                                      <td><input style="background-color:transparent; font-size:1rem;" type="text" name="totalSales[]" readonly class="form-control border-0 text-center form-control-sm total"></td>
+                                      <td style="width:2rem;"><button type="button" id="addRows" class="btn btn-sm btn-primary text-end rounded"><i class="fa-solid fa-plus"></i></button></td>
                                     </tr>
                                   </tbody>
                               </table>
-                              <div class="row mt-2 mb-5 px-5">
-                                  <button type="button" class="btn btn-dark py-2" id="addSalesButton">SUBMIT</button>
+                              <div class="row">
+                                    <div class="col-4 ms-auto pt-3 pb-3">
+                                      <button type="submit" class="btn btn-dark py-2 px-5" id="addSalesButton">SUBMIT</button>
+                                    </div>
                                   </form>
                               </div>
+                            </div> 
                           </div>  
                         </form>
                   </div>   
