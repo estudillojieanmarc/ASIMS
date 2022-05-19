@@ -63,9 +63,17 @@
               $sql = "INSERT INTO inventory (item_name, item_barcode, item_image, item_description, item_stock,  item_brand, item_category, item_price) VALUES (?,?,?,?,?,?,?,?)";
               $pdo->prepare($sql)->execute([$itemName, $itemCode, $itemImage, $itemDescription, $itemStock, $itemBrand, $itemCategory, $itemPrice]);
               if($pdo){
-                  move_uploaded_file($_FILES["itemImage"]["tmp_name"],$target_file);
-                  echo "added Successfully";
-                  exit();  
+                  $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has add $itemCode to our system', now())";
+                  $statement=$pdo->prepare($sql7);
+                  $statement->execute();
+                  if($statement){
+                      move_uploaded_file($_FILES["itemImage"]["tmp_name"],$target_file);
+                      echo "added Successfully";
+                      exit();  
+                  }else{
+                      echo "Sorry, failed";
+                      exit(); 
+                  }
               }else{
                   echo "Sorry, failed";
                   exit();  

@@ -58,7 +58,16 @@
             $statement = $pdo->prepare($qry);
             if($statement->execute([':UemployeeId' => $UemployeeId ,':Ufullname' => $Ufullname, ':Uposition' => $Uposition, 
             ':UemailAddress' => $UemailAddress, ':Uusername' => $Uusername, ':UphoneNumber' => $UphoneNumber])){
-                echo 1;
+                $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has update $Ufullname at Employees', now())";
+                $statement=$pdo->prepare($sql7);
+                $statement->execute();
+                if($statement){
+                    echo 1;
+                    exit();  
+                }else{
+                    echo 0;
+                    exit(); 
+                }
             }else{
                 echo 0;
             }

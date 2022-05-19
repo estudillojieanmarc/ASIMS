@@ -151,13 +151,13 @@
                                       <input type="hidden" class="form-control form-control-sm text-center" id="itemStock" name="stock[]">
                                       <td class="px-4"><input type="number" value="0" min="0" name="itemQty[]" class="form-control text-center bg-light border-2 form-control-sm quantity"></td>
                                       <td><input style="background-color:transparent; font-size:1rem;" type="text" name="totalSales[]" readonly class="form-control border-0 text-center form-control-sm total"></td>
-                                      <td style="width:2rem;"><button type="button" id="addRows" class="btn btn-sm btn-primary text-end rounded"><i class="fa-solid fa-plus"></i></button></td>
+                                      <td style="width:10rem;"><button type="button" class="btn btn-sm btn-success confirm"><i class="fa-solid fa-check"></i></button> <button type="button" id="addRows" class="btn btn-sm btn-primary text-end rounded"><i class="fa-solid fa-plus"></i></button></td>
                                     </tr>
                                   </tbody>
                               </table>
                               <div class="row">
                                     <div class="col-4 ms-auto pt-3 pb-3">
-                                      <button type="submit" class="btn btn-dark py-2 px-5" id="addSalesButton">SUBMIT</button>
+                                      <button type="button" class="btn btn-dark py-2 px-5" id="addSalesButton">SUBMIT</button>
                                     </div>
                                   </form>
                               </div>
@@ -180,7 +180,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/addSales.js"></script>
+    <script src="function/addSaleReport.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

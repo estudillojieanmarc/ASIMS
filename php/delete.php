@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'connection.php';
 // DELETING INVENTORY 
     if(isset($_POST["deleteInventory"])){
@@ -7,7 +8,16 @@ require 'connection.php';
         $statement=$pdo->prepare($qry);
         $statement->execute();
         if($statement){
-            echo 1;
+            $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete item id $deleteInventory at our system', now())";
+            $statement=$pdo->prepare($sql7);
+            $statement->execute();
+            if($statement){
+                echo 1;
+                exit();  
+            }else{
+                echo 0;
+                exit(); 
+            };
         }else{
             echo 0;
         }
@@ -22,7 +32,16 @@ require 'connection.php';
         $statement=$pdo->prepare($qry);
         $statement->execute();
         if($statement){
-            echo 1;
+            $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete category id $removeCategory at our system', now())";
+            $statement=$pdo->prepare($sql7);
+            $statement->execute();
+            if($statement){
+                echo 1;
+                exit();  
+            }else{
+                echo 0;
+                exit(); 
+            }
         }else{
             echo 0;
         }
@@ -37,7 +56,16 @@ require 'connection.php';
         $statement=$pdo->prepare($qry);
         $statement->execute();
         if($statement){
-            echo 1;
+            $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete brand id $removeBrand at our system', now())";
+            $statement=$pdo->prepare($sql7);
+            $statement->execute();
+            if($statement){
+                echo 1;
+                exit();  
+            }else{
+                echo 0;
+                exit(); 
+            }
         }else{
             echo 0;
         }
@@ -61,8 +89,6 @@ require 'connection.php';
 
 
 
-
-
 // DELETE TASK
     if(isset($_POST["deleteTask"])){
         $deleteTask = $_POST['deleteTask'];
@@ -70,7 +96,16 @@ require 'connection.php';
         $statement=$pdo->prepare($qry);
         $statement->execute();
         if($statement){
-            echo 1;
+            $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete task id $deleteTask at our system', now())";
+            $statement=$pdo->prepare($sql7);
+            $statement->execute();
+            if($statement){
+                echo 1;
+                exit();  
+            }else{
+                echo 0;
+                exit(); 
+            }
         }else{
             echo 0;
         }
@@ -87,7 +122,16 @@ require 'connection.php';
             $statement=$pdo->prepare($qry);
             $statement->execute();
             if($statement){
-                echo 1;
+                $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete item id $inventoryId at our system', now())";
+                $statement=$pdo->prepare($sql7);
+                $statement->execute();
+                if($statement){
+                    echo 1;
+                    exit();  
+                }else{
+                    echo 0;
+                    exit(); 
+                }
             }else{
                 echo 0;
             }
@@ -108,7 +152,16 @@ require 'connection.php';
                 $qry = "UPDATE Inventory SET item_category = 1 WHERE item_category = $categoryId";
                 $statement = $pdo->prepare($qry);
                 if($statement->execute()){
-                    echo 1;
+                    $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete category id $categoryId at category', now())";
+                    $statement=$pdo->prepare($sql7);
+                    $statement->execute();
+                    if($statement){
+                        echo 1;
+                        exit();  
+                    }else{
+                        echo 0;
+                        exit(); 
+                    }
                 }else{
                     echo 0;
                 }
@@ -132,7 +185,16 @@ require 'connection.php';
                 $qry = "UPDATE Inventory SET item_brand = 1 WHERE item_brand = $brandId";
                 $statement = $pdo->prepare($qry);
                 if($statement->execute()){
-                    echo 1;
+                    $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete brand id $brandId at brand', now())";
+                    $statement=$pdo->prepare($sql7);
+                    $statement->execute();
+                    if($statement){
+                        echo 1;
+                        exit();  
+                    }else{
+                        echo 0;
+                        exit(); 
+                    }
                 }else{
                     echo 0;
                 }
@@ -153,7 +215,16 @@ require 'connection.php';
             $statement=$pdo->prepare($qry);
             $statement->execute();
             if($statement){
-                echo 1;
+                $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete $deleteSaleR at sales', now())";
+                $statement=$pdo->prepare($sql7);
+                $statement->execute();
+                if($statement){
+                    echo 1;
+                    exit();  
+                }else{
+                    echo 0;
+                    exit(); 
+                }
             }else{
                 echo 0;
             }
@@ -173,7 +244,16 @@ require 'connection.php';
         $statement=$pdo->prepare($qry);
         $statement->execute();
         if($statement){
+        $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has disable employee id $deactivateEmployees at our system', now())";
+        $statement=$pdo->prepare($sql7);
+        $statement->execute();
+        if($statement){
             echo 1;
+            exit();  
+        }else{
+            echo 0;
+            exit(); 
+        }
         }else{
             echo 0;
         }
@@ -190,7 +270,16 @@ if(isset($_POST['activateEmployees'])){
     $statement=$pdo->prepare($qry);
     $statement->execute();
     if($statement){
-        echo 1;
+        $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has enable employee id $activateEmployees at our system', now())";
+        $statement=$pdo->prepare($sql7);
+        $statement->execute();
+        if($statement){
+            echo 1;
+            exit();  
+        }else{
+            echo 0;
+            exit(); 
+        }
     }else{
         echo 0;
     }
@@ -208,7 +297,16 @@ if(isset($_POST['deleteEmployees'])){
     $statement=$pdo->prepare($qry);
     $statement->execute();
     if($statement){
-        echo 1;
+        $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has delete $deleteEmployees at our system', now())";
+        $statement=$pdo->prepare($sql7);
+        $statement->execute();
+        if($statement){
+            echo 1;
+            exit();  
+        }else{
+            echo 0;
+            exit(); 
+        }
     }else{
         echo 0;
     }

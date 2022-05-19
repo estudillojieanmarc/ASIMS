@@ -1,6 +1,6 @@
 <?php
 require 'connection.php';
-
+error_reporting(0);
 // PAGE LIMIT FUNCTION
 if(isset($_POST["page"])){
 	$sql = "SELECT * FROM sales";
@@ -26,8 +26,6 @@ if(isset($_POST["getSales"])){
     }else{
       $start = 0;
     }
-    $n = 1;
-    $n++;
     $qry = "SELECT a.sales_id, a.receipt_no, a.purchased, a.item_id, a.customers, a.quantity, a.total_sales, b.id, b.item_name FROM sales a, inventory b WHERE a.item_id = b.id ORDER BY a.purchased DESC LIMIT $start,$limit";
     $statement=$pdo->prepare($qry);
     $statement->execute();

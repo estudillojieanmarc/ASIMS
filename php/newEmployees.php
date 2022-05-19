@@ -1,5 +1,6 @@
 <?php
 require 'connection.php';
+    session_start();
     $addFullname = $_POST['addFullname'];
     $addPosition = $_POST['addPosition'];
     $addNumber = $_POST['addNumber'];
@@ -70,8 +71,16 @@ require 'connection.php';
         $sql6 = "INSERT INTO employees (fullname, position, email_address, PhoneNumber, username, password, image, is_active , token) VALUES (?,?,?,?,?,?,'default.png', 1, '$randomToken')";
         $pdo->prepare($sql6)->execute([$addFullname, $addPosition, $addEmail, $addNumber, $addUsername, $addPassword]);
         if($pdo){
-            echo 1;
-            exit();  
+            $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has added $addFullname to our system', now())";
+            $statement=$pdo->prepare($sql7);
+            $statement->execute();
+            if($statement){
+                echo 1;
+                exit();  
+            }else{
+                echo 0;
+                exit();
+            }
         }else{
             echo 0;
             exit();  

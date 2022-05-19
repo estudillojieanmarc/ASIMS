@@ -1,6 +1,7 @@
 <?php
         require 'connection.php';
         // NAME FROM THE FORM 
+        session_start();
         $brandName = $_POST['brandName'];
 
         // CHECK IF THE ITEM IS ALREADY EXIST
@@ -19,8 +20,16 @@
             $sql = "INSERT INTO brandname (brand) VALUES (?)";
             $pdo->prepare($sql)->execute([$brandName]);
             if($pdo){
-                echo "Added Successfully";
-                exit();  
+                $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has add brand $brandName to our system', now())";
+                $statement=$pdo->prepare($sql7);
+                $statement->execute();
+                if($statement){
+                    echo "Added Successfully";
+                    exit();  
+                }else{
+                    echo "Sorry, Failed";
+                    exit();
+                }
             }else{
                 echo "Sorry, Failed";
                 exit();  

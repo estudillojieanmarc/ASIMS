@@ -56,7 +56,16 @@
                 item_category =  :updateItemCategory, item_price = :updateItemPrice WHERE id = $updateItemID";
                 $statement = $pdo->prepare($qry);
                 if($statement->execute([':updateItemName' => $updateItemName, ':updateItemCode' => $updateItemCode, ':updateItemImage' => $updateItemImage, ':updateItemDescription' => $updateItemDescription, ':updateItemStock' => $updateItemStock, ':updateItemBrand' => $updateItemBrand, ':updateItemCategory' => $updateItemCategory, ':updateItemPrice' => $updateItemPrice])){
-                    echo 1;
+                    $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has update $updateItemName at Inventory to our system', now())";
+                    $statement=$pdo->prepare($sql7);
+                    $statement->execute();
+                    if($statement){
+                        echo 1;
+                        exit();  
+                    }else{
+                        echo 0;
+                        exit(); 
+                    }
                 }else{
                     echo 0;
                 }
@@ -68,7 +77,16 @@
             item_category =  :updateItemCategory, item_price = :updateItemPrice WHERE id = $updateItemID";
             $statement = $pdo->prepare($qry);
             if($statement->execute([':updateItemName' => $updateItemName, ':updateItemCode' => $updateItemCode, ':updateItemDescription' => $updateItemDescription, ':updateItemStock' => $updateItemStock, ':updateItemBrand' => $updateItemBrand, ':updateItemCategory' => $updateItemCategory, ':updateItemPrice' => $updateItemPrice])){
-                echo 1;
+                $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has update $updateItemName at Inventory', now())";
+                $statement=$pdo->prepare($sql7);
+                $statement->execute();
+                if($statement){
+                    echo 1;
+                    exit();  
+                }else{
+                    echo 0;
+                    exit(); 
+                }
             }else{
                 echo 0;
             }

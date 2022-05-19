@@ -92,7 +92,62 @@
           </div>
       </div>
   <!-- END SIDE BAR -->
-  </div>
+      
+  <!-- MAIN BAR -->
+     <div class="col-10">
+              <div class="container-fluid">
+                <h4 class="pt-5">A&S MOTORSHOP ACTIVITY LOGS <i class="fa-solid fa-coins px-1"></i></h4>
+                <ul class="nav nav-tabs my-4">
+                  <li class="nav-item">
+                      <a class="nav-link active" href="#">&nbsp;&nbsp;Sales Report&nbsp;&nbsp;</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="http://localhost/ASIMS/newSales.php">Add Sales</a>
+                  </li>
+                </ul>
+
+                <div class="row pt-3">
+                  <div class="col-8 d-flex">
+                    <a href="#" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
+                    <button id="createExcel" name="createExcel" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" data-bs-toggle="modal" data-bs-target="#addSales"><i class="fa-solid fa-file-excel"></i>  Excel</button>
+                    <a href="http://localhost/ASIMS/history.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2 "> <i class="fa-solid fa-rotate"></i> Refresh</a>
+                  </div>
+                  <div class="col-4 ms-auto">
+                    <form class="d-flex">
+                      <input class="form-control" type="search" placeholder="Search" id="myInput" aria-label="Search">
+                      <button style="border-radius:4px;" class="btn border-dark border-1" type="submit" disabled><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                  </div>
+                </div>
+              <div class="row mt-2">
+              <div class="card pt-3 bg-light border-2">
+                <div class="table-responsive" id="showSalesTable">
+                <table id="salesTable" class="table align-middle text-center table-borderless table-striped shadow table-hover">
+                  <thead class="align-middle">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Activity</th>
+                      <th scope="col">On</th>
+                    </tr>
+                  </thead>
+                  <tbody id="showHistory"><!-- HISTORY DATA --></tbody>
+                </table>
+                </div>
+                </div> 
+                <div class="row">
+                <div class="col-12">
+                    <ul class="pagination mt-1 float-end" id="pageno"></ul></div>
+                </div>
+            </div>
+              </div>
+              </div>
+          </div>
+  <!-- END MAIN BAR -->
+
+</div>
+
+
+
 <!-- CONTENT -->
 
     <script src="js/jquery.js"></script>
@@ -100,6 +155,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
+    <script src="function/history.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

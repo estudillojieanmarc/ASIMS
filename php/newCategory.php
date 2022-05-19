@@ -1,6 +1,7 @@
 <?php
         require 'connection.php';
         // NAME FROM THE FORM 
+        session_start();
         $category = $_POST['category'];
 
         // CHECK IF THE ITEM IS ALREADY EXIST
@@ -19,8 +20,16 @@
             $sql = "INSERT INTO categoryname (category) VALUES (?)";
             $pdo->prepare($sql)->execute([$category]);
             if($pdo){
-                echo "added Successfully";
-                exit();  
+                $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has add category $category to our system', now())";
+                $statement=$pdo->prepare($sql7);
+                $statement->execute();
+                if($statement){
+                    echo "added Successfully";
+                    exit();  
+                }else{
+                    echo "Sorry, Failed";
+                    exit();
+                }
             }else{
                 echo "Sorry, Failed";
                 exit();  

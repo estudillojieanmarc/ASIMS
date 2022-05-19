@@ -1,9 +1,8 @@
 <?php
         require 'connection.php';
+        session_start();
         $receipNo = $_POST["receipNo"];
         $itemBarcode = $_POST["itemBarcode"];
-        $itemQty = $_POST["itemQty"];
-      
                 // CHECK THE RECEIPT NO.
                 $sql = "SELECT receipt_no FROM sales WHERE receipt_no = :receipNo";
                 $statement=$pdo->prepare($sql);
@@ -17,9 +16,6 @@
                     echo "Sorry, Receipt number are already exist";
                     exit(); 
                 }else{
-                        $qry = "INSERT INTO sales (receipt_no, purchased, item_id, customers, quantity, total_sales) 
-                        VALUES (:receipNo, :purchasedOn, :itemId, :customerName, :itemQty, :totalSales)";
-        
                         for($count = 0; $count<count($_POST['itemId']); $count++)
                         {
                         // CHECK THE ITEM STOCK
@@ -39,17 +35,41 @@
                                 echo "Sorry not enough stock";
                                 exit();
                         }else{
-                        $data = array(                                         
-                        ':receipNo' => $_POST['receipNo'],
-                        ':purchasedOn' => $_POST['purchasedOn'],
-                        ':itemId' => $_POST['itemId'][$count],
-                        ':customerName' => $_POST['customerName'],
-                        ':itemQty' => $_POST['itemQty'][$count],
-                        ':totalSales' => $_POST['totalSales'][$count],
-                        );
-                        $statement = $pdo->prepare($qry);
-                        $statement->execute($data);
-                        }
+                                $qry = "INSERT INTO sales (receipt_no, purchased, item_id, customers, quantity, total_sales) 
+                                VALUES (:receipNo, :purchasedOn, :itemId, :customerName, :itemQty, :totalSales)";
+                                $data = array(                                         
+                                ':receipNo' => $_POST['receipNo'],
+                                ':purchasedOn' => $_POST['purchasedOn'],
+                                ':itemId' => $_POST['itemId'][$count],
+                                ':customerName' => $_POST['customerName'],
+                                ':itemQty' => $_POST['itemQty'][$count],
+                                ':totalSales' => $_POST['totalSales'][$count],
+                                );
+                                $statement = $pdo->prepare($qry);
+                                $statement->execute($data);
+                                        if($statement){
+                                                for($count = 0; $count<count($_POST['itemId']); $count++)
+                                                {
+                                                        $qry = "UPDATE inventory SET item_stock = item_stock - :itemQty WHERE id = :itemId";
+                                                        $statement = $pdo->prepare($qry);
+                                                        if($statement->execute([':itemQty' => $_POST['itemQty'][$count], ':itemId' => $_POST['itemId'][$count]])){
+                                                                $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has add sales at our system', now())";
+                                                                $statement=$pdo->prepare($sql7);
+                                                                $statement->execute();
+                                                                if($statement){
+                                                                    echo 1;
+                                                                    exit();  
+                                                                }else{
+                                                                    echo 0;
+                                                                    exit(); 
+                                                                };
+                                                        }else{ 
+                                                                echo 0;
+                                                        }   
+                                                }   
+                                        }
+                                }
+
                         }
                 }
 ?>
