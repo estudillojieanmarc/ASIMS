@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2022 at 09:25 PM
+-- Generation Time: May 19, 2022 at 10:46 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -82,8 +82,58 @@ CREATE TABLE `employees` (
 
 INSERT INTO `employees` (`emp_id`, `fullname`, `position`, `email_address`, `PhoneNumber`, `username`, `password`, `image`, `is_active`, `token`) VALUES
 (1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320589', 'jieanmarc22', 'Estudillojieanmarc22', 'avatar123.jpg', 1, 'd44b6de399841a1368de7fe3fd9eb5fd'),
-(2, 'Jan Remiel Menor', 'Mechanic', 'janremiel@gmail.com', '09103658328', 'janremiel22', 'janremiel123', 'avatar1.jpg', 1, '2312dsf3ds'),
-(3, 'James Ybanez', 'Mechanic', 'jame@gmail.com', '09287210476', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs');
+(2, 'Jan Remiel Menors', 'Mechanic', 'janremiel@gmail.com', '09103658328', 'janremiel22', 'janremiel123', 'avatar1.jpg', 1, '2312dsf3ds'),
+(3, 'James Ybanez', 'Mechanic', 'jame@gmail.com', '09287210476', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs'),
+(13, 'Sam Ibrahim', 'Administrator', 'sam@gmail.com', '09474626752', 'sam123', 'default123', 'default.png', 1, '95067e202586e91d3f3342bdea496ab6');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+
+CREATE TABLE `history` (
+  `history_id` int(11) NOT NULL,
+  `history` varchar(250) NOT NULL,
+  `set_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`history_id`, `history`, `set_on`) VALUES
+(1, 'Mr/Ms. Jiean Marc Estudillo has added Sam Ibrahim to our system', '2022-05-19 07:03:33'),
+(2, 'Mr/Ms. Jiean Marc Estudillo has add task to our system', '2022-05-19 07:05:57'),
+(5, 'Mr/Ms. Jiean Marc Estudillo has add brand test2 to our system', '2022-05-19 07:15:12'),
+(7, 'Mr/Ms. Jiean Marc Estudillo has add brand  to our system', '2022-05-19 07:16:31'),
+(8, 'Mr/Ms. Jiean Marc Estudillo has add brand test to our system', '2022-05-19 07:17:12'),
+(9, 'Mr/Ms. Jiean Marc Estudillo has add category test2 to our system', '2022-05-19 07:17:40'),
+(10, 'Mr/Ms. Jiean Marc Estudillo has update Tire to our system', '2022-05-19 07:33:08'),
+(11, 'Mr/Ms. Jiean Marc Estudillo has update Wire to our system', '2022-05-19 07:33:51'),
+(13, 'Mr/Ms. Jiean Marc Estudillo has update Wire at category to our system', '2022-05-19 07:35:40'),
+(14, 'Mr/Ms. Jiean Marc Estudillo has update Vivo add brand to our system', '2022-05-19 07:36:54'),
+(15, 'Mr/Ms. Jiean Marc Estudillo has update Samsung at brand to our system', '2022-05-19 07:37:26'),
+(16, 'Mr/Ms. Jiean Marc Estudillo has update Tire  at Inventory to our system', '2022-05-19 07:39:48'),
+(17, 'Mr/Ms. Jiean Marc Estudillo has update Jan Remiel Menors at Employees to our system', '2022-05-19 07:42:39'),
+(18, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-19 07:43:21'),
+(19, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-19 07:45:04'),
+(21, 'Mr/Ms. Jiean Marc Estudillo has enable 2 at our system', '2022-05-19 07:49:25'),
+(22, 'Mr/Ms. Jiean Marc Estudillo has disable employee id 2 at our system', '2022-05-19 07:50:02'),
+(23, 'Mr/Ms. Jiean Marc Estudillo has enable employee id 2 at our system', '2022-05-19 07:50:12'),
+(24, 'Mr/Ms. Jiean Marc Estudillo has add brand No Brand to our system', '2022-05-19 07:58:11'),
+(25, 'Mr/Ms. Jiean Marc Estudillo has add brand test to our system', '2022-05-19 08:00:06'),
+(26, 'Mr/Ms. Jiean Marc Estudillo has delete brand id 95 at brand', '2022-05-19 08:00:23'),
+(27, 'Mr/Ms. Jiean Marc Estudillo has add category test to our system', '2022-05-19 08:00:42'),
+(28, 'Mr/Ms. Jiean Marc Estudillo has delete category id 53 at category', '2022-05-19 08:00:48'),
+(29, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-19 08:01:20'),
+(30, 'Mr/Ms. Jiean Marc Estudillo has delete item id on at our system', '2022-05-19 08:01:40'),
+(32, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-19 08:06:22'),
+(33, 'Mr/Ms. Jiean Marc Estudillo has delete #123123123 at sales', '2022-05-19 08:06:56'),
+(34, 'Mr/Ms. Jiean Marc Estudillo has update Tire  at Inventory', '2022-05-19 08:09:46'),
+(35, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-19 08:35:31'),
+(36, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-19 08:35:35'),
+(37, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-19 08:43:47');
 
 -- --------------------------------------------------------
 
@@ -108,8 +158,9 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id`, `item_name`, `item_barcode`, `item_image`, `item_description`, `item_stock`, `item_brand`, `item_category`, `item_price`) VALUES
-(37, 'Wd-40', '#123123', 'wd-40.png', 'This is good for rust removal', 6, 1, 1, 120),
-(38, 'Black Helmet', '#321321', 'helmet.jpg', 'this is a black helmet', 6, 1, 1, 1000);
+(37, 'Wd-40', '#123123', 'wd-40.png', 'This is good for rust removal', 1, 1, 1, 120),
+(38, 'Black Helmet', '#321321', 'helmet.jpg', 'this is a black helmet', 0, 1, 1, 1000),
+(39, 'Tire ', '#456654', 'tire.jpg', 'This is a tire ', 1, 1, 1, 1500);
 
 -- --------------------------------------------------------
 
@@ -126,6 +177,13 @@ CREATE TABLE `sales` (
   `quantity` int(11) NOT NULL,
   `total_sales` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`sales_id`, `receipt_no`, `purchased`, `item_id`, `customers`, `quantity`, `total_sales`) VALUES
+(157, '#123123123', '2022-05-19', 38, 'Jiean Marc Estudillo', 1, 5000);
 
 -- --------------------------------------------------------
 
@@ -163,6 +221,12 @@ ALTER TABLE `employees`
   ADD PRIMARY KEY (`emp_id`);
 
 --
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`history_id`);
+
+--
 -- Indexes for table `inventory`
 --
 ALTER TABLE `inventory`
@@ -188,37 +252,43 @@ ALTER TABLE `todo`
 -- AUTO_INCREMENT for table `brandname`
 --
 ALTER TABLE `brandname`
-  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `categoryname`
 --
 ALTER TABLE `categoryname`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT for table `todo`
 --
 ALTER TABLE `todo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
