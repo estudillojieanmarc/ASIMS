@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/asims.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/img/red.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <title>A&S Motor Parts</title>
 </head>
@@ -99,32 +100,30 @@
         <div class="row pt-5">
               <!-- START OF RIGHT UI -->
                 <div class="col-12 ">
-                  <div class="card border-0 ">
                         <div class="container">
                         <form id="addSalesForm">
-                        <h4 class="pt-4 text-center mb-4">NEW SALES REPORT <i class="fa-solid fa-circle-dollar-to-slot"></i></h4>     
+                        <div class="card pt-3 px-5 rounded">
+                        <h4 class="pt-4 mb-4">NEW SALES REPORT <i class="fa-solid fa-circle-dollar-to-slot"></i></h4>     
                           <div class="row mt-1 text-center">
-                            <div class="col-6 mx-auto">
+                            <div class="col-12 mx-auto">
                               <div class="row g-2 mb-2 mt-2 ">
-                                  <div class="col-6">
-                                      <label class="form-label">Receipt Number:</label>
-                                      <input type="text" class="form-control text-center shadow border-2" id="receipNo" name="receipNo" placeholder="Enter Receipt Number">
+                                  <div class="col-5 text-center">
+                                      <label class="form-label text-center">Customer Name:</label>
+                                      <input class="form-control border-2 text-center" type="text" id="customerName" name="customerName" placeholder="Enter Customer Name">
                                   </div>
-                                  <div class="col-6">
+                                  <div class="col-3">
                                       <label class="form-label">Purchased On:</label>
-                                      <input type="date" class="form-control text-center text-center shadow border-2" id="purchasedOn" name="purchasedOn" placeholder="Customer Name">
+                                      <input type="date" class="form-control border-2 text-center" id="purchasedOn" name="purchasedOn" placeholder="Customer Name">
                                   </div>
-                              </div>
-                              <div class="row px-5">
-                                <div class="col g-2 px-5 text-center">
-                                    <label class="form-label text-center">Customer Name:</label>
-                                    <input class="form-control text-center shadow border-2" type="text" id="customerName" name="customerName" placeholder="Enter Customer Name">
-                                </div>
+                                  <div class="col-4">
+                                      <label class="form-label">Receipt Number:</label>
+                                      <input type="text" class="form-control border-2 text-center" id="receipNo" name="receipNo" placeholder="Enter Receipt Number">
+                                  </div>
                               </div>
                             </div>
-                            <div class="row mt-4 mx-1 bg-light shadow px-5 mb-5 pt-5" style="border-radius:20px;">                   
+                            <div class="row mt-4 mx-1 bg-light shadow px-5 mb-5 pt-5" style="border-radius:20px;"> 
                               <h5 class="text-start">ITEM PURCHASED <i class="fa-solid fa-receipt"></i></h5>
-                              <table class="table table-sm text-center align-middle table-striped mt-2" id="purchasedList">
+                              <table class="table table-sm text-center bg-light align-middle table-striped mt-2" id="purchasedList">
                                   <thead>
                                     <tr>
                                       <th>Barcode</th>
@@ -148,7 +147,7 @@
                                       <td class="name"></td>
                                       <td class="price"></td>
                                       <td class="stock"></td>
-                                      <input type="hidden" class="form-control form-control-sm text-center" id="itemStock" name="stock[]">
+                                      <input type="hidden" class="form-control form-control-sm text-center itemStock"  name="stock[]">
                                       <td class="px-4"><input type="number" value="0" min="0" name="itemQty[]" class="form-control text-center bg-light border-2 form-control-sm quantity"></td>
                                       <td><input style="background-color:transparent; font-size:1rem;" type="text" name="totalSales[]" readonly class="form-control border-0 text-center form-control-sm total"></td>
                                       <td style="width:10rem;"><button type="button" class="btn btn-sm btn-success confirm"><i class="fa-solid fa-check"></i></button> <button type="button" id="addRows" class="btn btn-sm btn-primary text-end rounded"><i class="fa-solid fa-plus"></i></button></td>
@@ -164,7 +163,7 @@
                             </div> 
                           </div>  
                         </form>
-                  </div>   
+                      </div>
                 </div>   
               <!-- END OF RIGHT UI -->
         </div>
@@ -180,7 +179,7 @@
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/addSaleReport.js"></script>
+    <script src="function/addSale.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

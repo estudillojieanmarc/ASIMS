@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2022 at 10:46 AM
+-- Generation Time: May 23, 2022 at 01:29 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -81,7 +81,7 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`emp_id`, `fullname`, `position`, `email_address`, `PhoneNumber`, `username`, `password`, `image`, `is_active`, `token`) VALUES
-(1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320589', 'jieanmarc22', 'Estudillojieanmarc22', 'avatar123.jpg', 1, 'd44b6de399841a1368de7fe3fd9eb5fd'),
+(1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320589', 'jieanmarc22', 'Jieanmarc22', 'avatar123.jpg', 1, 'fbe21e549e5fca4903a731bc45bdc533'),
 (2, 'Jan Remiel Menors', 'Mechanic', 'janremiel@gmail.com', '09103658328', 'janremiel22', 'janremiel123', 'avatar1.jpg', 1, '2312dsf3ds'),
 (3, 'James Ybanez', 'Mechanic', 'jame@gmail.com', '09287210476', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs'),
 (13, 'Sam Ibrahim', 'Administrator', 'sam@gmail.com', '09474626752', 'sam123', 'default123', 'default.png', 1, '95067e202586e91d3f3342bdea496ab6');
@@ -133,7 +133,29 @@ INSERT INTO `history` (`history_id`, `history`, `set_on`) VALUES
 (34, 'Mr/Ms. Jiean Marc Estudillo has update Tire  at Inventory', '2022-05-19 08:09:46'),
 (35, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-19 08:35:31'),
 (36, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-19 08:35:35'),
-(37, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-19 08:43:47');
+(37, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-19 08:43:47'),
+(38, 'Mr/Ms. Jiean Marc Estudillo has delete on at sales', '2022-05-23 05:32:50'),
+(39, 'Mr/Ms. Jiean Marc Estudillo has delete #123123123 at sales', '2022-05-23 05:32:58'),
+(40, 'Mr/Ms. Jiean Marc Estudillo has add task to our system', '2022-05-23 05:33:09'),
+(41, 'Mr/Ms. Jiean Marc Estudillo has delete task id 34 at our system', '2022-05-23 05:33:14'),
+(42, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 05:34:37'),
+(43, 'Mr/Ms. Jiean Marc Estudillo has disable employee id 13 at our system', '2022-05-23 05:35:22'),
+(44, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 06:33:24'),
+(45, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-23 08:11:46'),
+(46, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-23 08:11:50'),
+(47, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 10:22:08'),
+(48, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-23 10:36:56'),
+(49, 'Mr/Ms. Jiean Marc Estudillo has update Tire  at Inventory', '2022-05-23 10:37:02'),
+(50, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-23 11:05:24'),
+(51, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:07:39'),
+(52, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:09:37'),
+(53, 'Mr/Ms. Jiean Marc Estudillo has delete 1 at sales', '2022-05-23 11:11:35'),
+(54, 'Mr/Ms. Jiean Marc Estudillo has delete # at sales', '2022-05-23 11:11:42'),
+(55, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:12:25'),
+(56, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:19:59'),
+(57, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:24:20'),
+(58, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:25:48'),
+(59, 'Mr/Ms. Jiean Marc Estudillo has enable employee id 13 at our system', '2022-05-23 11:28:07');
 
 -- --------------------------------------------------------
 
@@ -159,8 +181,8 @@ CREATE TABLE `inventory` (
 
 INSERT INTO `inventory` (`id`, `item_name`, `item_barcode`, `item_image`, `item_description`, `item_stock`, `item_brand`, `item_category`, `item_price`) VALUES
 (37, 'Wd-40', '#123123', 'wd-40.png', 'This is good for rust removal', 1, 1, 1, 120),
-(38, 'Black Helmet', '#321321', 'helmet.jpg', 'this is a black helmet', 0, 1, 1, 1000),
-(39, 'Tire ', '#456654', 'tire.jpg', 'This is a tire ', 1, 1, 1, 1500);
+(38, 'Black Helmet', '#321321', 'helmet.jpg', 'this is a black helmet', 6, 1, 1, 1000),
+(39, 'Tire ', '#456654', 'tire.jpg', 'This is a tire ', 12, 1, 1, 1500);
 
 -- --------------------------------------------------------
 
@@ -183,7 +205,17 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`sales_id`, `receipt_no`, `purchased`, `item_id`, `customers`, `quantity`, `total_sales`) VALUES
-(157, '#123123123', '2022-05-19', 38, 'Jiean Marc Estudillo', 1, 5000);
+(158, '#123123123', '2022-05-23', 37, 'Jiean Marc Estudillo', 1, 480),
+(159, '#123123', '2022-05-26', 39, 'Jiean Marc Estudillo', 1, 1500),
+(160, '#3211231231', '2022-05-21', 38, 'Jiean Marc Estudillo', 1, 1000),
+(163, '#1234567', '2022-05-19', 37, 'Jiean Marc Estudillo', 1, 120),
+(164, '#1234567', '2022-05-19', 38, 'Jiean Marc Estudillo', 2, 2000),
+(165, '#7654321', '2022-05-18', 37, 'Jiean Marc Estudillo', 4, 480),
+(166, '#7654321', '2022-05-18', 38, 'Jiean Marc Estudillo', 1, 1000),
+(167, '#311233321', '2022-05-24', 37, 'Jiean Marc Estudillo', 1, 120),
+(168, '#311233321', '2022-05-24', 38, 'Jiean Marc Estudillo', 3, 3000),
+(169, '#123454321', '2022-05-17', 37, 'Jiean Marc Estudillo', 2, 240),
+(170, '#123454321', '2022-05-17', 38, 'Jiean Marc Estudillo', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -270,7 +302,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -282,13 +314,13 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT for table `todo`
 --
 ALTER TABLE `todo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/asims.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/img/red.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <title>A&S Motor Parts</title>
 </head>
@@ -96,75 +97,82 @@
   <!-- MAIN BAR -->
     <div class="col-10">
           <!-- CARDS -->
-          <div class="container mt-4">
-            <div class="row">
-              <div class="col-3">
-                <div class="card bg-dark shadow" style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4">
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-coins pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold">₱<span id="totalSales">100</span></p>
-                                <p class="card-text text-light"><a class="text-light" style="text-decoration:none;" href="http://localhost/ASIMS/sales.php">TOTAL SALES</a></p>
-                            </div>   
-                        </div>   
-                    </div>
+            <div class="container mt-4">
+              <div class="row">
+                <div class="col-3">
+                  <div class="card bg-dark shadow" style="width: 16rem; height:7rem; border-radius:10px;">
+                      <div class="card-body py-4">
+                          <div class="row">
+                              <div class="col-5 text-start px-4">
+                                  <i style="font-size:2.5rem;" class="fa-solid fa-coins pt-3 text-light"></i>
+                              </div>   
+                              <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
+                                  <p class="card-text text-light pt-2 fs-5 fw-bold">₱<span id="totalSales">100</span></p>
+                                  <p class="card-text text-light"><a class="text-light" style="text-decoration:none;" href="http://localhost/ASIMS/sales.php">TOTAL SALES</a></p>
+                              </div>   
+                          </div>   
+                      </div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-boxes-stacked pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalStocks"></p>
-                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/inventory.php">TOTAL STOCKS</a></p>                               
-                            </div>   
-                        </div>   
-                    </div>
+                <div class="col-3">
+                  <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
+                      <div class="card-body py-4" >
+                          <div class="row">
+                              <div class="col-5 text-start px-4">
+                                  <i style="font-size:2.5rem;" class="fa-solid fa-boxes-stacked pt-3 text-light"></i>
+                              </div>   
+                              <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
+                                  <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalStocks"></p>
+                                  <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/inventory.php">TOTAL STOCKS</a></p>                               
+                              </div>   
+                          </div>   
+                      </div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-cart-flatbed pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalNoStocks"></p>
-                                <p class="card-text text-light"><a class="text-white text-center" style="text-decoration:none;" href="http://localhost/ASIMS/noStock.php">NO STOCKS</a></p> 
-                            </div>   
-                        </div>   
-                    </div>
+                <div class="col-3">
+                  <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
+                      <div class="card-body py-4" >
+                          <div class="row">
+                              <div class="col-5 text-start px-4">
+                                  <i style="font-size:2.5rem;" class="fa-solid fa-cart-flatbed pt-3 text-light"></i>
+                              </div>   
+                              <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
+                                  <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalNoStocks"></p>
+                                  <p class="card-text text-light"><a class="text-white text-center" style="text-decoration:none;" href="http://localhost/ASIMS/noStock.php">NO STOCKS</a></p> 
+                              </div>   
+                          </div>   
+                      </div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-3">
-                <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
-                    <div class="card-body py-4" >
-                        <div class="row">
-                            <div class="col-5 text-start px-4">
-                                <i style="font-size:2.5rem;" class="fa-solid fa-list-check pt-3 text-light"></i>
-                            </div>   
-                            <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalTask"></p>
-                                <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/toDo.php">PENDING TASK</a></p> 
-                            </div>   
-                        </div>   
-                    </div>
+                <div class="col-3">
+                  <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
+                      <div class="card-body py-4" >
+                          <div class="row">
+                              <div class="col-5 text-start px-4">
+                                  <i style="font-size:2.5rem;" class="fa-solid fa-list-check pt-3 text-light"></i>
+                              </div>   
+                              <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
+                                  <p class="card-text text-light pt-2 fs-5 fw-bold" id="totalTask"></p>
+                                  <p class="card-text text-light"><a class="text-white" style="text-decoration:none;" href="http://localhost/ASIMS/toDo.php">PENDING TASK</a></p> 
+                              </div>   
+                          </div>   
+                      </div>
+                  </div>
                 </div>
-              </div>
-              
-          </div>
+                
+            </div>
           <!-- END CARDS -->
-
+          <!-- CHART -->
+          <div class="mb-3 mt-2 border-2 shadow">
+            <div class="card p-4" style="border-radius:20px;">
+              <H4>SALES REPORT <i class="fa-solid fa-comment-dollar"></i></H4>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <!-- CHART -->
     </div>
   <!-- END MAIN BAR -->
   </div>
@@ -176,6 +184,7 @@
     <script src="function/logout.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>
@@ -185,5 +194,51 @@
             $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
         });
     </script>
+    <!-- FUNCTION FOR CHART -->
+        <?php
+        require 'connection.php';
+        $sql = "SELECT purchased as purchasedOn, SUM(total_sales) AS totalSales FROM sales GROUP BY purchasedOn";
+        $statement=$pdo->prepare($sql);
+        $statement->execute();
+        $sales = $statement->fetchAll(PDO::FETCH_OBJ);
+        foreach($sales as $data)
+        {
+          $amount[] = $data->totalSales;
+          $newDate[] = date('F d, Y',strtotime($data->purchasedOn));
+        }
+        ?>
+        <script>
+          const labels = <?php echo json_encode($newDate, true); ?>;
+          console.log(labels);
+          const data = {
+            labels: labels,
+            datasets: [{
+              label: 'A&S SALES REPORT',
+              data: <?php echo json_encode($amount, true); ?>,
+              backgroundColor: [
+                'rgba(18,	52,	86, 0.5 )',
+              ],
+              borderColor: [
+                'rgba(18,	52,	86)',
+              ],
+              borderWidth: 1
+            }]
+          };
+          const config = {
+            type: 'bar',
+            data: data,
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            },
+          };
+            var myChart = new Chart(document.getElementById('myChart'),config);
+        </script>
+    <!-- FUNCTION FOR CHART -->
+
 </body>
 </html>
+
