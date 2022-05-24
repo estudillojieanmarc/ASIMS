@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2022 at 01:29 PM
+-- Generation Time: May 24, 2022 at 07:17 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -37,7 +37,8 @@ CREATE TABLE `brandname` (
 --
 
 INSERT INTO `brandname` (`brand_id`, `brand`) VALUES
-(1, 'No Brand');
+(1, 'No Brand'),
+(97, 'Test Brand ');
 
 -- --------------------------------------------------------
 
@@ -55,7 +56,8 @@ CREATE TABLE `categoryname` (
 --
 
 INSERT INTO `categoryname` (`cat_id`, `category`) VALUES
-(1, 'No Category');
+(1, 'No Category'),
+(56, 'Test Category');
 
 -- --------------------------------------------------------
 
@@ -81,10 +83,11 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`emp_id`, `fullname`, `position`, `email_address`, `PhoneNumber`, `username`, `password`, `image`, `is_active`, `token`) VALUES
-(1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320589', 'jieanmarc22', 'Jieanmarc22', 'avatar123.jpg', 1, 'fbe21e549e5fca4903a731bc45bdc533'),
+(1, 'Jiean Marc Estudillo', 'Administrator', 'estudillojieanmarc22@gmail.com', '09398320589', 'jieanmarc22', 'Jieanmarc22', 'avatar123.jpg', 1, 'd2139079576d9c2bc123bd51bb4b4c7d'),
 (2, 'Jan Remiel Menors', 'Mechanic', 'janremiel@gmail.com', '09103658328', 'janremiel22', 'janremiel123', 'avatar1.jpg', 1, '2312dsf3ds'),
 (3, 'James Ybanez', 'Mechanic', 'jame@gmail.com', '09287210476', 'james123', 'james123', 'avatar2.jpg', 1, '213sdcsfs'),
-(13, 'Sam Ibrahim', 'Administrator', 'sam@gmail.com', '09474626752', 'sam123', 'default123', 'default.png', 1, '95067e202586e91d3f3342bdea496ab6');
+(13, 'Sam Ibrahim', 'Administrator', 'sam@gmail.com', '09474626752', 'sam123', 'default123', 'default.png', 1, '95067e202586e91d3f3342bdea496ab6'),
+(14, 'Amira Ibrahim ', 'Owner', 'Amira@gmail.com', '09474626734', 'Amira22', 'default123', 'default.png', 1, '09d5f663c29ae5ce58f8e6091a0b2912');
 
 -- --------------------------------------------------------
 
@@ -155,7 +158,47 @@ INSERT INTO `history` (`history_id`, `history`, `set_on`) VALUES
 (56, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:19:59'),
 (57, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:24:20'),
 (58, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-23 11:25:48'),
-(59, 'Mr/Ms. Jiean Marc Estudillo has enable employee id 13 at our system', '2022-05-23 11:28:07');
+(59, 'Mr/Ms. Jiean Marc Estudillo has enable employee id 13 at our system', '2022-05-23 11:28:07'),
+(60, 'Mr/Ms. Jiean Marc Estudillo has add category test to our system', '2022-05-24 02:25:23'),
+(61, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-24 02:25:32'),
+(62, 'Mr/Ms. Jiean Marc Estudillo has delete category id 54 at category', '2022-05-24 02:25:45'),
+(63, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-24 02:33:36'),
+(64, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 02:35:45'),
+(65, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 02:41:52'),
+(66, 'Mr/Ms. Jiean Marc Estudillo has delete #246784554 at sales', '2022-05-24 02:42:01'),
+(67, 'Mr/Ms. Jiean Marc Estudillo has delete #123454321 at sales', '2022-05-24 02:42:11'),
+(68, 'Mr/Ms. Jiean Marc Estudillo has disable employee id 2 at our system', '2022-05-24 02:44:09'),
+(69, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 03:12:00'),
+(70, 'Mr/Ms. Jiean Marc Estudillo has delete #321321 at sales', '2022-05-24 03:12:28'),
+(71, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 03:15:32'),
+(72, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-24 03:19:13'),
+(73, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-24 03:19:18'),
+(74, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 03:20:17'),
+(75, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 03:22:57'),
+(76, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-24 03:23:33'),
+(77, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 03:24:13'),
+(78, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 03:28:06'),
+(79, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 03:29:48'),
+(80, 'Mr/Ms. Jiean Marc Estudillo has add brand test to our system', '2022-05-24 03:30:32'),
+(81, 'Mr/Ms. Jiean Marc Estudillo has add category test to our system', '2022-05-24 03:30:38'),
+(82, 'Mr/Ms. Jiean Marc Estudillo has delete category id 55 at category', '2022-05-24 03:31:22'),
+(83, 'Mr/Ms. Jiean Marc Estudillo has delete brand id 96 at brand', '2022-05-24 03:32:00'),
+(84, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-24 03:32:58'),
+(85, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-24 03:33:01'),
+(86, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 03:34:46'),
+(87, 'Mr/Ms. Jiean Marc Estudillo has enable employee id 2 at our system', '2022-05-24 04:56:36'),
+(88, 'Mr/Ms. Jiean Marc Estudillo has added Amira Ibrahim  to our system', '2022-05-24 04:58:54'),
+(89, 'Mr/Ms. Jiean Marc Estudillo has add brand Test Brand  to our system', '2022-05-24 04:59:59'),
+(90, 'Mr/Ms. Jiean Marc Estudillo has add category Test Category to our system', '2022-05-24 05:00:19'),
+(91, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-24 05:00:56'),
+(92, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-24 05:01:02'),
+(93, 'Mr/Ms. Jiean Marc Estudillo has update Black Helmet at Inventory', '2022-05-24 05:01:16'),
+(94, 'Mr/Ms. Jiean Marc Estudillo has update Wd-40 at Inventory', '2022-05-24 05:01:22'),
+(95, 'Mr/Ms. Jiean Marc Estudillo has add sales at our system', '2022-05-24 05:06:43'),
+(96, 'Mr/Ms. Jiean Marc Estudillo has add task to our system', '2022-05-24 05:08:38'),
+(97, 'Mr/Ms. Jiean Marc Estudillo has delete task id 35 at our system', '2022-05-24 05:09:53'),
+(98, 'Mr/Ms. Jan Remiel Menors has add task to our system', '2022-05-24 05:10:33'),
+(99, 'Mr/Ms. Jan Remiel Menors has delete task id 36 at our system', '2022-05-24 05:11:15');
 
 -- --------------------------------------------------------
 
@@ -180,9 +223,9 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id`, `item_name`, `item_barcode`, `item_image`, `item_description`, `item_stock`, `item_brand`, `item_category`, `item_price`) VALUES
-(37, 'Wd-40', '#123123', 'wd-40.png', 'This is good for rust removal', 1, 1, 1, 120),
-(38, 'Black Helmet', '#321321', 'helmet.jpg', 'this is a black helmet', 6, 1, 1, 1000),
-(39, 'Tire ', '#456654', 'tire.jpg', 'This is a tire ', 12, 1, 1, 1500);
+(37, 'Wd-40', '#123123', 'wd-40.png', 'This is good for rust removal', 0, 97, 56, 120),
+(38, 'Black Helmet', '#321321', 'helmet.jpg', 'this is a black helmet', 0, 97, 56, 1000),
+(39, 'Tire ', '#456654', 'tire.jpg', 'This is a tire ', 8, 1, 1, 1500);
 
 -- --------------------------------------------------------
 
@@ -214,8 +257,22 @@ INSERT INTO `sales` (`sales_id`, `receipt_no`, `purchased`, `item_id`, `customer
 (166, '#7654321', '2022-05-18', 38, 'Jiean Marc Estudillo', 1, 1000),
 (167, '#311233321', '2022-05-24', 37, 'Jiean Marc Estudillo', 1, 120),
 (168, '#311233321', '2022-05-24', 38, 'Jiean Marc Estudillo', 3, 3000),
-(169, '#123454321', '2022-05-17', 37, 'Jiean Marc Estudillo', 2, 240),
-(170, '#123454321', '2022-05-17', 38, 'Jiean Marc Estudillo', 2, 0);
+(173, '#234432234', '2022-05-24', 38, 'Jiean Marc Estudillo', 1, 1000),
+(174, '#234432234', '2022-05-24', 0, 'Jiean Marc Estudillo', 0, 0),
+(177, '#321321', '2022-05-16', 39, 'Jiean Marc Estudillo', 1, 1500),
+(178, '#123455432', '2022-05-16', 39, 'Jiean Marc Estudillo', 1, 1500),
+(179, '#123455432', '2022-05-16', 38, 'Jiean Marc Estudillo', 1, 1000),
+(180, '#0939832', '2022-05-15', 38, 'Jiean Marc Estudillo', 2, 2000),
+(181, '#09398320', '2022-05-15', 38, 'Jiean Marc Estudillo', 2, 2000),
+(182, '#09398320', '2022-05-15', 37, 'Jiean Marc Estudillo', 4, 480),
+(183, '#0939832012', '2022-05-14', 38, 'Jiean Marc Estudillo', 1, 1000),
+(184, '#432234432', '2022-05-17', 38, 'Jiean Marc Estudillo', 1, 1000),
+(185, '#04222001', '2022-05-20', 38, 'Jiean Marc Estudillo', 1, 1000),
+(186, '#01123123121', '2022-05-22', 37, 'Jiean Marc Estudillo', 1, 120),
+(187, '#24681012', '2022-05-25', 38, 'Jiean Marc Estudillo', 1, 1000),
+(188, '#24681012', '2022-05-25', 37, 'Jiean Marc Estudillo', 1, 120),
+(189, '#98767892', '2022-05-25', 38, 'Paul Corsina ', 1, 1000),
+(190, '#98767892', '2022-05-25', 37, 'Paul Corsina ', 2, 240);
 
 -- --------------------------------------------------------
 
@@ -284,25 +341,25 @@ ALTER TABLE `todo`
 -- AUTO_INCREMENT for table `brandname`
 --
 ALTER TABLE `brandname`
-  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `categoryname`
 --
 ALTER TABLE `categoryname`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -314,13 +371,13 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
 --
 -- AUTO_INCREMENT for table `todo`
 --
 ALTER TABLE `todo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
