@@ -114,7 +114,7 @@
                   </select>                   
               </div>
               <a href="/ASIMS/php/noStockprint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
-              <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" name="createExcel" id="createExcel"><i class="fa-solid fa-file-excel"></i> Excel</button>
+              <a href="/ASIMS/fetch/noStockExcel.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 pt-2" type="button"> <i class="fa-solid fa-file-excel"></i>  Excel</a>
               <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" id="deleteAll"><i class="fa-solid fa-trash-can"></i> Delete</button>
               <a href="http://localhost/ASIMS/noStock.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
               <div class="col-2 mx-1">

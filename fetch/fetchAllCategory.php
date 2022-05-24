@@ -37,7 +37,7 @@ if(isset($_POST["getCategory"])){
               $n++;
               echo "
               <tr class='bg-light'>
-              <td style='width:0.4rem;'>
+              <td style='width:6rem;'>
               <input class='form-check-input checkCategory' type='checkbox' value='$totalCategory->cat_id'>
               </td>       
               <td style='width:1rem;'>$n</td>

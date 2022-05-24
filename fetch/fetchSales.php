@@ -19,14 +19,14 @@ if(isset($_POST["page"])){
 
 
 if(isset($_POST["getSales"])){
-    $limit = 20;
+    $limit = 50;
     if(isset($_POST["setPage"])){
       $pageno = $_POST["pageNumber"];
       $start = ($pageno * $limit) - $limit;
     }else{
       $start = 0;
     }
-    $qry = "SELECT a.sales_id, a.receipt_no, a.purchased, a.item_id, a.customers, a.quantity, a.total_sales, b.id, b.item_name FROM sales a, inventory b WHERE a.item_id = b.id ORDER BY a.purchased DESC LIMIT $start,$limit";
+    $qry = "SELECT a.sales_id, a.receipt_no, a.purchased, a.item_id, a.customers, a.quantity, a.total_sales, b.id, b.item_name FROM sales a, inventory b WHERE a.item_id = b.id ORDER BY a.sales_id DESC LIMIT $start,$limit";
     $statement=$pdo->prepare($qry);
     $statement->execute();
     $sales = $statement->fetchAll(PDO::FETCH_OBJ);

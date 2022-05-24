@@ -26,8 +26,6 @@ $(document).ready(function(){
             $("#purchasedList").children("tr:last").remove();
 	});
 
-
-    
     // FUNCTION FOR SEARCH PRODUCT
     $("body").delegate(".searchBcode","click",function(e){
         e.preventDefault();
@@ -68,8 +66,6 @@ $(document).ready(function(){
             })
         }
     });
-
-    
 
     // QUANTITY
     $("#purchasedList").delegate("#itemQty","keyup",function(){

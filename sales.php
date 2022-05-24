@@ -110,7 +110,7 @@
                 <div class="row pt-3">
                   <div class="col-8 d-flex">
                     <a href="/ASIMS/php/salesPrint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
-                    <button id="createExcel" name="createExcel" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1" type="button" data-bs-toggle="modal" data-bs-target="#addSales"><i class="fa-solid fa-file-excel"></i>  Excel</button>
+                    <a href="/ASIMS/fetch/salesExcel.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-file-excel"></i>  Excel</a>
                     <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" id="deleteAllSales"><i class="fa-solid fa-trash-can"></i> Delete</button>
                     <a href="http://localhost/ASIMS/sales.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2 mx-1"> <i class="fa-solid fa-rotate"></i> Refresh</a>
                   </div>
@@ -153,12 +153,70 @@
   </div>
 <!-- CONTENT -->
 
+<!-- MODAL -->
+  <div class="modal fade" id="editSalesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-11">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Report</h5>
+            </div>
+            <div class="col-1">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+          </div>
+          <div class="row mt-4">
+              <form>
+                <div class="row g-2 mb-3">
+                  <input type="hidden" id="editSalesID" class="form-control" readonly style="background-color:transparent">
+                  <div class="col-6">
+                    <label class="form-label">Receipt Number:</label>
+                    <input type="text" id="editReceipt" class="form-control" readonly style="background-color:transparent">
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label">Item Name:</label>
+                    <input type="text" id="editItem" class="form-control">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Customers Name:</label>
+                  <input type="text" id="editName" class="form-control">
+                </div>
+                <div class="row g-2 mb-3">
+                  <div class="col-4">
+                    <label class="form-label">Total Sales:</label>
+                    <input type="text" id="editTotal" class="form-control">
+                  </div>
+                  <div class="col-3">
+                    <label class="form-label">Quantity:</label>
+                    <input type="number" id="editQty" class="form-control">
+                  </div>
+                  <div class="col-5">
+                    <label class="form-label">Purchased On:</label>
+                    <input type="date" id="editDate" class="form-control">
+                  </div>
+                </div>
+              </form>
+          </div>
+          <div class="row">
+            <div class="col-5 mt-4 ms-auto">
+              <button type="button" class="btn btn-dark">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- MODAL -->
+
+
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/logout.js"></script>
     <script src="function/dateTime.js"></script>
-    <script src="function/salesReport.js"></script>
+    <script src="function/sales.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7c1db67092.js" crossorigin="anonymous"></script>
     <script>

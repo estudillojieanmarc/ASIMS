@@ -152,7 +152,6 @@ if(saleId.length === 0){
 
 
 
-
 // FUNCTION FOR PAGE IN BRAND
 function page(){
     $.ajax({
@@ -167,6 +166,29 @@ function page(){
 // FUNCTION FOR PAGE IN BRAND
 
 
+
+
+// EDIT SALES REPORT
+
+function editSales(id){
+    $('#editSalesModal').modal('show')
+    $.ajax({
+        url: './fetch/editSales.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {editSale: id},
+    })
+    .done(function(response) {
+        $('#editSalesID').val(response[0].sales_id)           
+        $('#editReceipt').val(response[0].receipt_no)           
+        $('#editDate').val(response[0].purchased)           
+        $('#editItem').val(response[0].item_name)           
+        $('#editTotal').val(response[0].total_sales)           
+        $('#editName').val(response[0].customers)           
+        $('#editQty').val(response[0].quantity)           
+    })
+}
+// EDIT SALES REPORT
 
 
 

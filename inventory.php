@@ -115,7 +115,7 @@
                   </select>                   
                 </div>
                 <a href="/ASIMS/php/stockPrint.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 mx-1 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
-                <button name="createExcel" id="createExcel" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button"><i class="fa-solid fa-file-excel"></i> Excel</button>
+                <a href="/ASIMS/fetch/inventoryExcel.php" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 pt-2" type="button"> <i class="fa-solid fa-file-excel"></i>  Excel</a>
                 <a href="http://localhost/ASIMS/inventory.php" role="button" style="border-radius:4px;" class="btn mx-1 border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
                 <div class="col-3">
                 <select class="form-select border-secondary text-dark"  name="allItemCategory" id="allItemCategory"><!-- CATEGORY --></select>                   
@@ -131,7 +131,7 @@
           <div class="row mt-2 px-2">
             <div class="card pt-3 bg-light border-2">
             <div class="table-responsive" id="showInventoryTable">
-              <table class="table align-middle text-center table-borderless table-striped shadow table-hover" id="stockTable">
+              <table class="table align-middle text-center table-borderless table-striped shadow table-hover table-sm" id="stockTable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>

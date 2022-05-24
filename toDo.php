@@ -95,14 +95,6 @@
     <div class="col-10">
       <div class="container-fluid">
         <h4 class="pt-5">A&S MOTORSHOP TASK <i class="fa-solid fa-list-check px-1"></i></h4>
-        <ul class="nav nav-tabs my-4">
-          <li class="nav-item">
-              <a class="nav-link active" href="http://localhost/ASIMS/toDo.php">&nbsp;&nbsp;Task&nbsp;&nbsp;</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Archive</a>
-          </li>
-          </ul>
         <div class="row pt-3">
           <div class="col-8 d-flex">
             <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" data-bs-toggle="modal" data-bs-target="#addTask"><i class="fa-solid fa-plus"></i> Add Task</button>

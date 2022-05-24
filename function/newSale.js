@@ -20,7 +20,6 @@
 
 
 
-
 // ADD ROWS
  $(document).ready(function(){
     var i = 1;
@@ -99,6 +98,9 @@ $('#addSalesButton').click(function(e){
     var currentForm = $('#addSalesForm')[0];
     var data = new FormData(currentForm);
 
+    // var tr = $(this).parent().parent().parent().parent(); 
+    // tr.find(".total").val() 
+    // console.log(tr.find(".total").val());
     if($('#receipNo').val() == '' || $('.total').val() == 0 || $('#purchasedOn').val() == '' || $('#customerName').val() == '' || $('.quantity').val() == 0){
         Swal.fire(
         'Submit Failed',
@@ -144,6 +146,12 @@ $('#addSalesButton').click(function(e){
                         'Added Failed',
                         'Sorry, Sales report has not added',
                         'error'
+                        )
+                    }else if(response == 3){
+                        Swal.fire(
+                        'Submit Failed',
+                        'Please, Confirm the missing total',
+                        'warning'
                         )
                     }
                     console.log(response);

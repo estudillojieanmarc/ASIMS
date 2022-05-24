@@ -106,7 +106,7 @@
               <div class="col-8 d-flex">
                 <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4" type="button" data-bs-toggle="modal" data-bs-target="#addBrand"><i class="fa-solid fa-plus"></i> Add Brand</button>
                 <button style="border-radius:4px;" class="btn border-secondary text-dark btn-sm mx-1 px-4" type="button" id="deleteAllBrand"><i class="fa-solid fa-trash-can"></i> Delete</button>
-                <a href="http://localhost/ASIMS/categories.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
+                <a href="http://localhost/ASIMS/brands.php" role="button" style="border-radius:4px;" class="btn border-secondary text-dark px-4 btn-sm pt-2"> <i class="fa-solid fa-rotate"></i> Refresh</a>
 
               </div>
               <div class="col-4 ms-auto">
