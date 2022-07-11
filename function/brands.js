@@ -75,15 +75,19 @@ $(document).ready(function(){
                         processData: false,
                         success:function(response){
                             if(response == 'Added Successfully'){
-                                $('#checkAllBrand').prop("checked", false);
-                                showTotalBrand();
-                                page();
-                                $("#addBrandForm").trigger("reset");
-                                    Swal.fire(
-                                    'Added Successfully',
-                                    'The brand have already been stored.',
-                                    'success'
-                                    )
+                                Swal.fire({
+                                    title: 'Added Successfully',
+                                    text: 'The brand have already been stored.',
+                                    icon: 'success',
+                                    showConfirmButton: false,
+                                    timer: 1000
+                                    }).then((result) => {
+                                      if (result) {
+                                          $('#checkAllBrand').prop("checked", false);
+                                          showTotalBrand();
+                                          page();
+                                      }
+                                    })
                             }else if(response == 'Sorry, The brand are already exist'){
                                     Swal.fire(
                                     'Added Failed',
@@ -151,10 +155,10 @@ if(brandId.length === 0){
         title: 'Brand Deleted',
         text: "Brand was delete successfully",
         icon: 'success',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Continue'
+        showConfirmButton: false,
+        timer: 1000
     }).then((result) => {
-    if (result.isConfirmed) {
+    if (result) {
         $('#checkAllBrand').prop("checked", false);
         showTotalBrand();
         page();
@@ -263,12 +267,11 @@ $(document).ready(function(){
                             title: 'Update Success',
                             text: "Brand Has Been Updated",
                             icon: 'success',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Continue'
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            timer: 1000
                         }).then((result) => {
-                            if (result.isConfirmed) {
+                            if (result) {
                                 showTotalBrand();                        
                             }
                         })

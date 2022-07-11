@@ -45,14 +45,19 @@ $('#addCategoryButton').click(function(event){
                         processData: false,
                         success:function(response){
                             if(response == 'added Successfully'){
-                                showTotalCategory();
-                                page();
-                                $("#addCategoryForm").trigger("reset");
-                                    Swal.fire(
-                                    'Added Successfully',
-                                    'The category have already been stored.',
-                                    'success'
-                                    )
+                                Swal.fire({
+                                    title: 'Added Successfully',
+                                    text: 'The category have already been stored.',
+                                    icon: 'success',
+                                    showConfirmButton: false,
+                                    timer: 1000
+                                    }).then((result) => {
+                                      if (result) {
+                                          showTotalCategory();
+                                          page();
+                                          $("#addCategoryForm").trigger("reset");
+                                      }
+                                    })
                             }else if(response == 'Sorry, Failed'){
                                     Swal.fire(
                                     'Added Failed',
@@ -191,12 +196,11 @@ if (result.isConfirmed) {
                     title: 'Update Success',
                     text: "Category Has Been Updated",
                     icon: 'success',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Continue'
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    timer: 1000
                 }).then((result) => {
-                    if (result.isConfirmed) {
+                    if (result) {
                         showTotalCategory();   
                         page();
                     }
@@ -252,10 +256,10 @@ Swal.fire({
     title: 'Category Deleted',
     text: "Category was delete successfully",
     icon: 'success',
-    confirmButtonColor: '#3085d6',
-    confirmButtonText: 'Continue'
+    showConfirmButton: false,
+    timer: 1000
 }).then((result) => {
-if (result.isConfirmed) {
+if (result) {
     $('#checkAllCategory').prop("checked", false);
     showTotalCategory();
     page();

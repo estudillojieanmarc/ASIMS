@@ -195,7 +195,7 @@ function updateInventory(id){
                         text: "Item Details Has Been Updated",
                         icon: 'success',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 1000
                     }).then((result) => {
                         if (result) {
                             showNoStock();

@@ -174,7 +174,7 @@
                                     title: 'ADD SUCCESSFULLY',
                                     text: 'NEW ITEM HAVE ALREADY BEEN STORED',
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    timer: 1000
                                 })
                         }else if(response == 'Sorry, failed'){
                                 Swal.fire(
@@ -310,7 +310,7 @@
                         icon: 'success',
                         showCancelButton: false,
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 1000
                     }).then((result) => {
                         if (result) {
                             showInventory();
