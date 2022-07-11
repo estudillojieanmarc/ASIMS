@@ -7,19 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="shortcut icon" href="./assets/img/red.png" type="image/x-icon">
     <title>A&S Motor Parts</title>
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h4 class="text-center text-dark pt-5 mt-5">A&S Inventory Management <br>System</h4>
+                <img class="text-center mt-2" src="/ASIMS/assets/img/login.jpg" style="width: 100%; height:60vh;">
+            </div>
+            <div class="col-6 mt-5 pt-5 px-5">
+                <form id="loginForm">
+                    <h4 class="text-center text-dark pb-1 pt-5 mt-4">WELCOME!</h4>
+                    <p class="text-center text-dark pb-2">Please, enter your credentials to access the A&S Motorparts Inventory System</p>
+                    <div class="mb-4 px-5">
+                        <input type="text" class="form-control " id="username" placeholder="Username">
+                    </div>
+                    <div class="mb-4 px-5">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="mb-4 px-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" onclick="seePassword()"
+                                id="flexCheckIndeterminate">
+                            <label class="form-check-label text-dark" for="flexCheckIndeterminate">Show Password</label>
+                        </div>
+                    </div>
+                    <div class="row mx-5 mt-3">
+                        <button type="button" class="btn text-white fw-bold" style="background-color: #B2355E;" id="loginButton">LOGIN</button>
+                    </div>
+                    <div class="mb-4 mt-4">
+                        <a class="nav-link text-center text-dark fw-bold" href="http://localhost/ASIMS/forgot.html">Forgot Password?</a>
+                    </div>
+                    <div class="mb-1 mt-3 pt-5">
+                        <p class="nav-link text-center text-dark fw-bold">v1.0</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
     
-<div class="bg-color pt-5">
+<!-- <div class="bg-color pt-5">
 <div class="motor-vector-container pt-3"> 
     
     <img src="assets/img/red.png">
     <img src="assets/img/green.png">
 
-        <!-- FORM -->
         <div class="row form px-3">
             <form id="loginForm">
                 <h4 class="text-center text-dark pb-1">Login</h4>
@@ -45,13 +83,17 @@
                 </div>
             </form>
         </div>
-        <!-- FORM --></div>
-</div>
+    </div>
+</div> -->
+
+
+
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>
