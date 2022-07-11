@@ -229,60 +229,60 @@ $(document).ready(function(){
 
 
 // FUNCTION FOR UPDATING BRAND DETAILS
-$('#updateBrandButton').click(function(e){
-    e.preventDefault();
-    Swal.fire({
-    title: 'Are you sure?',
-    text: "Do you want to update this brand?",
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, update it!'
-    }).then((result) => {
-    if (result.isConfirmed) {
-        var currentForm = $('#updateBrandForm')[0];
-        var data = new FormData(currentForm);
-        $.ajax({
-            url: './php/updateBrand.php',
-            method: "POST",
-            dataType: "text",
-            data:data,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success:function(response){
-                if(response == 0){
-                    Swal.fire(
-                    'Update Failed',
-                    'Sorry the item was not update',
-                    'error'
-                    )
-                }else if(response == 1){
-                    Swal.fire({
-                        title: 'Update Success',
-                        text: "Brand Has Been Updated",
-                        icon: 'success',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Continue'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            showTotalBrand();                        
-                        }
-                    })
-                }
-            },
-        error:function(error){console.log(error)}  }); 
-        }
-    })
-});
+    $('#updateBrandButton').click(function(e){
+        e.preventDefault();
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "Do you want to update this brand?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, update it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            var currentForm = $('#updateBrandForm')[0];
+            var data = new FormData(currentForm);
+            $.ajax({
+                url: './php/updateBrand.php',
+                method: "POST",
+                dataType: "text",
+                data:data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(response){
+                    if(response == 0){
+                        Swal.fire(
+                        'Update Failed',
+                        'Sorry the item was not update',
+                        'error'
+                        )
+                    }else if(response == 1){
+                        Swal.fire({
+                            title: 'Update Success',
+                            text: "Brand Has Been Updated",
+                            icon: 'success',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Continue'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                showTotalBrand();                        
+                            }
+                        })
+                    }
+                },
+            error:function(error){console.log(error)}  }); 
+            }
+        })
+    });
 // FUNCTION FOR UPDATING BRAND DETAILS
 
 
 // FUNCTION FOR ADDING QTY IN TODO BADGE
-function count_pending(){
+    function count_pending(){
     $.ajax({
         url: "./fetch/taskBadge.php",
         method : "POST",

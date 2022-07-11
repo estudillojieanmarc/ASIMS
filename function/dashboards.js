@@ -23,6 +23,9 @@ function showSales(){
 }
 // FUNCTION FOR SHOW TOTAL SALES
 
+
+
+
 // FUNCTION FOR SHOW TOTAL STOCKS
 function showStocks(){
     $.ajax({
@@ -35,6 +38,9 @@ function showStocks(){
     })
 }
 // FUNCTION FOR SHOW TOTAL STOCKS
+
+
+
 
 // FUNCTION FOR SHOW TOTAL NO STOCKS 
 function showNoStocks(){
@@ -49,6 +55,10 @@ function showNoStocks(){
 }
 // FUNCTION FOR SHOW TOTAL NO STOCKS 
 
+
+
+
+
 // FUNCTION FOR SHOW TOTAL NO STOCKS 
 function showTask(){
     $.ajax({
@@ -61,6 +71,10 @@ function showTask(){
     })
 } 
 // FUNCTION FOR SHOW TOTAL NO STOCKS 
+
+
+
+
 
 // FUNCTION FOR ADDING QTY IN TODO BADGE
 function count_pending(){

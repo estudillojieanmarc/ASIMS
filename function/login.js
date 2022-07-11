@@ -1,3 +1,4 @@
+ 
  //FUNCTION FOR LOGIN
     $('#loginButton').click(function(){
     var username = $('#username').val().trim();
@@ -25,11 +26,10 @@
             title: 'Login Successfully',
             text: 'Welcome To A&S Motor Parts',
             icon: 'success',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Continue'
+            showConfirmButton: false,
+            timer: 1500
             }).then((result) => {
-              if (result.isConfirmed) {
+              if (result) {
                 window.location = "/ASIMS/dashboard.php";
               }
             })
@@ -55,17 +55,19 @@
     });
  //FUNCTION FOR LOGIN
 
+
+
 // FUNCTION FOR PASSWORD ENABLE
-      function seePassword() {
-        var x = document.getElementById("password");
-        if (x.type==='password'){
-            x.type ="text";
-            y.style.display="block";
-            z.style.display="none";
-        }else{
-            x.type="password";
-            y.style.display="none"
-            z.style.display="block";
-        }
+    function seePassword() {
+      var x = document.getElementById("password");
+      if (x.type==='password'){
+          x.type ="text";
+          y.style.display="block";
+          z.style.display="none";
+      }else{
+          x.type="password";
+          y.style.display="none"
+          z.style.display="block";
       }
+    }
 // FUNCTION FOR PASSWORD ENABLE

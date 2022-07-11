@@ -10,11 +10,10 @@ $(document).ready(function(){
                     title: 'Logout Successfully',
                     text: "Thank You For Your Work",
                     icon: 'success',
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Continue'
+                    showConfirmButton: false,
+                    timer: 1500
                     }).then((result) => {
-                    if (result.isConfirmed) {
+                    if (result) {
                         window.location = "http://localhost/ASIMS/login.html";
                     }
                     })

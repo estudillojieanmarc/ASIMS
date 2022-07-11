@@ -194,12 +194,10 @@ function updateInventory(id){
                         title: 'Update Success',
                         text: "Item Details Has Been Updated",
                         icon: 'success',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Continue'
+                        showConfirmButton: false,
+                        timer: 1500
                     }).then((result) => {
-                        if (result.isConfirmed) {
+                        if (result) {
                             showNoStock();
                         }
                     })

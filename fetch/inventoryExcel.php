@@ -23,7 +23,7 @@
 			<tbody>
 	";
     $qry = "SELECT a.cat_id, a.category, b.id, b.item_name, b.item_barcode, b.item_stock, b.item_brand, b.item_category, b.item_price, c.brand_id, c.brand
-    FROM categoryname a , inventory b , brandname c WHERE a.cat_id = b.item_category AND b.item_stock > 0 ORDER BY b.item_stock ASC";    
+    FROM categoryname a , inventory b , brandname c WHERE a.cat_id = b.item_category AND b.item_brand = c.brand_id AND b.item_stock > 0 ORDER BY b.item_stock ASC";    
     $statement=$pdo->prepare($qry);
     $statement->execute();
     $fetchStock = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -45,7 +45,6 @@
     }
 	$output .="
 			</tbody>
- 
 		</table>
 	";
  

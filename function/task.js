@@ -115,10 +115,11 @@ function showTask(){
             title: 'Task Done',
             text: "Great Job Employees!",
             icon: 'success',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Continue'
+            showCancelButton: false,
+            showConfirmButton: false,
+            timer: 1500
         }).then((result) => {
-        if (result.isConfirmed) {
+        if (result) {
             showTask();        
             count_pending();
         }
