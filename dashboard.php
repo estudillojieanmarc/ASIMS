@@ -181,7 +181,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
     <script src="function/dashboards.js"></script>
-    <script src="function/logout.js"></script>
+    <script src="function/logoutt.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
