@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/asims.css" rel="stylesheet">
+    <link href="css/newStyle.css" rel="stylesheet">
     <link rel="shortcut icon" href="./assets/img/red.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <title>A&S Motor Parts</title>
@@ -33,7 +33,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown px-3">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i style="font-size:18px;" class="fa-solid fa-user text-light"></i>
+          <i style="font-size:18px;" class="fa-solid fa-user text-light ms-2"></i>
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Settings</a> </li>
@@ -55,9 +55,9 @@
             <div class="sidebar-header">
               <div class="userContent">
                   <div class="userProfile">
-                        <img src="./assets/img/red.png">
-                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
-                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
+                        <img src="./assets/img/logo.png" style="width:25rem;">
+                        <input type="text" class="info border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px; margin-top: -30px;" id="fetchFullname">
+                        <input type="text" class="info border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
                   </div>
               </div>
             </div>
@@ -100,7 +100,7 @@
             <div class="container mt-4">
               <div class="row">
                 <div class="col-3">
-                  <div class="card bg-dark shadow" style="width: 16rem; height:7rem; border-radius:10px;">
+                  <div class="card shadow" style="width: 16rem; height:7rem; border-radius:10px; background-color:#FFA500 !important;">
                       <div class="card-body py-4">
                           <div class="row">
                               <div class="col-5 text-start px-4">
@@ -116,7 +116,7 @@
                 </div>
 
                 <div class="col-3">
-                  <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
+                  <div class="card shadow" style="width: 16rem; height:7rem; border-radius:10px; background-color:#FFA500 !important;">
                       <div class="card-body py-4" >
                           <div class="row">
                               <div class="col-5 text-start px-4">
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="col-3">
-                  <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
+                  <div class="card shadow" style="width: 16rem; height:7rem; border-radius:10px; background-color:#FFA500 !important;">
                       <div class="card-body py-4" >
                           <div class="row">
                               <div class="col-5 text-start px-4">
@@ -148,7 +148,7 @@
                 </div>
 
                 <div class="col-3">
-                  <div class="card bg-dark shadow " style="width: 16rem; height:7rem; border-radius:10px;">
+                  <div class="card shadow" style="width: 16rem; height:7rem; border-radius:10px; background-color:#FFA500 !important;">
                       <div class="card-body py-4" >
                           <div class="row">
                               <div class="col-5 text-start px-4">
@@ -216,16 +216,16 @@
               label: 'A&S SALES REPORT',
               data: <?php echo json_encode($amount, true); ?>,
               backgroundColor: [
-                'rgba(18,	52,	86, 0.5 )',
+                '#FFFFFF',
               ],
               borderColor: [
-                'rgba(18,	52,	86)',
+                '#800000',
               ],
               borderWidth: 1
             }]
           };
           const config = {
-            type: 'bar',
+            type: 'line',
             data: data,
             options: {
               scales: {

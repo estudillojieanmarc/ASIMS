@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/asims.css" rel="stylesheet">
+    <link href="css/newStyle.css" rel="stylesheet">
     <link rel="shortcut icon" href="./assets/img/red.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <title>A&S Motor Parts</title>
@@ -55,9 +56,9 @@
             <div class="sidebar-header">
               <div class="userContent">
                   <div class="userProfile">
-                        <img src="./assets/img/red.png">
-                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
-                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
+                        <img src="./assets/img/logo.png" style="width:25rem;">
+                        <input type="text" class="info border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px; margin-top: -30px;" id="fetchFullname">
+                        <input type="text" class="info border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
                   </div>
               </div>
             </div>
@@ -98,15 +99,6 @@
      <div class="col-10">
               <div class="container-fluid">
                 <h4 class="pt-5">A&S MOTORSHOP ACTIVITY LOGS <i class="fa-solid fa-coins px-1"></i></h4>
-                <ul class="nav nav-tabs my-4">
-                  <li class="nav-item">
-                      <a class="nav-link active" href="#">&nbsp;&nbsp;Sales Report&nbsp;&nbsp;</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="http://localhost/ASIMS/newSales.php">Add Sales</a>
-                  </li>
-                </ul>
-
                 <div class="row pt-3">
                   <div class="col-8 d-flex">
                     <a href="#" style="border-radius:4px;" class="btn border-secondary text-dark btn-sm px-4 pt-2" type="button"> <i class="fa-solid fa-print"></i> Print</a>
@@ -145,10 +137,7 @@
           </div>
   <!-- END MAIN BAR -->
 
-</div>
-
-
-
+  </div>
 <!-- CONTENT -->
 
     <script src="js/jquery.js"></script>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/asims.css" rel="stylesheet">
+    <link href="css/newStyle.css" rel="stylesheet">
     <link rel="shortcut icon" href="./assets/img/red.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <title>A&S Motor Parts</title>
@@ -54,10 +55,10 @@
         <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="sidebar-header">
               <div class="userContent">
-                  <div class="userProfile">
-                        <img src="./assets/img/red.png">
-                        <input type="text" class="border-0 text-white text-center pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px;" id="fetchFullname">
-                        <input type="text" class="border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
+                <div class="userProfile">
+                        <img src="./assets/img/logo.png" style="width:25rem;">
+                        <input type="text" class="info border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:15px; margin-top: -30px;" id="fetchFullname">
+                        <input type="text" class="info border-0 text-center text-white pt-1" disabled style="background:transparent; text-transform:uppercase; font-size:14px;" id="fetchPosition">
                   </div>
               </div>
             </div>
