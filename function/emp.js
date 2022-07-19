@@ -195,7 +195,6 @@
     icon: 'question',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
     confirmButtonText: 'Yes, update it!'
     }).then((result) => {
     if (result.isConfirmed) {
@@ -363,34 +362,73 @@
 // DELETE THE EMPLOYEES
     function deleteEmployees(id){
         Swal.fire({
-        title: 'Are you sure?',
-        text: "Do you want to delete this employee?",
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it'
-        }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-            url: './php/delete.php',
-            type: 'POST',
-            dataType: 'json',
-            data: {deleteEmployees: id},
-        });
-        Swal.fire({
-            title: 'Delete Success',
-            text: "employee was delete successfully",
-            icon: 'success',
-            showConfirmButton: false,
-            timer: 1000,
-        }).then((result) => {
-        if (result) {
-            showInactive();
-        }
-        });
-        }
-        });
+            title: 'Are you sure?',
+            text: "Do you want to delete this employee?",
+            icon: 'question',
+            input: 'text',
+            inputPlaceholder: 'Enter your password to confirm',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: false,
+            confirmButtonText: 'Submit',
+            showLoaderOnConfirm: true,
+            preConfirm: (fetchPassword) => {
+              return fetch(`./fetch/employees.php/${fetchPassword}`)
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error(response.statusText)
+                  }
+                  return response.json()
+                })
+                .catch(error => {
+                  Swal.showValidationMessage(
+                    `Invalid Password: ${error}`
+                  )
+                })
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: `${result.value.login}'s avatar`,
+                imageUrl: result.value.avatar_url
+              })
+            }
+          })
+
+
+
+
+        // Swal.fire({
+        // title: 'Are you sure?',
+        // text: "Do you want to delete this employee?",
+        // icon: 'question',
+        // showCancelButton: false,
+        // confirmButtonColor: '#3085d6',
+        // cancelButtonColor: '#d33',
+        // confirmButtonText: 'Yes, delete it'
+        // }).then((result) => {
+        // if (result.isConfirmed) {
+        //     $.ajax({
+        //     url: './php/delete.php',
+        //     type: 'POST',
+        //     dataType: 'json',
+        //     data: {deleteEmployees: id},
+        // });
+        // Swal.fire({
+        //     title: 'Delete Success',
+        //     text: "employee was delete successfully",
+        //     icon: 'success',
+        //     showConfirmButton: false,
+        //     timer: 1000,
+        // }).then((result) => {
+        // if (result) {
+        //     showInactive();
+        // }
+        // });
+        // }
+        // });
     }
 // DELETE THE EMPLOYEES
 

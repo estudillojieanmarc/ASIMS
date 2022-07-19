@@ -26,12 +26,12 @@ session_start();
                     $resetLink = "Hi, $fullname. Click this link to proceed to reset password page:
                     http://localhost/ASIMS/resetPassword.php?token=$randomToken&email=$emailAddress"; 
             
-                    require 'C:/xampp/htdocs/ASIMS/PHPMailer/src/Exception.php';
-                    require 'C:/xampp/htdocs/ASIMS/PHPMailer/src/POP3.php';
-                    require 'C:/xampp/htdocs/ASIMS/PHPMailer/src/SMTP.php';
-                    require 'C:/xampp/htdocs/ASIMS/PHPMailer/src/OAuthTokenProvider.php';
-                    require 'C:/xampp/htdocs/ASIMS/PHPMailer/src/OAuth.php';
-                    require 'C:/xampp/htdocs/ASIMS/PHPMailer/src/PHPMailer.php';
+                    require 'D:/xampp/htdocs/ASIMS/PHPMailer/src/Exception.php';
+                    require 'D:/xampp/htdocs/ASIMS/PHPMailer/src/POP3.php';
+                    require 'D:/xampp/htdocs/ASIMS/PHPMailer/src/SMTP.php';
+                    require 'D:/xampp/htdocs/ASIMS/PHPMailer/src/OAuthTokenProvider.php';
+                    require 'D:/xampp/htdocs/ASIMS/PHPMailer/src/OAuth.php';
+                    require 'D:/xampp/htdocs/ASIMS/PHPMailer/src/PHPMailer.php';
             
                     $mail = new PHPMailer\PHPMailer\PHPMailer();
                     $mail->isSMTP();
@@ -42,7 +42,7 @@ session_start();
                     $mail->SMTPSecure = 'ssl';
                     $mail->SMTPAutoTLS = false; 
                     $mail->Username = "asmotorparts.noreply@gmail.com"; 
-                    $mail->Password = "ASMotorparts123";
+                    $mail->Password = "kkswfndwdizxpmuz";
                     $mail->setFrom('asmotorparts.noreply@gmail.com', 'A&S MOTORPARTS');
                     $mail->addAddress($emailAddress);
                     $mail->Subject = 'Reset Password';

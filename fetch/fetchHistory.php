@@ -21,7 +21,7 @@ if(isset($_POST["page"])){
 
 // INVENTORY TABLE CONTENT
 if(isset($_POST["getHistory"])){
-    $limit = 20;
+    $limit = 10;
     if(isset($_POST["setPage"])){
       $pageno = $_POST["pageNumber"];
       $start = ($pageno * $limit) - $limit;

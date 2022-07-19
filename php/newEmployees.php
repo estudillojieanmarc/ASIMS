@@ -1,5 +1,19 @@
 <?php
 require 'connection.php';
+
+    function generate_salt($len) {
+        $urs = md5(uniqid(mt_rand(), true));
+        $b64String = base64_encode($urs);
+        $mb64String = str_replace('+', '.', $b64String);
+        return substr($mb64String, 0, $len);
+    }
+
+    function encrypt_password($password) {
+        $hashFormat = "$2y$10$";
+        $saltLength = 22;
+        $salt = generate_salt($saltLength);
+        return crypt($password, $hashFormat.$salt);
+    }
     session_start();
     $addFullname = $_POST['addFullname'];
     $addPosition = $_POST['addPosition'];
@@ -68,8 +82,10 @@ require 'connection.php';
     
     // IF GOOD INSERT ALL
     else{
+        
+        // HASH FORMAT
         $sql6 = "INSERT INTO employees (fullname, position, email_address, PhoneNumber, username, password, image, is_active , token) VALUES (?,?,?,?,?,?,'default.png', 1, '$randomToken')";
-        $pdo->prepare($sql6)->execute([$addFullname, $addPosition, $addEmail, $addNumber, $addUsername, $addPassword]);
+        $pdo->prepare($sql6)->execute([$addFullname, $addPosition, $addEmail, $addNumber, $addUsername, encrypt_password($addPassword)]);
         if($pdo){
             $sql7 = "INSERT INTO history (history, set_on) VALUES ('Mr/Ms. $_SESSION[fullname] has added $addFullname to our system', now())";
             $statement=$pdo->prepare($sql7);
@@ -87,6 +103,5 @@ require 'connection.php';
         } 
     }
 
-
-
+  
 ?>

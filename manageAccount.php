@@ -11,7 +11,6 @@
     <title>A&S Motor Parts</title>
 </head>
 <body>
-  
 <!-- FUNCTION FOR SESSION -->
   <?php
       require_once "./php/connection.php";
@@ -23,7 +22,7 @@
 <!-- FUNCTION FOR SESSION -->
 
 <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg" style="background-color:#800000 !important;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +35,7 @@
           <i style="font-size:18px;" class="fa-solid fa-user text-light"></i>
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Settings</a></li>
+             
               <li><a class="dropdown-item" href="http://localhost/ASIMS/manageAccount.php">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
@@ -99,8 +98,8 @@
       <div class="container-fluid">
         <div class="row pt-4">
               <!-- START OF LEFT UI -->
-                <div class="col-6 pt-4">
-                      <img class="img-thumbnail border-0" src="assets/img/account.png">
+                <div class="col-6 pt-5">
+                      <img class="img-thumbnail border-0" src="assets/img/updateProfile.png">
                 </div>
               <!-- END OF LEFT UI -->
               

@@ -21,18 +21,7 @@
       },
       success: function(response) {
             if(response == 1){
-            $('#loginForm').trigger("reset");
-            Swal.fire({
-            title: 'Login Successfully',
-            text: 'Welcome To A&S Motor Parts',
-            icon: 'success',
-            showConfirmButton: false,
-            timer: 1500
-            }).then((result) => {
-              if (result) {
-                window.location = "/ASIMS/dashboard.php";
-              }
-            })
+              window.location = "/ASIMS/verification.php";
             }else if(response == 0){
             Swal.fire(
             'Sorry Login Failed',

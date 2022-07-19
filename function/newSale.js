@@ -83,6 +83,12 @@ $("body").delegate(".confirm","click",function(e){
         Swal.fire(
             'Invalid Quantity',
             'Please, Check the quantity',
+            'success'
+        )
+    }else if(tr.find(".quantity").val() > tr.find(".itemStock").val()){
+        Swal.fire(
+            'Invalid Quantity',
+            'Please, Check the quantity',
             'warning'
         )
     }else{

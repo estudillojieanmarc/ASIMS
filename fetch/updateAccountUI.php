@@ -71,7 +71,7 @@ foreach ($position as $myPosition){
                     </div>
                 </div>
                 <div class='row mt-2 px-5'>
-                    <button type='button' class='btn btn-dark py-2 rounded-pill' id='updateButton'>Save Changes</button>
+                    <button type='button' class='btn py-2 rounded-pill text-white' id='updateButton' style='background-color:#800000 !important;'>Save Changes</button>
                 </form>
                 </div>
             </div>  
@@ -131,7 +131,7 @@ foreach ($position as $myPosition){
                     </div>
                 </div>
                 <div class='row mt-2 px-5'>
-                    <button type='button' class='btn btn-dark py-2 rounded-pill' id='updateButton'>Save Changes</button>
+                    <button type='button' class='btn py-2 rounded-pill' id='updateButton' style='background-color:#800000 !important;'>Save Changes</button>
                 </form>
                 </div>
             </div>  

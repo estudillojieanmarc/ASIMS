@@ -37,7 +37,7 @@
           <i style="font-size:18px;" class="fa-solid fa-user text-light"></i>
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Settings</a> </li>
+            
               <li><a class="dropdown-item" href="http://localhost/ASIMS/manageAccount.php">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
@@ -231,8 +231,8 @@
                             </form>
                         </div>
                         <div class="row g-0">
-                            <div class="col-4 ms-auto">
-                                <button type="button" id="updateButton" class="btn btn-dark">Save changes</button>
+                            <div class="col-4 ms-auto" >
+                                <button type="button" id="updateButton" class="btn" style="background-color:#800000 !important;" >Save changes</button>
                             </div>
                         </div>
                 </div>
@@ -310,7 +310,7 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/sweetalert.js"></script>
-    <script src="function/employees.js"></script>
+    <script src="function/emp.js"></script>
     <script src="function/logoutt.js"></script>
     <script src="function/fetchIdentity.js"></script>
     <script src="function/dateTime.js"></script>

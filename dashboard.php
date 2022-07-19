@@ -36,7 +36,7 @@
           <i style="font-size:18px;" class="fa-solid fa-user text-light ms-2"></i>
           </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Settings</a> </li>
+             
               <li><a class="dropdown-item" href="http://localhost/ASIMS/manageAccount.php">Manage Account</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><input  class="dropdown-item" type="button" value="Logout" id="logout"></li>
@@ -107,7 +107,7 @@
                                   <i style="font-size:2.5rem;" class="fa-solid fa-coins pt-3 text-light"></i>
                               </div>   
                               <div class="col-7 text-start pt-2 text-center" style="line-height:11px;">
-                                  <p class="card-text text-light pt-2 fs-5 fw-bold">₱<span id="totalSales">100</span></p>
+                                  <p class="card-text text-light pt-2 fs-5 fw-bold"><span id="totalSales"></span></p>
                                   <p class="card-text text-light"><a class="text-light" style="text-decoration:none;" href="http://localhost/ASIMS/sales.php">TOTAL SALES</a></p>
                               </div>   
                           </div>   
